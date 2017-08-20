@@ -1,0 +1,3030 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+<meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=1.0, user-scalable=no">
+            <meta charset="UTF-8">
+        
+            <!-- <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=1.0, user-scalable=no"> mobile-->
+    <!-- <meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> tablet-->
+        
+                     <script src="js/app.js"></script>
+        <!--<script src="js/cordova.js"></script>  -->
+        
+
+              
+           
+     
+        
+    </head>
+   
+
+            <body onload="nowagra(); load();">
+            </br>
+            <div class="container">
+            <div id="strona_novigard">
+            <div id="tlo_test"></div>
+            </br>
+
+
+            <div id="info" onclick='inventory_pokaz();'>
+            <div id="level" class="ramka_statystyk pointer">Poziom: </div>
+            <div id="xp" class="ramka_statystyk pointer">hhh</div>
+            <div id="life" class="ramka_statystyk pointer">Życie: </div>
+            <div id="mana" class="ramka_statystyk pointer">tu mana</div>
+            <div style="clear:both" ;=""></div>
+            <div id="points" class="ramka_statystyk pointer">Punkty: </div>
+            <div id="magic" class="ramka_statystyk pointer">Magia: </div>
+            <div id="strenght" class="ramka_statystyk pointer">Siła: </div>
+            <div id="gold" class="ramka_statystyk pointer">Złoto: </div>
+            <div style="clear:both" ;=""></div>
+            <div style="clear:both" ;=""></div>
+            </br>
+            <div id="eliksir" class="ramka_statystyk pointer">Eliksir:</div>
+            <div id="eliksir_info" class="ramka_statystyk pointer">--</div>
+            <div id="eliksir_walki" class="ramka_statystyk pointer">Ilośc walk:--</div>
+            <div style="clear:both" ;=""></div>
+            <div id="inny_eliksir" class="ramka_statystyk pointer">Inny efekt:</div>
+            <div id="inny_info" class="ramka_statystyk pointer">--</div>
+            <div id="inny_walki" class="ramka_statystyk pointer">Ilośc walk:--</div>
+            <div style="clear:both" ;=""></div>
+            <div id="zycie_restore"></div>
+            <div id="enemy_bleeding">-1</div>
+            </div>
+
+            <div id="okno3">
+            <div style="clear:both" ;=""></div>
+
+            </br>
+            </br>
+            </br>
+            </br>
+            <button class="press" id="kowal" onclick='kowal_wybor();'><i class="icon-tools"></i>  KOWAL</button>
+
+            <button class="press" id="zlotnik" onclick='zlotnik();'><i class="icon-opera"></i> ZŁOTNIK</button>
+
+            <button class="press" id="platnerz" onclick='platnerz();'><i class="icon-hammer"></i>  PŁATNERZ</button>
+
+            <div style="clear:both" ;=""></div>
+            </br>
+            </br>
+            <button class="press" id="tawerna" onclick='tawerna(1);'><i class="icon-beer"></i>  TAWERNA</button>
+
+            <button class="press" id="uda" onclick='zamtuz();'></button>
+
+            <button class="press" id="alchemik" onclick='alchemkik_sklep();'><i class="icon-beaker"></i>  ALCHEMIK</button>
+
+
+            <div style="clear:both" ;=""></div>
+            </br>
+            </br>
+            <button class="press" id="zlecenia" onclick='wybor_misji();'><i class="icon-calendar-empty"></i> ZLECENIA</button>
+            <div style="clear:both" ;=""></div>
+            </br>
+            </br>
+            </br>
+            <button id="wyjscie" class="press" onclick="droga();"><i class="icon-address"></i> WYJŚCIE</button>
+            <div id="arrow_city"></div>
+
+
+
+            </div>
+            <div id="okno_teren" class="nic">
+            <div style="clear:both" ;=""></div>
+            </br>
+            <div id="tekst">Gdzie chcesz się udać?</div>
+            </br>
+            </br>
+            </br>
+            <button class="press" id="lokacja" onclick="random_event();">Do wilgotnej piwnicy</button>
+            </br>
+            </br>
+            <button class="press" id="medytacja" onclick="medytacja_okno();">Medytacja</button>
+            </br>
+            </br>
+            <button class="press" id="miasto" onclick="novigard();">Novigrad</button>
+            </br>
+            </br>
+            <button class="press" id="zlecenie_slot" onclick="walka_X();">Zlecenie</button>
+            </br>
+            </br>
+            <button class="press" id="exra_slot">fgdfdfdf</button>
+<div id="arrow_city_zlecenie"></div>
+
+            </div>
+
+            <div id="panel_walki">
+            </br>
+            </br>
+            <div id="enemy">Przeciwnik:</div>
+            <div id="enemy_name"></div>
+            <div id="enemy_amount">Ilość potworów: 1</div>
+            <div style="clear:both" ;=""></div>
+            </br>
+            <div id="enemy_level">Poziom: 1</div>
+            <div id="enemy_hp"></div>
+            <div id="enemy_atk">Atak potwora: 1-3</div>
+            <div style="clear:both" ;=""></div>
+            </br>
+            </br>
+            </br>
+            <button id="atak_mieczem" class="press" onclick="uderzenie_mieczem()" ;>Atak mieczem</button>
+            <div id="atak_mieczem_info">1-5</div>
+            <div style="clear:both" ;=""></div>
+            </br>
+            <button id="atak_znakiem" class="press" onclick="atakuj_znakiem()" ;>Atak znakiem</button>
+            <div id="atak_znakiem_info">2-5</div>
+            <div class="press" id="atak_znakiem_down"  onclick="boost_minus()" ;   >-</div>
+            <div class="press" id="atak_znakiem_up"    onclick="boost_plus()" ;    >+</div>
+
+            </br>
+            </br>
+            <div id="wymagana_koncentracja">WYMAGA 3 PUNKTY KONCENTRACJI</div>
+            <div style="clear:both" ;=""></div>
+            </br>
+            </br>
+            <button class="press" id="potion_walka">test</button>
+            </br>
+            </br>
+            </br>
+            <button class="press" id="ucieczka" onclick="ucieczka()" ;>Ucieczka</button>
+            <div id="status_specjalny">(ogłuszony)</div>
+
+            </div>
+
+
+
+
+
+
+            <div id="okno_alchemik" onload="nowagra();">
+
+            <div style="clear:both" ;=""></div>
+
+            </br>
+            </br>
+            </br>
+            </br>
+            <div id="kowal_class1" onclick="kup_ziola();">KUP ZIOŁA:</div>
+            <div id="kowal_class1_1">CENA: 5 </div>
+            <div id="kowal_class1_2"></div>
+            <div style="clear:both" ;=""></div>
+            </br>
+            <div id="kowal_class2" onclick="sprzedaj_ziola();">SPRZEDAJ ZIOŁA:</div>
+            <div id="kowal_class2_1">CENA: 3</div>
+            <div id="kowal_class2_2">ILOŚĆ: </div>
+            <div style="clear:both" ;=""></div>
+            </br>
+            <div id="kowal_class3" onclick="sprzedaj_skladniki();">SPRZEDAJ SKŁADNIKI:</div>
+            <div id="kowal_class3_1">CENA: 5 </div>
+            <div id="kowal_class3_2">ILOŚĆ:</div>
+            <div style="clear:both" ;=""></div>
+            </br>
+            <div id="kowal_class4" onclick="sprzedaj_skory();">SPRZEDAJ SKÓRY:</div>
+            <div id="kowal_class4_1">CENA: 5 </div>
+            <div id="kowal_class4_2">ILOŚĆ:</div>
+            <div style="clear:both" ;=""></div>
+            </br>
+            <div id="kowal_class5" onclick="leczenie_buy();">LECZENIE:</div>
+            <div id="kowal_class5_1">CENA:</div>
+
+            <div style="clear:both" ;=""></div>
+
+
+
+            </br>
+            </br>
+            </br>
+            <div id="wyjscie" onclick="wroc();">WYJŚCIE</div>
+
+
+
+
+            </div>
+            <div id="strona_inv" class="no-flick" onclick="inventory_zanik();">
+            </br>
+
+            <div id="herbs">Zioła: 0</div>
+            <div id="runes">Runy: 0</div>
+            <div id="items">Składniki: 0</div>
+            <div id="skins">Skóry: 0</div>
+            <div style="clear:both" ;=""></div>
+            </br>
+
+            </br>
+            <div id="ring">Pierścień 1:</div>
+            <div id="ring_info">Zwykły pierścień</div>
+            </br>
+            </br>
+            </br>
+            <div id="ring">Pierścień 2:</div>
+            <div id="ring_info2">Zwykły pierścień</div>
+            </br>
+            </br>
+            </br>      </br>
+            <div id="armour">Zbroja:</div>
+            <div id="armour_info">Skórzana kurtka</div>
+            <div id="armour_bonus">Obrona: Życie:</div>
+            <div style="clear:both" ;=""></div>
+            </br>
+            <div id="weapon">Miecz:</div>
+            <div id="weapon_info">Zwykły miecz</div>
+            <div id="weapon_dmg"></div>
+            </br>
+            </br>     </br>
+            <div id="logo"> </div>
+             <div id="cech">Brak szkoły </div>
+            </br>    
+            <div id="attack">Atak:</div>
+            <div id="attack_info"></div>
+            <div style="clear:both" ;=""></div>
+            </br>
+            <div id="znak">Znak:</div>
+            <div id="znak_info"></div>
+            </br>
+            </br>
+            </br>
+            <div style="clear:both" ;=""></div>
+            <div id="zlecenie">Zlecenie: brak Status: Niedostepne</div>
+            <div style="clear:both" ;=""></div>
+            </br>
+
+
+
+            </br>
+            <div id="jaskolka"></div>
+            <div id="puszczyk"></div>
+            <div id="wilga"></div>
+            <div id="grom"></div>
+            <div style="clear:both" ;=""></div>
+            </br>
+            <div id="artefakt">Artefakty 0/5</div>
+            <div id="kill_counter">Zabite potwory:</div>
+            <div style="clear:both" ;=""></div>
+
+
+            </div>
+
+            <div id="loots">
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            <div id="loot0">ZLECENIE WYKONANE</div>
+            </br>
+            </br>
+            <div id="loot1" onclick="zycie_plus2();"></div>
+            </br>
+            <div id="loot2"></div>
+            </br>
+            <div id="loot3"></div>
+            </br>
+            <div id="loot4">Zdobyto nowy poziom</div>
+            </br>
+            <div id="loot5"></div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+            <div id="blood">-20</div>
+
+            <div id="green_blood" class="no_anim">-20</div>
+
+            <div id="koniec"></div>
+
+            <div id="kosci1"></div>
+            <div id="kosci2"></div>
+
+            <div id="okno2">
+            <div style="clear:both" ;=""></div>
+            </br>
+            </br>
+            </br>
+            </br>
+            <div id="exit_game">Wyjść z gry?</div>
+            </br>
+            </br>
+            </br>
+            <div id="exit_from_game" onclick="exit_from_game2();">TAK</div>
+            </br>
+            <div id="nie_wychodz" onclick="nie_wychodz2();">NIE</div>
+            </div>
+
+            <div id="zamiana_ringow">
+            <div id="pytanie">Który pierścień chcesz zastąpić?</div>
+            </br>
+            </br>
+            <div id="pierwszy" onclick="wymien_pierwszy();">Pierwszy</div>
+            </br>
+            <div id="drugi" onclick="wymien_drugi();">Drugi</div>
+            </br>
+            </br>
+            <div id="anuluj_zamiane" onclick="zamknij_okno_zamiany();">Wróć</div>
+            <div style="clear:both" ;=""></div>
+            </div>
+
+            <div id="kupowanie_pierscieni">
+
+            <div id="pytanie_o_kupno">Który pierścień chcesz kupić?</div>
+            </br>
+            </br>
+            <div id="nr1">Pierwszy</div>
+            <div id="nr1_cena" onclick="wymien_drugi();">Cena: 100</div>
+            <div style="clear:both" ;=""></div>
+            </br>
+            <div id="nr2">Drugi</div>
+            <div id="nr2_cena" onclick="wymien_drugi();">Cena: 100</div>
+            <div style="clear:both" ;=""></div>
+            </br>
+            <div id="nr3">Drugi</div>
+            <div id="nr3_cena" onclick="wymien_drugi();">Cena: 100 </div>
+            <div style="clear:both" ;=""></div>
+            </br>
+            </br>
+
+            <div id="nr4_wyjscie" onclick="kup_pierscien();">Wróć</div>
+            </div>
+
+
+            <div id="sklepik">
+            <div id="sklepik_tekst">Oto przykładowy sklep</div>
+            </br>
+            </br>
+            <div class="press" id="towar1">Towar nr 1</div>
+            <div id="towar1_cena">Cena: 100</div>
+            <div id="towar1_ilosc">Ilość:</div>
+            </br>
+            </br>
+            <div style="clear:both" ;=""></div>
+            <div  class="press" id="towar2">Towar nr 2</div>
+            <div id="towar2_cena">Cena: 15</div>
+            <div id="towar2_ilosc">Ilość:</div>
+            </br>
+            </br>
+            <div style="clear:both" ;=""></div>
+            <div  class="press" id="towar3">Towar nr 3</div>
+            <div id="towar3_cena">Cena: 6</div>
+            <div id="towar3_ilosc">Ilość: 1</div>
+            </br>
+            </br>
+            <div style="clear:both" ;=""></div>
+            <div  class="press" id="towar4">Towar nr 4</div>
+            <div id="towar4_cena">Cena:</div>
+            <div id="towar4_ilosc">Ilość: 10</div>
+            </br>
+            </br>
+            <div style="clear:both" ;=""></div>
+            <div class="press"  id="towar5">Towar nr 5</div>
+            <div id="towar5_cena">Cena: 12</div>
+            <div id="towar5_ilosc">Ilość: 14</div>
+            </br>
+            </br>
+            <div style="clear:both" ;=""></div>
+            <div id="sklepik_wyjscie">Wyjście</div>
+            </div>
+            </br>
+
+            <div id="cala_mapa" class="zoomTarget">
+            <div id="player" class="player_a"></div>
+
+            <div id="gif13"></div>
+            <div id="gif14"></div>
+            <div id="gif15"></div>
+            <div id="gif16"></div>
+            <div id="gif17"></div>
+            <div id="gif18"></div>
+            <div id="gif19"></div>
+            <div id="gif24"></div>
+            <div id="gif25"></div>
+            <div id="gif26"></div>
+            <div id="gif27"></div>
+            <div id="gif28"></div>
+
+            <div id="gif0"></div>
+            <div id="gif1"></div>
+            <div id="gif2"></div>
+            <div id="gif3"></div>
+            <div id="gif4"> </div>
+            <div id="gif5"></div>
+            <div id="gif6"></div>
+            <div id="gif7"></div>
+            <div id="gif8"></div>
+
+            <div id="gif10"></div>
+            <div id="gif11"></div>
+            <div id="gif12"></div>
+            <div id="gif12d"></div>
+            <div id="atakuj" onclick="walka_X();">Zaatakuj potwora</div>
+
+            <button class="press" id="medytacja_menu" onclick="medytacja_pokaz();">Medytacja</button>
+
+
+
+
+            <!--      <button class="press" id="test_btn" style="margin-top:0px;" onclick="t1();" >Kup bron</button>
+            <!-- <button class="press" id="test_btn2" style="margin-top:30px;" >Jaskinia</button>
+            <button class="press" id="medytacja_menu" style="margin-top:60px;" onclick="tower();" >Wieża</button>
+            <button class="press" id="medytacja_menu" style="margin-top:90px;"  onclick="piramida();" >Piramida</button>
+            <button class="press" id="medytacja_menu" style="margin-top:120px;"  onclick="droga3();" >Novigrad</button>
+            <button class="press" id="medytacja_menu" style="margin-top:150px;"  onclick="graveyard();" >graveyard</button>
+            <button class="press" id="medytacja_menu" medytacja_pokaz();" >Medytacja</button> -->
+
+
+
+
+
+
+
+            <div id="jaskinia_level">0/10</div>
+            <div id="krypta_poziom">0/10</div>
+            <div id="piramida_level">0/10</div>
+            <div id="sand_cave_level">0/12</div>                   
+            <div id="nagrobek"></div>
+            <div id="golem" class="golem_z"></div>
+            <div id="blob" class="blob_z"></div>
+            <div id="rycerz"></div>
+            <div id="mag"></div>
+            <div id="rat"></div>
+            <div id="spider" class="spider_z"></div>
+            <div id="gorgol"></div>
+
+            <div id="skorpion"></div>
+            <div id="ship"></div>
+            <div id="gif20"></div>
+            <div id="tower_poziom_info">0/10</div>
+            <div id="tower"></div>
+            <div id="zabicia">0</div>
+            <div id="cmentarz"></div>
+            <div id="gif81"></div>
+            <div id="arrow"></div>
+            <div id="arrow2"></div>
+            <div id="arrow3"></div>
+            <div id="gif21"></div>
+            <div id="gif22"></div>
+            <div id="soldier"></div>
+            <div id="gif9"></div>
+            <div id="arrow4"></div>
+            <div id="dom"></div>
+            <div id="x_gif"></div>
+            <div id="x_gif2"></div>
+            <div id="arrow5"></div>
+            <div id="x_gif3"></div>
+            <div id="x_gif4"></div>
+            <div id="dym"></div>
+            <div id="gif23"></div>
+            <div id="dym2"></div>
+            <div id="bandit"></div>
+            <div id="city_novigard">Novigard</div>  
+            <div id="city_oxenfurt">Oxenfurt</div> 
+            <div id="city_wyzima">Wyzima</div>           
+            <div id="city_elander">Elander</div>        
+            <div id="dym3"></div> 
+            <div id="ship_gif"></div> 
+            <div id="druid"></div> 
+            <div id="mag_out"></div> 
+            <div id="rocks"></div> 
+            <div id="fireball"></div>
+            <div id="explosion"></div>
+            <div id="ogien"></div>
+            <div id="dym4"></div>
+            <div id="osada"></div>
+
+            <div id="osada2"></div>
+            <div id="flaga"></div>
+            <div id="zamek"></div>
+            <div id="dym5"></div>          
+            <div id="fale"></div>          
+
+            <div id="chmura1"></div>          
+
+            <div id="chmura2"></div>          
+
+            <div id="chmura3"></div>  
+
+            <div id="explosion2"></div>  
+
+            <div id="domek"></div>  
+            <div id="brzeg_gora"></div> 
+            <div id="wiatrak_spinning">
+            <div id="smiglo"></div>  
+            <div id="wiatrak_pusty"></div>  
+             <div id="dym6"></div>  
+             <div id="mag2"></div>  
+            <div id="mag3"></div>  
+             <div id="alzur"></div>  
+             
+<!--            <div class="informacja_class2" id="informacja2">
+<div class="okno_z_informacja_class2" id="okno_z_informacja"> Misja zostala wykonana,</div>
+<button class="press" id="zamknij" onclick="dim();">OK</button>
+</div>-->
+
+            <div id="info_pop" >
+               <div id="info_pop_text">Tu będzie tekst testowy</div> 
+              
+                
+                
+                
+                
+            </div>
+             <button class="press" id="info_pop_close" onclick="pop_close();">Zamknij </button>
+            
+            </div> 
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+        
+
+
+
+
+            <div class="okno_kup_bron_class" id="okno_kup_bron1">
+            <div class="okno_nazwa_broni_class" id="okno_nazwa_broni">"Miecz magiczny"</div>
+            <div id="okno_wartosc_obcenej_broni">Atak 1-2</div>
+            <div id="okno_bron_dmg">Atak 1-2</div>
+            <div id="okno_bron_cena">Cena: 50 złota</div>
+            <button class="press bron_kup_class" id="bron_kup" style="margin-top:30px; margin-left:90px!important; " onclick="kupno_broni_zanik();">Kup</button>
+            <button class="press"style="margin-left:70px!important;" id="bron_nie_kupuj" onclick="kupno_broni_zanik();">Zamknij</button>
+            </div>
+
+            <div id="miasto_kowal">
+            </br>
+            </br>
+            <button class="press" id="kowal_kup" onclick="kupno_broni_pokaz()" ;>Kup miecz</button>
+            <button class="press" id="kowal_ulepsz" onclick="ulepszenie_broni_pokaz()" ;>Ulepsz miecz</button>
+            <button class="press" id="kowal_wyjdz" onclick="wroc2()" ;>Powrót</button>
+
+
+            </div>
+
+            <div id="level_up1">
+            <div id="lvl_up_info1" class="flash2a">Rozdziel punkty doświadczenia</div>
+            </br>
+            <div id="zycie_up1" onclick="zycie_plus();">Życie +5 (koszt 2)</div>
+            <button class="press" id="zycie_add" onclick="zycie_plus();">+</button>
+            <div style="clear:both" ;=""></div>
+            </br>
+            <div id="magia_up1" onclick="magia_plus();">Magia +1 (koszt 2)</div>
+            <button class="press" id="magia_add" onclick="magia_plus();">+</button>
+            <div style="clear:both" ;=""></div>
+            </br>
+            <div id="sila_up1" onclick="sila_plus();">Siła +1 (koszt 2)</div>
+            <button class="press" id="sila_add" onclick="sila_plus();">+</button>
+            <div style="clear:both" ;=""></div>
+            </br>
+            <div id="mana_up1" onclick="mana_plus();">Mana +1 (koszt 2)</div>
+            <button class="press" id="mana_add" onclick="mana_plus();">+</button>
+            <div style="clear:both" ;=""></div>
+            <button class="press" id="points_up1" onclick="level_up_zanik();">Zatwierdź</button>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div id="okno_ulepsz_bron">
+            <div id="okno_nazwa_broni_posiadanej">"Miecz magiczny"</div>
+            <div id="okno_ulepszenie_nr">Ulepszenie 0/3</div>
+            <div id="okno_ulepszenie_wymagania">Wymaga: 2 run i 10 złota</div>
+            <button class="press" id="ulepsz_button" onclick="kupno_broni_zanik();">Ulepsz +1</button>
+            <button class="press" id="ulepsz_zamknij" onclick="ulepszenie_broni_zanik();">Zamknij</button>
+            </div>
+
+
+            <div class="new_medytacja_okno_class" id="new_medytacja_okno">
+            <div id="new_medytacja_info">Medytacja</div>
+            </br>
+            </br>
+            <button class="press" id="new_medytacja_tworz" onclick="tworzenie_eliksirow_pokaz();">Tworzenie eliksirów</button>
+            </br>
+            <button class="press" id="new_medytacja_picie" onclick="picie_eliksirow_pokaz();">Użycie eliksirów</button>
+            </br>
+            </br>
+            <span class="press" id="potion_info"></span>
+            </br>
+            <button class="press" id="new_medytacja_zapisz" onclick="zapis_gry_medytacja();">Zapisz grę - 5 złota</button>
+            <button class="press" id="new_medytacja_zamknij" onclick="medytacja_zanik();">Zamknij okno</button>
+
+            </div>
+
+
+
+            <div class="new_medytacja_okno_class" id="new_medytacja_okno_tworz">
+            </br>
+            <div class="info_float" id="jaskolka_elix2">Czas trwania 3 tury</div>
+            <div style="clear:both" ;=""></div> </br>
+            <div class="info_float" id="jaskolka_elix">Jaskółka</div>
+            <div class="info_float_ziola" id="jaskolka_ziola">Zioła: 3</div>
+            <div class="info_float_skladniki" id="jaskolka_skladniki">Składniki: 3</div>
+            <button class="press zatwierdz_przycisk_tworz" id="tworz_jaskolka">Stwórz</button>
+            <div style="clear:both" ;=""></div>
+            </br>
+            <div class="info_float" id="puszczyk_elix">Puszczyk</div>
+            <div class="info_float_ziola" id="puszczyk_ziola">Zioła: 3</div>
+            <div class="info_float_skladniki" id="puszczyk_skladniki">Składniki: 3</div>
+            <button class="press zatwierdz_przycisk_tworz" id="tworz_puszczyk">Stwórz</button>
+            <div style="clear:both" ;=""></div>
+            </br>
+            <div class="info_float" id="wilga_elix">Wilga</div>
+            <div class="info_float_ziola" id="wilga_ziola">Zioła: 2</div>
+            <div class="info_float_skladniki" id="wilga_skladniki">Składniki: 3</div>
+            <button class="press zatwierdz_przycisk_tworz" id="tworz_wilga">Stwórz</button>
+            <div style="clear:both" ;=""></div>
+            </br>
+            <div class="info_float" id="grom_elix">Grom</div>
+            <div class="info_float_ziola" id="grom_ziola">Zioła: 2</div>
+            <div class="info_float_skladniki" id="grom_skladniki">Składniki: 3</div>
+            <button class="press zatwierdz_przycisk_tworz" id="tworz_grom">Stwórz</button>
+            <div style="clear:both" ;=""></div>
+            </br>
+            </br>
+            <button class="press button_med" id="ring_exita" onclick="opis_mikstur_pokaz();">Opis</button>
+            <button class="press button_med" id="ring_exitb" onclick="tworzenie_eliksirow_zanik();">Zamknij</button>
+            </div>
+
+
+
+            <div class="new_medytacja_okno_class" id="new_opis_mikstur">
+
+            <div class="info_float w_lewo" id="jaskolka_elix1">Jaskółka</div>
+            <div style="clear:both" ;=""></div>
+            <div class="info_float_opis" id="jaskolka_ziolax">- regeneruje życie (1 + poziom postaci)</div>
+
+            <div style="clear:both" ;=""></div>
+
+            <div class="info_float w_lewo" id="puszczyk_elix1">Puszczyk</div>
+            <div style="clear:both" ;=""></div>
+            <div class="info_float_opis" id="puszczyk_ziolax">- regeneruje koncentrację podczas walki o 2</div>
+
+            <div style="clear:both" ;=""></div>
+
+            <div class="info_float w_lewo" id="wilga_elix1">Wilga</div>
+            <div style="clear:both" ;=""></div>
+            <div class="info_float_opis" id="wilga_ziolax">- zwiększa obronę o 5 oraz redukuje obrażenia o 30%</div>
+
+            <div style="clear:both" ;=""></div>
+
+            <div class="info_float w_lewo" id="grom_elixaa">Grom</div>
+            <div style="clear:both" ;=""></div>
+            <div class="info_float_opis" id="grom_ziolaaa">- zwiększa atak (1 + lvl) ,blokuje o 50% wzrost  <i style="color:deepskyblue;" class="icon-spin6 animate-spin"></i></div>
+
+            <div style="clear:both" ;=""></div>
+
+            </br>
+            <button class="press button_med" id="ring_exitb" onclick="opis_mikstur_zanik();">Zamknij</button>
+            </div>
+
+
+
+
+
+
+
+
+
+
+            <div class="new_medytacja_okno_class" id="new_medytacja_okno_pij">
+            </br>
+            </br>
+            <div class="info_float" id="jaskolka_nazwa">Jaskółka</div>
+            <div class="info_float_ziola" id="jaskolka_stan">Ilość: 1</div>
+            <button class="press zatwierdz_przycisk_tworz" id="pij_jaskolka">Użyj</button>
+            <div style="clear:both" ;=""></div>
+            </br>
+            <div class="info_float" id="puszczyk_nazwa">Puszczyk</div>
+            <div class="info_float_ziola" id="puszczyk_stan">Ilość: 2</div>
+            <button class="press zatwierdz_przycisk_tworz" id="pij_puszczyk">Użyj</button>
+            <div style="clear:both" ;=""></div>
+            </br>
+            <div class="info_float" id="wilga_nazwa">Wilga</div>
+            <div class="info_float_ziola" id="wilga_stan">Ilość 3</div>
+            <button class="press zatwierdz_przycisk_tworz" id="pij_wilga">Użyj</button>
+            <div style="clear:both" ;=""></div>
+            </br>
+            <div class="info_float" id="grom_nazwa">Grom</div>
+            <div class="info_float_ziola" id="grom_stan">Ilość: 3</div>
+            <button class="press zatwierdz_przycisk_tworz" id="pij_grom">Użyj</button>
+            <div style="clear:both" ;=""></div>
+
+            </br>
+            <button class="press" id="ring_exit" onclick="picie_eliksirow_zanik();">Zamknij</button>
+            </div>
+
+
+
+
+
+
+
+
+
+
+            <div id="new_kup_pierscien">
+            <div id="ring_1">Szkolenia - zwiększa koncentrację o 10%</div>
+            <div id="ring_1_cena">Cena: 130 złota</div>
+            <button class="press" id="ring_1_kup">Kup</button>
+            <div style="clear:both" ;=""></div>
+       
+            </br>
+            <div id="ring_2">Bogactwa - więcej złota od potworów o 10%" </div>
+            <div id="ring_2_cena">Cena: 30 złota</div>
+            <button class="press" id="ring_2_kup">Kup</button>
+            <div style="clear:both" ;=""></div>
+          
+            </br>
+            <div id="ring_3">Furii - szansa na trafienie krytyczne o 10% </div>
+            <div id="ring_3_cena">Cena: 30 złota</div>
+            <button class="press" id="ring_3_kup">Kup</button>
+            <div style="clear:both" ;=""></div>
+            </br>
+            <button class="press" id="ring_exit" onclick="ring_zanik();">Zamknij</button>
+            </div>
+
+
+
+            <div id="new_sell_pierscien">
+            <div id="ktory_ring">Który pierścień chcesz sprzedać?</div>
+            </br>
+            <div id="ring_1_sell_info">Szkolenia - zwiększa koncentrację o 10%</div>
+            <div id="ring_1_sell_zysk">Wartość: 130 złota</div>
+            <button class="press" id="ring_1_sell">Sprzedaj</button>
+            <div style="clear:both" ;=""></div>
+            </br>
+            </br>
+            <div id="ring_2_sell_info">Furii - zwiększa Krytyczne o 14%</div>
+            <div id="ring_2_sell_zysk">Wartość: 40 złota</div>
+            <button class="press" id="ring_2_sell">Sprzedaj</button>
+            <div style="clear:both" ;=""></div>
+            </br>
+            <button class="press" id="sell_exit" onclick="sell_zanik();">Zamknij</button>
+            </div>
+
+
+            <div id="okno_ulepsz_zbroje">
+            <div id="okno_nazwa_zbroi_posiadanej">"Zbroja"</div>
+            <div id="okno_ulepszenie_zbroi_nr">Ulepszenie 0/3</div>
+            <div id="okno_ulepszenie_zbroi_wymagania">Wymaga: 2 run i 10 złota</div>
+            <button class="press ulepsz_zbroje_button_class" id="ulepsz_zbroje_button" style="margin-top:50px;" onclick="kupno_broni_zanik();">Ulepsz +1</button>
+            <button class="press" id="ulepsz_zbroje_zamknij" onclick="upgrade_zbroi_zanik();" style="margin-top:50px;">Zamknij</button>
+            </div>
+
+
+
+            <div class="okno_kup_zbroje" id="okno_kup_zbroje">
+            <div class="okno_nazwa_zbroi" id="okno_nazwa_zbroi">"Zbroja kruka"</div>
+            <div class="okno_wartosc_zbroi" id="okno_wartosc_obecnej_zbroi" >"Wartosc zbroi"</div>
+            <div class="okno_zbroja_obrona" id="okno_zbroja_obrona" >Obrona: 10</div>
+            <div class="okno_zbroja_wymagania_class" id="okno_zbroja_wymagania">Wymaga: 2 run i 10 złota</div>
+            <button class="press" id="kup_zbroje_button" onclick="kup_zbroje();" style="margin-top:50px;">Kup</button>
+            <button class="press zamknij_przycisk" id="kup_zbroje_zamknij" style="margin-top:50px; margin-left:50px;" onclick="kup_zbroi_zanik();">Zamknij</button>
+            </div>
+
+
+            <div class="okno_zadanie_new" id="okno_zadania">
+            <div class="informacja_napis" id="okno_zadania_info">Coraz więcej ludzi ginie w okolicach krypty. Sprawdź to. </div>
+            </br>
+            </br>
+
+            <div class="nagroda_napis" id="okno_zadania_nagroda">Nagroda: 30 złota i 5 XP</div>
+
+            <div class="nagroda_napis" id="okno_zadania_status">Niewykonane</div>
+            </br>
+            <button class="press zatwierdz_przycisk" id="zadanie_button" onclick="kup_zbroje();">Przyjmij</button>
+            <button class="press zamknij_przycisk" clss="zamknij_przycisk" id="zadanie_zamknij" onclick="zadania_zanik();">Zamknij</button>
+            </div>
+
+
+            <div class="okno_zadanie_new_2" id="polowanie_zadanie">
+            <spam style="color:coral;" id="ile_zabitych">zabite:</spam>
+
+            <br>
+            <br>
+            <div id="nagrody">
+            <table border="1" style="text-align:center;">
+            <th> Ilość zabić</th>
+            <th>Nagroda</th>
+            <th style="text-align:center;"> </th>
+            </tr>
+
+            <tr>
+            <td>5</td>
+            <td style="color:yellow;" id="tier1" class="show_reward">Złoto: 20</td>
+            <td style="text-align:center;"><button class="button_new" id="btn_1">Odbierz</button> </td>
+            </tr>
+
+            <tr>
+            <td>8</td>
+            <td style="color:yellow;" id="tier2" class="show_reward">Złoto: 10, skóry: 2</td>
+            <td><button class="button_new" id="btn_2">Odbierz</button> </td>
+            </tr>
+
+            <tr>
+            <td>12</td>
+            <td style="color:yellow;" id="tier3" class="show_reward">Złoto: 15, runa: 1</td>
+            <td><button class="button_new" id="btn_3">Odbierz</button> </td>
+            </tr>
+            <tr>
+            <td>15</td>
+            <td style="color:yellow;" id="tier4" class="show_reward">Złoto: 20, runy: 2</td>
+            <td><button class="button_new" id="btn_4">Odbierz</button> </td>
+            </tr>
+
+            <tr>
+            <td>18</td>
+            <td style="color:yellow;" id="tier5" class="show_reward">Złoto: 20, skóry: 3</td>
+            <td><button class="button_new" id="btn_5">Odbierz</button> </td>
+            </tr>
+
+            <tr>
+            <td>21</td>
+            <td style="color:yellow;" id="tier6" class="show_reward">Złoto: 40, runy: 2</td>
+            <td><button class="button_new" id="btn_6">Odbierz</button> </td>
+            </tr>
+
+            <tr>
+            <td>25</td>
+            <td style="color:yellow;" id="tier7" class="show_reward">Złoto: 50</td>
+            <td><button class="button_new" id="btn_7">Odbierz</button> </td>
+            </tr>
+
+            <tr>
+            <td>28</td>
+            <td style="color:yellow;" id="tier8" class="show_reward">Złoto: 50, skóry: 5</td>
+            <td><button class="button_new" id="btn_8">Odbierz</button> </td>
+            </tr>
+
+
+
+            </table>
+            <br>
+            <td><button class="button_new" id="lista_close">Zamknij</button> </td>
+
+            </div>
+
+
+            </div>
+
+
+
+
+
+            <div class="okno_zadanie_new" id="okno_zlecenie_new">
+            <div class="informacja_napis" id="okno_zlecenie_info">Coraz więcej ludzi ginie w okolicach krypty. Sprawdź to. </div>
+            <div class="nagroda_napis" id="okno_zlecenie_mob2">Bazyliszek</div>
+            </br>
+            <div class="nagroda_napis" id="okno_zlecenie_mob">Bazyliszek</div>
+
+            <div class="nagroda_napis" id="okno_zlecenie_nagroda">Nagroda: 30 złota i 5 XP</div>
+
+            <button class="press zatwierdz_przycisk" id="zlecenie_button" onclick="kup_zbroje();">Przyjmij</button>
+            <button class="press zamknij_przycisk" style="margin-top:60px;" id="zadanie_zamknij" onclick="zlecenie_zanik();">Zamknij</button>
+            </div>
+
+
+
+            <div class="new_medytacja_okno_class" id="new_alchemik_sklep">
+            </br>
+            <div class="info_float2" id="ziola_do_kupienia">Zioła</div>
+            <div class="info_float_ziola2" id="ziola_do_kupienia_cena">Cena: 4</div>
+            <div class="info_float_skladniki2" id="ziola_do_kupienia_ilosc">Ilość: 4</div>
+            <button class="press zatwierdz_przycisk_tworz2" id="ziola_kup">Kup</button>
+            <div style="clear:both" ;=""></div>
+            </br>
+
+            <div class="info_float_potion" id="potion_do_kupienia"><i style="color:red;" class="icon-beaker"></i></div>
+            <div class="info_float_potion2" id="potion_do_kupienia_cena">Cena: 15</div>
+            <div class="info_float_skladniki2" id="potion_do_kupienia_ilosc">Ilość: --</div>
+            <button class="press zatwierdz_przycisk_tworz2" id="potion_kup">Kup</button>
+            <div style="clear:both" ;=""></div>
+            </br>
+            <div class="info_float2" id="ziola_do_sprzedania" style="margin-top:20px;">Zioła</div>
+            <div class="info_float_ziola2" id="ziola_do_sprzedania_wartosc" style="margin-top:20px;">Zysk: 3</div>
+            <div class="info_float_skladniki2" id="ziola_do_sprzedania_ilosc" style="margin-top:20px;">Ilość: 5</div>
+            <button class="press zatwierdz_przycisk_tworz2" id="ziola_sprzedaj" style="margin-top:20px;">Sprzedaj</button>
+            <div style="clear:both" ;=""></div>
+            </br>
+            <div class="info_float2" id="skladniki_do_sprzedania">Składniki</div>
+            <div class="info_float_ziola2" id="skladniki_do_sprzedania_wartosc">Zysk: 3</div>
+            <div class="info_float_skladniki2" id="skladniki_do_sprzedania_ilosc">Ilość: 6</div>
+            <button class="press zatwierdz_przycisk_tworz2" id="skladniki_sprzedaj">Sprzedaj</button>
+            <div style="clear:both" ;=""></div>
+            </br>
+            <div class="info_float2" id="skory_do_sprzedania">Skóry</div>
+            <div class="info_float_ziola2" id="skory_do_sprzedania_wartosc">Zysk: 5</div>
+            <div class="info_float_skladniki2" id="skory_do_sprzedania_ilosc">Ilość: 3</div>
+            <button class="press zatwierdz_przycisk_tworz2" id="skory_sprzedaj">Sprzedaj</button>
+            <div style="clear:both" ;=""></div>
+
+            </br>
+            <button class="press" id="ring_exit" onclick="alchemik_sklep_zanik();" style="margin-top:20px;">Zamknij</button>
+            </div>
+
+
+            <div class="okno_kup_bron_class" id="new_leczenie">
+            <div class="okno_nazwa_broni_class " id="okno_leczenie_info" style="margin-top:20px;color:white;font-size:22px;">Leczenie<i style="color:red" ; class="icon-heart"></i></div>
+            <div class="okno_nazwa_broni_class" id="okno_leczenie_cena" style="margin-top:90px;">Cena: 50 złota</div>
+            <button class="press bron_kup_class" id="okno_ulecz" style="margin-top:70px;" onclick="leczenie_buy();">Lecz</button>
+            <button class="press bron_kup_class" id="okno_leczenie_zamknij" style="margin-top:70px;" onclick="leczenie_sklep_zanik();">Zamknij</button>
+            </div>
+
+
+
+
+            <div class="new_medytacja_okno_classD" id="developer_okno">
+            <div class="info_float" id="dev_lvl1">Level</div>
+            <input type="number" class="press zatwierdz_przycisk_tworzD" id="dev_lvl">
+            <div style="clear:both" ;=""></div>
+            <div class="info_float" id="dev_sila1">Sila</div>
+            <input type="number" class="press zatwierdz_przycisk_tworzD" id="dev_sila">
+            <div style="clear:both" ;=""></div>
+            <div class="info_float" id="dev_runy1">Runy</div>
+            <input type="number" class="press zatwierdz_przycisk_tworzD" id="dev_runy">
+            <div style="clear:both" ;=""></div>
+            <div class="info_float" id="dev_skory1">Skóry</div>
+            <input type="number" class="press zatwierdz_przycisk_tworzD" id="dev_skory">
+            <div style="clear:both" ;=""></div>
+            <div class="info_float" id="dev_zloto1">Złoto</div>
+            <input type="number" class="press zatwierdz_przycisk_tworzD" id="dev_zloto">
+            <div style="clear:both" ;=""></div>
+            <div class="info_float" id="dev_ziola1">Zioła</div>
+            <input type="number" class="press zatwierdz_przycisk_tworzD" id="dev_ziola">
+            <div style="clear:both" ;=""></div>
+            <div class="info_float" id="dev_skladniki1">Składniki</div>
+            <input type="number" class="press zatwierdz_przycisk_tworzD" id="dev_skladniki">
+            <div style="clear:both" ;=""></div>
+            <div class="info_float" id="dev_zycie1">Życie</div>
+            <input type="number" class="press zatwierdz_przycisk_tworzD" id="dev_zycie">
+            <div style="clear:both" ;=""></div>
+            <div class="info_float" id="dev_mana1">Mana</div>
+            <input type="number" class="press zatwierdz_przycisk_tworzD" id="dev_mana">
+            <div style="clear:both" ;=""></div>
+            <div class="info_float" id="dev_magic1">Magic</div>
+            <input type="number" class="press zatwierdz_przycisk_tworzD" id="dev_magic">
+            </br>
+            <button class="press" id="ring_exit" onclick="developer_zanik();">Zamknij</button>
+            </div>
+
+                <div class="informacja" id="podaj_imie">
+                </br>
+                <div class="okno_z_informacja" id="imie_pytanie">WYBIERZ PŁEĆ</div>
+                </br>
+                <div style="clear:both" ;=""></div>
+                <div id="ona"></div>   
+                <div id="on"></div> 
+                <div style="clear:both" ;=""></div>
+                <div class="okno_z_informacja" id="imie_pytanie_plec"></div>
+                </br>
+                <button class="press ring_exit_imie" id="plec_ona" style="margin-top: 40px!important;" onclick="plec_kobieta();">Wiedźminka</button>
+                <button class="press ring_exit_imie" id="plec_on" onclick="plec_mezczyzna();">Wiedźmin</button>
+                <div style="clear:both" ;=""></div>
+                </div>
+            
+            
+                    <div class="informacja" id="szkoly">
+                    </br>
+                    <div class="okno_z_informacja flash2a" id="imie_pytanie">WYBIERZ SZKOŁĘ</div>
+                    </br>
+                    <div id="szkoly_calosc">
+                    <button class="press szkola_button f_left"  id="szkola1" style="color:rebeccapurple;" onclick="wilk();" >WILKA</button>   
+                    <div class="szkola_opis" id="szkola1_opis">Siła +1, <i style="color:deepskyblue;" class="icon-spin6 animate-spin"></i> -1, Celność +1</div> 
+                    <div style="clear:both" ;=""></div>
+
+                    <button  class="press szkola_button" id="szkola2"  style="color:dodgerblue;"  onclick="kot();" >KOTA</button>   
+                    <div  class="szkola_opis" id="szkola2_opis">Unik +1, <i style="color:red;" class="icon-heart"></i> -2, <i style="color:deepskyblue;" class="icon-spin6 animate-spin"></i> +1</div> 
+                    <div style="clear:both" ;=""></div>
+
+                    <button  class="press szkola_button" id="szkola3"  style="color:forestgreen;"  onclick="gryf();" >GRYFA</button>   
+                    <div  class="szkola_opis" id="szkola3_opis">Magia+1, <i style="color:red;" class="icon-heart"></i> -2, Obrona +1</div> 
+                    <div style="clear:both" ;=""></div>
+
+                    <button  class="press szkola_button" id="szkola4"  style="color:deeppink;"  onclick="niedzwiedz();" >NIEDŹWIEDZIA</button>   
+                    <div  class="szkola_opis" id="szkola4_opis"><i style="color:red;" class="icon-heart"></i> +5, Obrona +2, Unik -1 </div> 
+                    <div style="clear:both" ;=""></div>
+                    </div>
+                    </br>
+                    <div style="clear:both" ;=""></div>
+                    </div>
+            
+            
+            <div id="talk">
+            <div class="text-center" id="dialog">
+            </br>
+            </br>
+            <div id="dialog1"></div>
+            <div style="clear:both" ;=""></div>
+
+            </div>
+            <div id="odpowiedzi">
+            <div class="opcja_dialogu press  text-center" id="opcja1">opcja1</div>
+
+            </div>
+            </div>
+            <div id="zdarzenie">
+            </br>
+            </br>
+            <div class="okno_nazwa_zbroi" id="zdarzenie_info">Zdarzenie.</div>
+            <div class="okno_zbroja_obrona" id="zdarzenie_info2"></div>
+            <div class="okno_zbroja_wymagania_class" id="zdarzenie_info3"></div>
+
+
+            </div>
+
+
+
+
+
+            <div  class="okno_kup_zbroje"  id="okno_kup_zbroje_magiczna">
+            <div  class="okno_nazwa_zbroi flash" id="okno_nazwa_zbroi_magicznej">"Zbroja kruka"</div>    
+            <div class="okno_zbroja_obrona" id="okno_zbroja_magiczna_info">Obrona: 10</div>    
+            <div  class="okno_zbroja_wymagania_class" id="okno_zbroja_magiczna_wymagania">Wymaga: 2 run i 10 złota</div>    
+            <button class="press ulepsz_zbroje_button_class" id="kup_zbroje_button_magic" onclick="kup_zbroje_magiczna();">Stwórz</button>
+            <button class="press zamknij_przycisk"  id="kup_zbroje_magic_zamknij" style="margin-left:80px!important;" onclick="kup_zbroi_magiczna_zanik();">Zamknij</button>
+            </div>
+
+            <div id="buttony_do_zdarzenia">
+            <button class="press" id="zdarzenie_open" >Sprawdź</button>
+            <button class="press" id="zdarzenie_quit" >Zamknij</button>
+            </div>
+
+            <div id="sklep_alchemiczny">
+            <div id="sklepik_info"> Co Cię interesuje?</div>
+
+            <div style="clear:both";=""></div>
+            <div class="float"  style="width:350px;color:dodgerblue;">Recepta 'ulepszona Jaskółka'</div>
+            <div class="float" style="color:yellow;" id="cena_sklepik_1">50 złota</div>
+            <div class="float kup press" id="zakup1">Zakup</div>
+            <div style="clear:both" ;=""></div>
+            <div class="float"  style="width:350px;color:deeppink;">Recepta 'ulepszony Grom'</div>
+            <div class="float" style="color:yellow;" id="cena_sklepik_2">50 złota</div>
+            <div class="float kup press" id="zakup2">Zakup</div>
+            <div style="clear:both" ;=""></div>
+
+            <div class="float"  style="width:350px;color:forestgreen;">Recepta 'ulepszona Wilga'</div>
+            <div class="float" style="color:yellow;" id="cena_sklepik_3">50 złota</div>
+            <div class="float kup press" id="zakup3">Zakup</div>
+            <div style="clear:both" ;=""></div>
+
+            <div class="float"  style="width:350px;color:red;">Dodatkowa mikstura leczenia</div>
+            <div class="float" style="color:yellow;" id="cena_sklepik_4">100 złota</div>
+            <div class="float kup press" id="zakup4">Zakup</div>
+            <div style="clear:both" ;=""></div>
+
+            <div class="float"  style="width:350px;color:orange;">Ulepszona mikstura leczenia +15</div>
+            <div class="float" style="color:yellow;" id="cena_sklepik_5">60 złota</div>
+            <div class="float kup press" id="zakup5">Zakup</div>
+            <div style="clear:both" ;=""></div>
+            <div class="press przycisk" onclick="sklep_alchemiczny_zanik();">Zamknij </div>
+
+            </div>
+
+
+
+            </div>
+
+            <canvas id="c1" width="50" height="20"></canvas>
+               <div id="secret" onclick="t1();"></div>
+       <!--   <buttton class="press" id="ring_exitX" onclick="developer_pokaz();">DEVELOPER</button>
+           
+              <button class="press zamknij_przycisk"  id="kup_zbroje_magic_zamknij" onclick="t2();">Bandyci</button>
+             <button class="press zamknij_przycisk"  id="kup_zbroje_magic_zamknij" onclick="t3();">Cmentarz</button>
+         <button class="press zamknij_przycisk"  id="kup_zbroje_magic_zamknij" onclick="t4();">Mathea</button>
+             <button class="press zamknij_przycisk"  id="kup_zbroje_magic_zamknij" onclick="t5();">Bariera odkryta</button>-->
+            </div>
+            </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+            <link rel="stylesheet" href="css/fontello.css" type="text/css">
+            <link rel="stylesheet" href="css/animation.css" type="text/css">
+            <link rel="stylesheet" href="css/fonts.css" type="text/css">
+            <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+        <link rel="stylesheet" href="css/wiedzmin.css" type="text/css">
+            <script src="js/main.js"></script>
+            <script src="js/mapa.js"></script>
+            <script src="js/zapis.js"></script>
+            <script src="js/random_event.js"></script>
+            <script src="js/dane.js"></script>
+            <script src="js/kierunek_ruchu_anim.js"></script>
+            <script src="js/sprawdzanie_mozliwego_ruchu.js"></script>
+            <script src="js/tiery.js"></script>
+            <script src="js/piramid.js"></script>
+            <script src="js/howler.js"></script>
+            <script src="js/jquery-3.1.1.js"></script>
+            <script src="js/mag.js"></script>
+            <script src="js/ucieczka.js"></script>   
+            <script src="js/bootstrap.js"></script>
+            <script src="js/sand_cave.js"></script>
+            <script src="js/misje.js"></script>
+            <script src="js/walka.js"></script>
+            <script src="js/transition.js"></script>
+            <script src="js/dialog.js"></script>
+
+<script src="js/skarb.js"></script>
+
+
+
+<script src="js/powalce.js"></script>
+
+
+
+      
+
+        
+            
+            
+    <script>
+        document.addEventListener("DOMContentLoaded", load, true);
+
+
+        var kierunek_droga = ["Groty", "Jaskini", "Pieczary", "Ruin zamku", "Ruin wieży", "Zawalonej wieży", "Spalonej wieży", "Zawalonego młyna", "Mrocznej spalonej chaty", "Cmentarzyska", "Ruin kościoła", "Kanałów", "Ruin warowni", "Groty potworów", "Legowiska potwora", "Leża potwora", "Ruin domostwa", "Wilgotnej piwnicy", "Opuszczonej piwnicy", "Nawiedzonej warowni", "Nawiewdzonego domu", "Katedry", "Wraku statku", "Przeklętej katedry", "Mrocznej wieży"];
+
+        var mob = ["Alghul", "Alp", "Archespor", "Barghest", "Cmentar", "Coccacidium", "Dagon", "Echinops", "Fleder", "Garkain", "Ghul", "Golem", "Ifrit", "Kikimora", "Kuroliszek", "Lilly", "Nadir", "Ogar", "Ozzrel", "Przeraza", "Dziki Pies", "Skolopendromorf", "Teyu", "Topielec", "Upiorny Pies", "Upiór", "Ureus", "Utopiec", "Vesper", "Wilk", "Wywerna", "Zefir", "Zeugl", "Zmutowany Szczur", "Zmutowany Pies", "Zmutowany Jaszczur", "Zjadarka"];
+
+        var skarb = ["skrzynia", "sterta kości", "zwłoki podróżnika", "związany worek", "zwłoki kupca", "zwłoki najemnika", "sterta rupieci", "zwłoki maga", "zardzewiały kufer", "przegniła skrzynia", "metalowa skrzynia", "stary kufer", "zwłoki paladyna"];
+
+        var mob_zlecenie = ["~Dwugłowa Hydra~", "~Olbrzymi Pająk~", "~Kejran~", "~Północnica~", "~Żelazny Golem~", "~Wilkołak~", "~Strzyga~", "~Magiczny Golem~", "~Bruxa~", "~Gryf Królewski~", "~Bazyliszek~", "~Wściekły Widłogon~"];
+
+        var miecze = ["Zwykły miecz", "D’yaebl", "Sihill", "Gwalhir", "Ard’aenye", "Krótki miecz", "Temerski miecz", "Zużyty miecz", "Kordelas", "Miecz z Creyden", "Miecz z Caingorn", "Solidny miecz", "Zębate ostrze", "Solidny Kordelas", "Solidny miecz", "Wyśmienity miecz", "Wyśmienity  miecz", "Miecz z Gór", "Wyśmienity kordelas", "Miecz Oddziałów", "Czerwony Miecz", "Lekki miecz", "Aedirński miecz", "Elficki Messer"];
+
+        var zbroja = ["Wyśmienita kurtka skórzana", "Ćwiekowana kurtka skórzana", "Zakonna zbroja Kruka", "Neutralna zbroja Kruka", "Elfia zbroja", "Ćiężka skórzana kurtka", "Kaedweńska kurtka", "Pikowana skóra", "Pancerz z Vicovaro", "Pancerz z Vicovaro", "Zbroja z Thyssenu", "Cięzka tunika", "Zbroja ze smoczej łuski", "Zbroja z Mahakamu"];
+
+
+        var ring = ["Siły", "Koncentracji", "Magii", "Bogactwa", "Życia", "Furii"];
+
+
+        var ring_opis = ["- zwiększa siłę o", "- koncentracja nie spada oraz zwiększa ją o", "- 15% szansy na trafienie krytyczne, zwiększa magię o", "- więcej złota od potworów o", "- zwiększa życie o", "- szansa na trafienie krytyczne ", "- więcej doświadczenia o"];
+
+
+        var opis_samca = ["Namiętny", "Silny", "Muskularny", " Nieśmiały", "Łagodny", "Niewyżyty", "Niski", "Wysoki", "Pryszczaty", "Podpity", "Brutalny", "Chamski", "Owłosiony", "Zwyrodniały", "Pulchny", "Chudy"];
+
+        var samiec = ["Elf", "Krasnolud", "Młodzieniec", "Sukub", "Wieśniak", "Wiedźmin", "Czarodziej", "Pijaczyna", "Żołnierz", "Paź"];
+        var dziwka = ["Adeptka magii", "Elfka", "Driada", "Adeptka sztuki", "Adeptka alchemii", "Dziewica", "Kocica", "Sukubica", "Dziwożona", "Ladacznica "];
+
+        var opis_dziwki = ["Ponętna", "Cycata", "Wysoka", "Namiętna", "Ostra", "Drobna", "Niewyżyta", "Piękna", "Inteligentna", "Nieśmiała", "Wstydliwa", "Zmysłowa", "Tajemnicza", "Urocza", "Stanowcza", "Pulchna", "Pomysłowa", "Mizerna", "Subtelna", "Niegrzeczna", "Dojrzała", "Piegowata ", "Marudna"];
+   
+        
+        var graveyard_skonczony=0;
+      var mana_zamtuz=0;
+        var mathea_end=0;
+        var nazwa_szkoly;
+        var szkola_kolor;
+        var unik=0;
+        var celnosc=0;
+        var obrona_extra=0;
+        var po_walce=0;
+        var pozostalych_bandytow=5;
+        var alzur_pokonany=0;
+        var max_wartosc;
+        var min_wartosc;
+        var rodzaj_skarbu;
+        var extra_skarb=0;
+        var mag_pokonany=0;
+         var mag_pokonany2=0;
+         var mag_pokonany3=0;
+        var temp_poziom=0;
+        var aktualny_poziom=1;
+        var monster_immune="";
+        var piramida_temp_lvl=0;
+        var secret_unlock=0;
+        var gracz_uderza=0;
+        var wampire=0;
+        var stun=0;
+        var bleeding=0;
+        
+        var cecha_broni_nazwa=" ";
+        var cecha_broni_nadana=0;
+        var nawiedzony_dom_aktywny=0;
+        var nawiedzony_dom_wykonany=0;
+        var tlo_pustynia=0;
+        var extra_mikstura=0;
+        var grom_plus_min=0;
+        var nowy_atak2=0;
+        var nowy_atak_min2=0;
+        var wilga_upgrade=0;
+        var grom_upgrade=0;
+        var jaskolka_upgrade=0;
+        var mikstura_upgrade=0;
+        var sand_cave_completed=0;
+        var nowa_zbroja_def =0;
+        var gargulec_pokonany=0;
+        var explosion_21=0;
+     
+        var miasto_nr3=0;
+        var sand_cave_active=0;
+        var sand_cave_poziom=0;
+        var sand_cave_poziom_temp=0;
+        var sand_immune=0;
+        var skorpion_pokonany=0;
+        var bariera_odkryta=0;
+        var bat_pokonany=0;
+        var artefacts=0;
+        var koniec_rozmowy=0;
+        var znak_critical_hit=0;
+        var znak_critical=0;
+        var half_mana=0;
+        var specjalne_kosci=0;
+        var pozostalo=5;
+        var nr_zlecenia=1;
+    
+        var mroczne_resist;
+        var mapa_skrot=0;
+        var miecz_wylosowany=0;
+        var glejt2 = 0;
+        var bandyci_pokonani=0;
+        var bandyci_aktywni=0;
+        var bandyci=0;
+        var misja_mag=0;
+var grota=0;
+var liczba_poziomow=0;
+     var   liczba_poziomow2=0;
+        var aktualny_poziom_groty=1;
+        var legowisko = 0;
+        var ilosc_potworow;
+        var ilosc_potworow_legowisko=0;
+        var armour_sell_value = 0;
+        var zbroja_posiadana = 0;
+        var xp_value = 0;
+        var flawless = 1;
+        var muzyka_x = 0;
+        var bron_posiadana = 0;
+        var tier_nagroda;
+        var zlecenie_name_temp;
+        var kierunek_temp;
+        var gif_zoom_out;
+        var gif_zoom_out = 0;
+        var ucieczka_aktywna = 0;
+        var temp_mob_name;
+        var rat_pokonany = 0;
+        var piramida_nagroda = 0;
+        var piramida_active = 0;
+        var piramida_poziom = 1;
+        var zlecenie_resistant;
+
+        var magia_def = "[^]";
+        var cios_def = "[||]"
+
+        magia_def1 = magia_def.fontcolor("deepskyblue");
+        cios_def1 = cios_def.fontcolor("red");
+
+        var tower_temp_lvl;
+        var hp_tower = 5;
+        var atk_tower = 1;
+        var tower_immune = 0;
+
+        var tower_level = 0;
+        var nagroda_specjalna2 = 0;
+        var cave_reward = 0;
+        var cave_skarb = 0;
+        var jaskinia_kosci = 0;
+        var tower_active = 0;
+
+
+        var cave_attack = 1;
+        var cave_hp = 5;
+        var jaskinia_aktywna = 0;
+
+        var enemy_resistant = "none";
+
+        var save_loaded = 0;
+        var tier_1 = 0;
+        var krypta_skarb_done = 0;
+
+
+        var miasto_nr2 = 0;
+        var golem_ucieczka = 0;
+
+        var ucieczka_spider = 0;
+        var potion2 = 1;
+        var potion_amount = 1;
+        var ilosc_ziol = 4;
+        var ilosc_skladnikow = 0;
+        var herbs_amount = 0;
+        var skladniki_amount = 0;
+        var skory_amount = 0;
+        var runy_amount = 0;
+
+
+        var liczba_escape;
+        var leczenie = 0;
+        var ileleczyc = 0;
+        var cenaleczenia = 0;
+        var extra_leczenie = 0;
+        var kierunek2;
+        var kierunek = 0;
+
+        var skarb_nr;
+        var pudlo;
+        var mob_hp;
+        var pos1;
+        var pos2;
+        var pos3;
+        var pos4;
+        var monster_hit = 0;
+        var level_amount;
+        var xp_req;
+        var xp_amount;
+        var life_amount;
+        var life_max;
+        var mana_amount = 0;
+        var manal_max = 0;
+        var points_amount;
+        var magic_amount;
+        var strenght_amount;
+        var gold_amount;
+        var dead_monsters = 0;
+        var xp_received;
+        var gold_received;
+        var enemy_level_amount = 1;
+        var znak_hit;
+        var mob_hp_xp;
+        var miecz_od;
+        var miecz_do;
+        var znak_od;
+        var znak_do;
+        var znak_od_copy;
+        var znak_do_copy;
+        var min_atak = 1;
+        var max_atak = 2;
+        var koszt_zycie = 2;
+        var koszt_magia = 2;
+        var koszt_sila = 2;
+        var koszt_mana = 2;
+        var magic_bonus = 0;
+        var sila_bonus = 0;
+        var grom_plus = 0;
+
+
+        var zlecenie_typ = "BRAK";
+        var zlecenie_status = "NIEDOSTĘPNE";
+        var zlecenie_typ2 = zlecenie_typ.fontcolor("white");
+        var zlecenie_status2 = zlecenie_status.fontcolor("white");
+        var opis_1 = "Jaskółka";
+        var opis_1_anim = opis_1.fontcolor("dodgerblue");
+        var opis_2 = "Puszczyk";
+        var opis_2_anim = opis_2.fontcolor("rebeccapurple");
+        var opis_3 = "Wilga";
+        var opis_3_anim = opis_3.fontcolor("forestgreen");
+        var opis_4 = "Grom";
+        var opis_4_anim = opis_4.fontcolor("deeppink");
+        var kupno_miecza_max_add = 2;
+        var plecak_herbs = "ZIOŁA:";
+        var plecak_herbs_2 = plecak_herbs.fontcolor("green");
+        var plecak_skladniki = "SKŁADNIKI:";
+        var plecak_skladniki2 = plecak_skladniki.fontcolor("orange");
+        var ring_1 = "-";
+        var ring_1_kolor = opis_1.fontcolor("dodgerblue");
+        var ring_2 = "-";
+        var ring_2_kolor = opis_2.fontcolor("rebeccapurple");
+        var ring3 = "-";
+        var ring_3_kolor = opis_3.fontcolor("forestgreen");
+        var ring_1_value_kol = "-";
+        var ring_1_value_kolor = ring_1_value_kol.fontcolor("yellow");
+        var ring_2_value_kol = "-";
+        var ring_2_value_kolor = ring_2_value_kol.fontcolor("yellow");
+        var ring_3_value_kol = "-";
+        var ring_3_value_kolor = ring_3_value_kol.fontcolor("yellow");
+        var ring_1_nazwa = "-";
+        var ring_2_nazwa = "-";
+        var ring_3_nazwa = "-";
+        var ring_1_opis = "-";
+        var ring_2_opis = "-";
+        var ring_3_opis = "-";
+        var ring_value1 = 0;
+        var ring_value2 = 0;
+        var ring_value3 = 0;
+        var ring_value4 = 0;
+        var ring_value5 = 0;
+        var ring_value6 = 0;
+        var ring_value7 = 0;
+        var ring_value8 = 0;
+        var ring_1_nr = 0;
+        var ring_2_nr = 0;
+        var ring_3_nr = 0;
+        var reszta = "";
+        var reszta2 = "";
+        var reszta3 = "";
+        var atak_moba_min = 0;
+        var atak_moba_max = 0;
+        var jaskolka_amount = 0;
+        var puszczyk_amount = 0;
+        var wilga_amount = 0;
+        var grom_amount = 0;
+        var eliksir_walki_amount = 0;
+        var eliksir_inny_walki_amount = 0;
+        var jaskolka = 0;
+        var puszczyk = 0;
+        var wilga = 0;
+        var grom = 0;
+        var liczba_do_ataku1 = 0;
+        var min_1 = 0;
+        var max_2 = 0;
+        var heal_cost = 0;
+        var zlecenie_aktywne = 0;
+        var mob_hp_extra = 0;
+        var mob_min_extra = 0;
+        var mob_max_extra = 0;
+        var zlecenie_completed = 0;
+        var mob_hp_escape = 0;
+        var zlecenie_aktywne_2 = 0;
+        var level_amount_req = 0;
+        var extra_level = 0;
+        var extra_gold_za_zadanie = 0;
+        var extra_xp_za_zadanie = 0;
+        var gold_do_wyplaty = 0;
+        var xp_do_wyplaty = 0;
+        var zadanie_gold = 0;
+        var zadanie_xp = 0;
+        var zabity_potwor_ze_zlecenia = 0;
+        var miecz_do_kupienia = 0;
+        var miecz_kupiony = 0;
+        var min_atak_new = 0;
+        var max_atak_new = 0;
+        var nazwa_posiadanej_broni = "Zwykły miecz";
+        var ulepszenie_obecne = 0;
+        var ulepszenie_max = 3;
+        var wymagane_runy = 2;
+        var co_jest_ulepszane = "brak";
+        var co_jest_ulepszane_check = 0;
+        var cen_miecza;
+        var upgrade_gold = 7;
+        var wynik1 = 0;
+        var gracz = 0;
+        var przeciwnik = 0;
+        var ty_wynik = 0;
+        var przeciwnik_wynik = 0;
+        var koniec_kosci = 0;
+        var za_ile_gra = 0;
+        var schemat = 0;
+        var zbroja_do_kupienia = 0;
+        var zbroja_obrona = 0;
+        var obrona_extra_level_min = 2; //dodaje obrony do zbroi w sklepie wraz z levelem postaci
+        var obrona_extra_level_max = 3; //dodaje obrony do zbroi w sklepie wraz z levelem postaci
+        var nazwa_posiadanej_zbroi = "brak";
+        var cen_zbroi = 0;
+        var cena_zbroi_magic = 0;
+        var ile_skor = 0;
+        var ulepszenie_obecne_zbroi = 0;
+        var wymagane_runy_do_zbroi = 1;
+        var upgrade_zbroja_gold = 5;
+        var co_jest_ulepszane_check2 = 0;
+        var co_jest_ulepszane2 = "brak";
+        var ulepszenie_obecne2 = 0;
+        var nazwa_posiadanej_zbroi = "Skórzana kurtka";
+        var zbroja_kupiona = 0;
+        var obrona_temp = 0; //by ominac losowanie zbroi na poczatku gry
+        var nr_zlecenia = 1;
+        var redukcja_obrazen = 0;
+        var nazwa_pierscienia = "Zwykły pierścień";
+        var ring_1_name = "";
+        var ring_1_info = " - brak właściwości";
+        var ring_1_value = 0;
+        var ring_1_symbol = "";
+        var ring_1_name_kolor = nazwa_pierscienia.fontcolor("purple");
+        var nazwa_pierscienia2 = "Zwykły pierścień";
+        var ring_2_name = "";
+        var ring_2_info = " - brak właściwości";
+        var ring_2_value = 0;
+        var ring_2_symbol = "";
+        var ring_2_name_kolor = nazwa_pierscienia2.fontcolor("purple");
+        var ring_1_aktywny = 0;
+        var ring_2_aktywny = 0;
+        var both_rings_active = 0;
+        var nr_pierscienia_do_kupienia = 0;
+        var ring_1_cena = 0;
+        var ring_2_cena = 0;
+        var ring_3_cena = 0;
+        var jaki_pierscien1 = "";
+        var jaki_pierscien2 = "";
+        var check_magia = 0;
+        var check_magia2 = 0;
+        var obecny1 = "";
+        var obecny2 = "";
+        var bonus1_dodany = 0;
+        var bonus2_dodany = 0;
+        var mana_koszt = 2;
+        var extra_gold_ring = 0;
+        var extra_gold_ring_amount = 0;
+        var extra_life = 0;
+        var extra_mana = 0;
+        var extra_xp_ring = 0;
+        var extra_xp_ring_amount = 0;
+        var furia_amount = 0;
+        var cena_1_na_odsprzedanie = 0;
+        var cena_2_na_odsprzedanie = 0;
+        var zaokraglone1 = 0;
+        var zaokraglone2 = 0;
+        var zaokraglone3 = 0; //zloto z bonusu za pierscien po zabiciu opotwora
+        var zaokraglone4 = 0; //xp z bonusu za pierscien po zabiciu opotwora
+        var energia_zlecenie = 0; //energia potwora ze zlecenia
+        var zlecenie_min = 0; //atak min potwora ze zlecenia
+        var zlecenie_max = 0; //atak max potwora ze zlecenia
+        var losuj_pierscien = 1; //gdy 1 pierscienie sa losowane
+        var ile_walk_zaliczonych = 0; //gdy kilka zostanie zaliczonych towar u zlotnika sie odnowi
+        var ile_walk_zaliczonych2 = 0; //gdy kilka zostanie zaliczonych towar u kowala si odnowi
+        var ile_walk_zaliczonych3 = 0; //gdy kilka zostanie zaliczonych towar u płatnerz sie odnowi
+        var ile_walk_zaliczonych4 = 0; //gdy kilka zostanie zaliczonych elixir obrony przestanie dzialac
+        var elixir_obrony_aktywny = 0; //aktywny eliksir obrony do czasu ile_walk_zaliczonych4;
+        var zbroja_obrona_bonus = 0; //wartos obrony z eliksirem obrony
+        var nagroda_specjalna_wzieta = 0; // aktywuje specjalna gre w kosci u kupca
+        var suma_zbroi_i_bonusu = 0 //suma abrony i bonusu za eliksir od kupca
+        var odglos_obrony = 0;
+        var kiedy_nowy_towar = 10; //kiedy u kowala nowy towar dostepny
+        var kiedy_nowy_towar2 = 10; //kiedy u platnerza nowy towar dostepny
+        var kiedy_nowy_towar3 = 10; //kiedy u zlotnkika nowy towar dostepny
+        var kiedy_nowy_towar4 = 15; //kiedy u kupca nowy towar dostepny
+        var gold_received_extra = 0; //extra zloto z potworow za bonus pierscienia
+        var gold_temp = 0; //ilosc zlota przed dodaniem bonusu
+        var xp_received_extra = 0; //extra xp z potworow za bonus pierscienia
+        var xp_temp = 0; //ilosc xp przed dodaniem bonusu
+        var kupiec_kosci = 0; //gra w kosci z kupcem
+        var nagroda_specjalna = 0;
+        var bonus_do_obrony = 0; //za elixir od kupca
+        var walka_nr = 1;
+        var sprzedaj_i_kup = 0; //sprzedaz pierscienia i powrot do okna kupna
+        var ilosc1a = 0; ////ceny i ilosc towaru u kupca
+        var ilosc1b = 0;
+        var ilosc2a = 0;
+        var ilosc2b = 0;
+        var ilosc3a = 0;
+        var ilosc3b = 0;
+        var ilosc4a = 0;
+        var ilosc4b = 0; ///////   koniec
+        var kupiec_start = 0; //zapobiega odnawianiu towaru u kupca
+        var zbroja_magiczna_obrona = 0; //dane magicznej zbroji ze schematu
+        var zbroja_magiczna_zycie = 0;
+        var nazwa_magicznej_zbroi = "";
+        var zbroja_magiczna_do_kupienia = 0;
+        var zbroja_magiczna_aktywna = 0; //gry zbroja magiczna zalozona i daje bonus zycia
+        var zbroja_magiczna_zycie2 = 0; //zapasowa wartosc zycia do odjecia
+        var critic_amount = 0; //sila ciosu krytycznego
+        var szansa_na_krytyczne = 100; //potrzebne do obliczenia ciosu krytycznego
+        var cios_krytyczny = 0;
+        var kosci_rzucone = 0;
+
+        var jaki_opis = 0; //dane do zamtuza
+        var jaki_numer = 0;
+        var jaki_opis2 = 0;
+        var jaki_numer2 = 0;
+        var jaki_opis3 = 0;
+        var jaki_numer3 = 0;
+        var zamtuz_sila_bonus = 0; //dodanie sily z zamtuzu
+        var temp_sila = 0; //sila dodatkowa
+        var zamtuz_sila_bonus_minus = 0;
+        var elixir_dodany = 0; //potrzebny by ponownie nie dodaalo sily po wejsciu w ekwipunek
+        var miasto_odwiedzone = 0;
+        var miasto_ucieczka = 0;
+        var jaki_skarb_event = 0;
+        var gdzie_zlecenie = 0;
+        var kierunek_sprawdzony = 0;
+        var czy_walka = 0; //do eventow
+        var energia_bosa = 0;
+        var energia_zlecenie2 = 0; //podczas ucieczki by energia nie byla wieksza niz bazowa
+        var grobowiec = 0;
+        var grobowiec_completed = 0;
+        var skip_event = 0;
+        var dziwka_zaliczona = 0;
+        var golem_pokonany = 0;
+        var blob_pokonany = 0;
+        var typ_tla = 0;
+        var zadanie_lochy = 0;
+        var lochy_wykonane = 0;
+        var blob_completed = 0;
+        var zadanie_kupiec = 0;
+        var kupiec_wykonane = 0;
+        var zapis_obecny = 0;
+        var odczyt = 0;
+        var zamykanie = 0;
+        var tekst_nr = 0;
+        var wieza_klucz = 0;
+
+
+        var sound = 0; //podczas zaniku menu by byl dzwiek gdy sie pojawi na nowo a by nie bylo podczas uruchamiania gdy zanika
+        var sound1 = 0;
+        var sound2 = 0;
+        var sound3 = 0;
+        var sound4 = 0;
+        var sound5 = 0;
+        var sound6 = 0;
+        var sound7 = 0;
+        var sound8 = 0;
+        var sound9 = 0;
+        var sound10 = 0;
+        var sound11 = 0;
+        var sound12 = 0;
+        var sound13 = 0;
+        var sound14 = 0;
+        var sound15 = 0;
+        var sound16 = 0;
+        var sound17 = 0;
+
+
+        var misja = 0; // zadania zwykle
+        var zadanie_aktywne = 0; // jezeli zadanie wziete to sa deaktywowane
+        var misja_zadanie_wykonane = 0; //misje normalne, status
+        var quest_wykonany_nr = 0; //jaki nr misji został wykonany
+        var skrot_zamkniety = 0; //skrot do krypty
+
+        var devs = 0; //tryb developera
+        var save = 0;
+        var plec_typ = 0; //rodzj plci ( 1 -mezczyzna, 2 -kobieta)
+        var jaskinia_poziom = 0;
+
+        var cave_completed = 0; //misja w jaskini
+        var rycerz_pokonany = 0;
+        var glejt = 0;
+        var nazwa_posiadanej_zbroi_magic = "";
+
+        var cena_zbroi = 0; //plartnerz kupno zboi
+        var ile_skor_potrzeba = 0; //platnerz kupno zbroi
+
+        var grobowiec_poziom = 0;
+        var hp_grobowiec = 0;
+        var atak_grobowiec = 0;
+        var grave_poziom = 0;
+        var hp_grave = 0;
+        var atak_grave = 0;
+        var grave_aktywny = 0;
+        var kto_uderza = 0;
+        var spider_dead = 0;
+        var tower_poziom = 0;
+        var tower_nagroda = 0;
+
+        var spider_pokonany = 0;
+        var imie_postaci = "";
+        var gdzie_zlecenie_nr = 0;
+        var wilga_dodana = 0;
+        var wilga_obrona = 0;
+        var krypta_reached = 0;
+        var atak_znakiem_check = 0;
+        var zabite_moby1 = 0;
+        var odczyt = 0;
+        var cave_reached = 0;
+        var grobowiec_aktywny = 0;
+        var grobowiec_skrzynia = 0;
+        var weapon_sell_value = 0;
+        var battle_active = 0;
+        var spider_escape = 0;
+var fontDownloadCount = 0;
+        
+        var dialog_nr=0;
+        var boost=1;
+        var ognista_kula=0;
+        
+        var xp_copy=0;
+        
+        var cecha_na_zbroi=0;
+        var cecha_wartosc=0;
+        var nazwa_cechy="none";
+        
+              var magic_runes = new Howl({
+            src: ['sfx/magic_runes.ogg'],
+        });
+        
+        
+          var wampire_sfx = new Howl({
+            src: ['sfx/wampire.ogg'],
+        });
+        
+        
+        
+        
+        
+          var sword_upgrade = new Howl({
+            src: ['sfx/sword_upgrade.ogg'],
+        });
+        
+        
+        
+        
+          var explosion = new Howl({
+            src: ['sfx/explosion.ogg'],
+        });
+        
+          var fireball = new Howl({
+            src: ['sfx/fireball.ogg'],
+        });
+        
+        
+        
+            var sail = new Howl({
+            src: ['sfx/sail.ogg'],
+        });
+        
+        
+        var fight = new Howl({
+            src: ['sfx/fight.ogg'],
+        });
+
+        var monster1 = new Howl({
+            src: ['sfx/monster1.ogg'],
+        });
+        var monster2 = new Howl({
+            src: ['sfx/monster2.ogg'],
+        });
+        var monster3 = new Howl({
+            src: ['sfx/monster3.ogg'],
+        });
+        var monster4 = new Howl({
+            src: ['sfx/monster4.ogg'],
+        });
+        var monster5 = new Howl({
+            src: ['sfx/monster5.ogg'],
+        });
+        var monster6 = new Howl({
+            src: ['sfx/monster6.ogg'],
+        });
+
+        var miecz_hit1 = new Howl({
+            src: ['sfx/miecz1.ogg'],
+        });
+        var miecz_hit2 = new Howl({
+            src: ['sfx/miecz2.ogg'],
+        });
+        var miecz_hit3 = new Howl({
+            src: ['sfx/miecz3.ogg'],
+        });
+        var miecz_hit4 = new Howl({
+            src: ['sfx/miecz4.ogg'],
+        });
+        var miecz_hit5 = new Howl({
+            src: ['sfx/miecz5.ogg'],
+        });
+        var miecz_hit6 = new Howl({
+            src: ['sfx/miecz6.ogg'],
+        });
+
+        var mob_dead1 = new Howl({
+            src: ['sfx/mob_dead1.ogg'],
+        });
+        var mob_dead2 = new Howl({
+            src: ['sfx/mob_dead2.ogg'],
+        });
+        var mob_dead3 = new Howl({
+            src: ['sfx/mob_dead3.ogg'],
+        });
+
+        var mob_hit1 = new Howl({
+            src: ['sfx/uderza1.ogg'],
+        });
+        var mob_hit2 = new Howl({
+            src: ['sfx/uderza2.ogg'],
+        });
+        var mob_hit3 = new Howl({
+            src: ['sfx/uderza3.ogg'],
+        });
+        var mob_hit4 = new Howl({
+            src: ['sfx/uderza4.ogg'],
+        });
+        var mob_hit5 = new Howl({
+            src: ['sfx/uderza5.ogg'],
+        });
+
+
+
+        var trafienie1 = new Howl({
+            src: ['sfx/trafienie1.ogg'],
+        });
+        var trafienie2 = new Howl({
+            src: ['sfx/trafienie2.ogg'],
+        });
+        var trafienie3 = new Howl({
+            src: ['sfx/trafienie3.ogg'],
+        });
+        var trafienie4 = new Howl({
+            src: ['sfx/trafienie4.ogg'],
+        });
+        var trafienie5 = new Howl({
+            src: ['sfx/trafienie5.ogg'],
+        });
+
+
+        var walk1 = new Howl({
+            src: ['sfx/walk1.ogg'],
+        });
+        var walk2 = new Howl({
+            src: ['sfx/walk2.ogg'],
+        });
+        var walk3 = new Howl({
+            src: ['sfx/walk3.ogg'],
+        });
+
+
+        var battle_sfx = new Howl({
+            src: ['sfx/battle.ogg'],
+            loop: true,
+        });
+        var battle_sfx2 = new Howl({
+            src: ['sfx/battle2.ogg'],
+        });
+        var wiatr = new Howl({
+            src: ['sfx/wiatr.ogg'],
+            loop: true,
+        });
+        var klik = new Howl({
+            src: ['sfx/click.ogg'],
+        });
+
+        var pick = new Howl({
+            src: ['sfx/pick.ogg'],
+        });
+
+        var buy = new Howl({
+            src: ['sfx/coin.ogg'],
+        });
+        var heal = new Howl({
+            src: ['sfx/potion.ogg'],
+        });
+
+        var sell = new Howl({
+            src: ['sfx/coin2.ogg'],
+        });
+
+
+
+
+        var eliksir_sfx = new Howl({
+            src: ['sfx/eliksir_sfx.ogg'],
+        });
+        var alchemik = new Howl({
+            src: ['sfx/alchemik.ogg'],
+            loop: true,
+        });
+
+        var poziom = new Howl({
+            src: ['sfx/poziom.ogg'],
+        });
+
+        var mana_sfx = new Howl({
+            src: ['sfx/mana.ogg'],
+        });
+        var magic2 = new Howl({
+            src: ['sfx/magic2.ogg'],
+        });
+
+        var miss = new Howl({
+            src: ['sfx/nietrafil.ogg'],
+        });
+
+
+
+        var play1 = new Howl({
+            src: ['sfx/title.ogg'],
+        });
+        var play2 = new Howl({
+            src: ['sfx/start.ogg'],
+        });
+
+
+        var miasto_sfx = new Howl({
+            src: ['sfx/novigrad.ogg'],
+            loop: true,
+        });
+
+
+
+
+
+        var run = new Howl({
+            src: ['sfx/run.ogg'],
+        });
+        var inventory = new Howl({
+            src: ['sfx/pick2.ogg'],
+        });
+        var pick = new Howl({
+            src: ['sfx/pick.ogg'],
+        });
+        var znak_sfx = new Howl({
+            src: ['sfx/znak.ogg'],
+        });
+        var chest_sfx = new Howl({
+            src: ['sfx/chest.ogg'],
+        });
+        var xp_sfx = new Howl({
+            src: ['sfx/xp.ogg'],
+        });
+
+
+        var zlecenie_sfx = new Howl({
+            src: ['sfx/zlecenie.ogg'],
+        });
+        var zlecenie2_sfx = new Howl({
+            src: ['sfx/magic1.ogg'],
+        });
+        var kowal_sfx = new Howl({
+            src: ['sfx/kowal.ogg'],
+        });
+        var dracula = new Howl({
+            src: ['sfx/dracula.ogg'],
+        });
+        var upgrade = new Howl({
+            src: ['sfx/ulepsz.ogg'],
+        });
+        var tawerna_sfx = new Howl({
+            src: ['sfx/tawerna.ogg'],
+            loop: true,
+        });
+        var kosci_sfx = new Howl({
+            src: ['sfx/dice.ogg'],
+        });
+        var zbroja_sfx = new Howl({
+            src: ['sfx/zbroja.ogg'],
+        });
+        var zbroja_upgrade_sfx = new Howl({
+            src: ['sfx/upgrade.ogg'],
+        });
+        var armor_hit = new Howl({
+            src: ['sfx/armor_hit.ogg'],
+        });
+        var critical = new Howl({
+            src: ['sfx/crit.ogg'],
+        });
+
+        var lost = new Howl({
+            src: ['sfx/lost.ogg'],
+        });
+        var zlotnik_shop = new Howl({
+            src: ['sfx/zlotnik_shop.ogg'],
+            loop: true,
+        });
+        var kupiec_music = new Howl({
+            src: ['sfx/kupiec.ogg'],
+            loop: true,
+        });
+        var zamtuz_sfx = new Howl({
+            src: ['sfx/zamtuz.ogg'],
+        });
+        var sex = new Howl({
+            src: ['sfx/sex2.ogg'],
+        });
+        var medalion = new Howl({
+            src: ['sfx/medalion.ogg'],
+        });
+        var cmentarz1 = new Howl({
+            src: ['sfx/cmentarz.ogg'],
+        });
+        var disabled = new Howl({
+            src: ['sfx/disabled.ogg'],
+        });
+        var lochy = new Howl({
+            src: ['sfx/lochy2.ogg'],
+        });
+        var cela = new Howl({
+            src: ['sfx/cela.ogg'],
+        });
+
+        var krata1 = new Howl({
+            src: ['sfx/krata_zamknieta.ogg'],
+        });
+        var krata2 = new Howl({
+            src: ['sfx/krata_otwarta.ogg'],
+        });
+        var door_locked = new Howl({
+            src: ['sfx/door_locked.ogg'],
+        });
+
+        var slide = new Howl({
+            src: ['sfx/slide.ogg'],
+        });
+        var klik2 = new Howl({
+            src: ['sfx/klik2.ogg'],
+        });
+        var plec = new Howl({
+            src: ['sfx/wygrana.ogg'],
+        });
+        var spell = new Howl({
+            src: ['sfx/spell.ogg'],
+        });
+        var cave_sfx = new Howl({
+            src: ['sfx/cave.ogg'],
+            loop: true,
+        });
+        var zlecenie_okno1 = new Howl({
+            src: ['sfx/zlecenie_okno.ogg'],
+        });
+
+
+        var music_ambient = new Howl({
+            src: ['sfx/ambient.ogg'],
+            loop: true,
+        });
+        var cave_krasnolud = new Howl({
+            src: ['sfx/cave_krasnolud.ogg'],
+            loop: true,
+        });
+        var boss = new Howl({
+            src: ['sfx/boss.ogg'],
+            loop: true,
+        });
+        var new_city = new Howl({
+            src: ['sfx/new_city.ogg'],
+            loop: true,
+        });
+
+              var heart = new Howl({
+            src: ['sfx/heart.ogg'],
+            loop: true,
+        });
+        
+        
+/*  WebFont.load({
+    custom: {
+      families: ['morph']
+    }
+  });*/
+        
+      
+        
+        
+        
+        function nowagra() 
+        {
+       
+             document.addEventListener("deviceready", onDeviceReady, false);
+            
+            
+            setInterval(chmury_ruch1, 5000);
+            setInterval(chmury_ruch2, 5000);
+            setInterval(chmury_ruch3, 5000);
+            
+    
+
+
+            
+            
+ 
+  $("#strona_novigard").fadeIn(1500);
+            
+
+            $("#status_specjalny").transition({scale:0, opacity:0},0,'ease');
+            $("#enemy_bleeding").transition({scale:0, opacity:0},0,'ease');
+            $("#player").transition({scale:0,opacity:0}, 0, 'ease'); 
+            $("#dialog").transition({scale:0,opacity:0}, 0, 'ease'); 
+            $("#odpowiedzi").transition({scale:0,opacity:0}, 0, 'ease'); 
+            $("#okno_kup_zbroje_magiczna").fadeIn(0);
+            $("#okno_kup_zbroje_magiczna").transition({ scale:0,opacity:0 }, 0, 'ease');
+            $("#okno3").transition({ scale:0,opacity:0}, 0, 'ease');
+            $("#polowanie_zadanie").transition({ scale:0,opacity:0 }, 0, 'ease');
+            $("#okno_kup_zbroje").transition({ scale:0,opacity:0 }, 0, 'ease');
+            $("#okno_kup_bron1").transition({ scale:0,opacity:0}, 0, 'ease');
+            $("#level_up1").transition({ scale:0,opacity:0}, 0, 'ease');
+            $("#okno_ulepsz_bron").transition({ scale:0, opacity:0 }, 0, 'ease');
+            $("#new_medytacja_okno").transition({ scale:0,opacity:0}, 0, 'ease');
+            $("#strona_inv").transition({ y:-800}, 1000, 'ease');
+            $("#level_up1").transition({ scale:0,opacity:0}, 0, 'ease');
+            $("#new_kup_pierscien").transition({ scale:0,opacity:0 }, 0, 'ease');
+            $("#new_sell_pierscien").transition({ scale:0,opacity:0 }, 0, 'ease');
+            $("#okno_ulepsz_zbroje").transition({ scale:0,opacity:0 }, 0, 'ease');
+            $("#okno_zadania").transition({ scale:0 ,opacity:0}, 0, 'ease');
+            $("#zdarzenie").transition({ scale:0,opacity:0}, 0, 'ease');
+            $("#buttony_do_zdarzenia").transition({ scale:0,opacity:0}, 0, 'ease');
+            $("#new_medytacja_okno_tworz").transition({ scale:0, opacity:0 }, 0, 'ease');
+            $("#new_medytacja_okno_pij").transition({ scale: 0,opacity:0 }, 0, 'linear');
+            $("#okno_zlecenie_new").transition({ scale:0,opacity:0}, 0, 'ease');
+            $("#new_alchemik_sklep").transition({ scale:0,opacity:0}, 0, 'ease');
+            $("#new_opis_mikstur").transition({ scale:0,opacity:0}, 0, 'ease');
+            $("#new_leczenie").transition({ scale:0,opacity:0}, 0, 'ease');
+            $("#polowanie_zadanie").transition({ scale:0,opacity:0 }, 0, 'ease');
+
+            kowal_sfx.stop();
+
+           
+            document.getElementById("atakuj").className = "flash";
+            document.getElementById("loot0").className = "flash";
+          
+            wiatr.play();
+    
+
+
+
+
+            kierunek2 = Math.floor(Math.random() * 25);
+            document.getElementById("lokacja").innerHTML = "Do" + " " + kierunek_droga[kierunek2];
+            devs = parseInt(localStorage.getItem('devs'));
+
+            nowa_gra();
+            devs = 0;
+            if (devs == 1)
+                developer_pokaz();
+
+            zbroja_obrona = 1;
+            obrona_temp = zbroja_obrona;
+        
+
+            nazwa_posiadanej_zbroi = "Skórzana kurtka";
+            nazwa_potwora_do_zlecenia = Math.floor(Math.random() * 12);
+           // $("#okno3").fadeOut(0);
+            
+            
+  
+
+            
+           // document.getElementById('strona_novigard').style.backgroundImage = "url('graX.jpg')";
+
+         
+            odczyt = parseInt(localStorage.getItem('odczyt'));
+
+
+            if(odczyt == 0)
+            {
+                     document.getElementById("medytacja_menu").style.pointerEvents="none";
+                document.getElementById("info").style.pointerEvents="none";
+                   music_ambient.stop();
+                document.getElementById("cala_mapa").style.opacity = "0";
+                //document.getElementById("strona_novigard").style.opacity = "1";
+                 $("#podaj_imie").transition({ scale:1,opacity:1}, 1000, 'ease'); 
+                
+            } 
+
+
+
+            if (odczyt == 1)
+                wczytaj_Zapis();
+
+            document.getElementById("level").innerHTML = "Poziom:" + " " + level_amount;
+            document.getElementById('xp').innerHTML = "XP:" + " " + xp_amount + "/" + xp_req;
+            document.getElementById("life").innerHTML = '<i style="color:red";" class="icon-heart"></i>' + " " + life_amount + "/" + life_max;
+            document.getElementById("mana").innerHTML = '<i style="color:deepskyblue;" class="icon-spin6 animate-spin"></i>' + " " + mana_amount + "/" + manal_max;
+            document.getElementById("points").innerHTML = "Punkty:" + " " + points_amount;
+            document.getElementById("magic").innerHTML = "Magia:" + " " + magic_amount;
+            document.getElementById("strenght").innerHTML = "Siła:" + " " + strenght_amount;
+            document.getElementById("gold").innerHTML = "Złoto:" + " " + gold_amount;
+            document.getElementById("level").innerHTML = "Poziom:" + " " + level_amount;
+
+
+            status_zadan_mapa();
+            document.getElementById("weapon").innerHTML = "Miecz (wartość " + weapon_sell_value + ")";
+            document.getElementById("weapon_info").innerHTML = nazwa_posiadanej_broni;
+            document.getElementById("imie_pytanie_plec").style.color = "yellow";
+            document.getElementById("imie_pytanie").style.fontSize = "18px";
+            document.getElementById("imie_pytanie_plec").style.fontSize = "18px";
+            document.getElementById("plec_ona").style.color = "deeppink";
+            document.getElementById("plec_on").style.color = "cadetblue";
+
+
+            kowal_sfx.stop();
+            zanik_obiektow();
+            tekst_nr = 0;
+            document.getElementById('piramida_level').innerHTML = piramida_poziom + "/10";
+
+            if(odczyt==undefined)
+            tekst_nr=0;
+            $("#okno_teren").fadeOut(0);
+            $("#panel_walki").transition({ scale:0, opacity:0}, 1500, 'ease');
+            document.getElementById('strona_novigard').style.backgroundImage = "url('back.jpg')";
+            extra();
+            if((nagroda_specjalna==1)&&(nagroda_specjalna_wzieta==0))             
+            nagroda_specjalna=0;
+            music_ambient.stop();
+            // $("#player").transition({scale:.1 },0,'ease');
+            }
+
+
+
+
+        function load() {
+
+                document.addEventListener("backbutton", function(e) {
+            e.preventDefault();
+            return;
+            }, false);  
+                
+                
+           
+            document.addEventListener("backbutton", wyjdziesz, false);      
+
+            $(document).on('backbutton', function(e){
+            wyjdziesz();
+            });  
+            
+            
+            
+            
+
+            if (odczyt == 1) 
+            {
+            document.getElementById("medytacja_menu").style.pointerEvents="auto";
+            document.getElementById("medytacja_menu").onclick = function() {medytacja_pokaz()};  
+            document.getElementById("info").style.pointerEvents="auto";
+            document.getElementById("info").onclick = function() {inventory_pokaz()}; 
+          
+
+            kierunek = 7;
+
+
+            $("#okno_teren").fadeOut(0);
+            $("#druid").fadeOut(0);
+            $("#ship").transition({x: 200,y:-50},0,'linear');
+            document.getElementById('ship').style.backgroundImage = "url('ship2.png')";
+            $("#player").transition({scale:1, opacity:1},0,'ease');   
+            $("#player").transition({ y: '100px', x: '80px' },0);
+            tekst_nr=0;
+
+            if(miasto_nr3==1)
+            {
+            $("#player").transition({scale:1, opacity:1},0,'ease');   
+            $("#player").transition({ y: -30, x: 550},1700,'ease');
+            tlo_pustynia=1;
+            kierunek=1013;
+            sprawdz_kierunki_aktywne();
+            }
+
+            xp_check();
+
+           
+                 if(nazwa_szkoly=="Brak szkoły")
+                     $("#szkoly").transition({ scale:1,opacity:1}, 1000, 'ease');
+
+            } 
+            else
+            {
+            kierunek=5;
+         
+            }
+
+            mapa(); 
+            extra();
+            }
+
+
+function onDeviceReady() 
+            {
+            console.log(StatusBar.hide);
+            console.log(navigator.vibrate);
+            console.log("Dziala");
+                
+            document.addEventListener("backbutton", function(e) {
+            e.preventDefault();
+            return;
+            }, false);  
+                
+                
+    
+            document.addEventListener("backbutton", wyjdziesz, false);      
+
+            $(document).on('backbutton', function(e){
+            wyjdziesz();
+            });  
+                
+                
+                
+                  
+}
+
+   
+        
+        
+                function wyjdziesz() {
+
+                document.getElementById("zdarzenie").style.zIndex = 9000;
+                document.getElementById("buttony_do_zdarzenia").style.zIndex = 9001;
+
+                document.getElementById("zdarzenie_info").innerHTML = " ";
+                document.getElementById("zdarzenie_info2").innerHTML = " ";
+
+                document.getElementById("zdarzenie_info").className = "flash0";
+                document.getElementById('zdarzenie').style.backgroundImage = "url('zlecenie_art.jpg')";
+                document.getElementById("zdarzenie_info").innerHTML = "Chcesz wyjśc z gry?";
+                document.getElementById("zdarzenie_open").style.color = "red"
+                document.getElementById("zdarzenie_quit").style.color="green";
+
+                document.getElementById("zdarzenie_open").onclick = function() {exit_game()};
+                document.getElementById("zdarzenie_quit").onclick = function() {
+                document.getElementById("zdarzenie").style.zIndex = 100;
+                document.getElementById("buttony_do_zdarzenia").style.zIndex = 101;
+                document.getElementById("zdarzenie_info3").style.borderStyle = "none";
+                zdarzenie_zanik_x()};
+
+                document.getElementById("zdarzenie_open").innerHTML = "Tak";
+                document.getElementById("zdarzenie_quit").innerHTML = "Nie";
+                zdarzenie_pokaz();
+
+                }
+
+        
+function exit_game()
+        {
+            	window.location.href = "index.html";
+            
+        }
+
+
+        function plec_mezczyzna() 
+        {
+                plec_typ = 1;
+             
+                losuj_dziwki();
+               imie_zanik();
+        }
+
+
+
+
+        function plec_kobieta() 
+        {
+                plec_typ = 2;
+                losuj_dziwki();
+               imie_zanik();
+        }
+
+
+
+
+
+        function dev_active() {
+
+            var a1 = document.getElementById("dev_zycie").value;
+            var a2 = document.getElementById("dev_zloto").value;
+            var a3 = document.getElementById("dev_skory").value;
+            var a4 = document.getElementById("dev_runy").value;
+            var a5 = document.getElementById("dev_lvl").value;
+            var a6 = document.getElementById("dev_skladniki").value;
+            var a7 = document.getElementById("dev_ziola").value;
+            var a8 = document.getElementById("dev_sila").value;
+            var a9 = document.getElementById("dev_mana").value;
+
+var a10 = document.getElementById("dev_magic").value;
+
+
+
+            if (a1 > 0)
+                life_amount = parseInt(document.getElementById("dev_zycie").value);
+            if (a2 > 0)
+                gold_amount = parseInt(document.getElementById("dev_zloto").value);
+            if (a3 > 0)
+                skory_amount = parseInt(document.getElementById("dev_skory").value);
+            if (a4 > 0)
+                runy_amount = parseInt(document.getElementById("dev_runy").value);
+            if (a5 > 0)
+                level_amount = parseInt(document.getElementById("dev_lvl").value);
+            if (a6 > 0)
+                skladniki_amount = parseInt(document.getElementById("dev_skladniki").value);
+            if (a7 > 0)
+                herbs_amount = parseInt(document.getElementById("dev_ziola").value);
+            if (a8 > 0)
+                strenght_amount = parseInt(document.getElementById("dev_sila").value);
+            if (a9 > 0)
+                mana_amount = parseInt(document.getElementById("dev_mana").value);
+        if (a10 > 0)
+                magic_amount = parseInt(document.getElementById("dev_magic").value);
+
+
+            document.getElementById("strenght").innerHTML = "Siła:" + " " + strenght_amount;
+            document.getElementById("level").innerHTML = "Poziom:" + " " + level_amount;
+            document.getElementById("life").innerHTML = '<i style="color:red";" class="icon-heart"></i>' + " " + life_amount + "/" + life_max;
+            document.getElementById("gold").innerHTML = "Złoto:" + " " + gold_amount;
+            document.getElementById("level").innerHTML = "Poziom:" + " " + level_amount;
+            document.getElementById("mana").innerHTML = '<i style="color:deepskyblue;" class="icon-spin6 animate-spin"></i>' + " " + mana_amount + "/" + manal_max;
+                     document.getElementById("magic").innerHTML = "Magia:" + " " + magic_amount;
+        }
+
+
+
+
+
+
+
+        function walk1() {
+            walk1.play();
+        }
+
+        function walk2() {
+            walk2.play();
+        }
+
+        function walk3() {
+            walk3.play();
+        }
+
+
+
+        function nie_wychodz2() 
+        {
+
+
+            $("#okno2").fadeOut(1000);
+            $("#okno2").show();
+            setTimeout(nie_wychodz3, 1000);
+        }
+
+        function nie_wychodz3() {
+            $("#okno").fadeIn(1000);
+
+
+
+        }
+
+
+        function exit_from_game2() {
+
+            window.location.href = "index.html";
+
+        }
+
+
+        function powrot_na_szlak() {
+
+            document.getElementById("tekst").innerHTML = "Gdzie chcesz się udać?";
+            document.getElementById("miasto").innerHTML = "Novigrad";
+            document.getElementById("medytacja").innerHTML = "Medytacja";
+            document.getElementById("lokacja").style.pointerEvents = 'auto';
+
+            document.getElementById("miasto").onclick = function() {
+                novigard()
+            };
+            droga2();
+
+        }
+
+
+
+
+
+
+        function droga()
+
+        {
+
+                $("#cala_mapa").transition({ scale:1,opacity:1}, 1000, 'ease');
+              $("#okno3").transition({ scale:0,opacity:0}, 1000, 'ease');
+
+
+            miasto_odwiedzone = 1;
+       
+
+
+            $("#loot1").fadeOut(0);
+            $("#loot2").fadeOut(0);
+            $("#loot3").fadeOut(0);
+            $("#loot4").fadeOut(0);
+            $("#loot5").fadeOut(0);
+            $("#loots").fadeIn(0);
+
+         
+
+            new_city.stop();
+
+
+            //$("#okno3").fadeOut(200);
+            kierunek2 = Math.floor(Math.random() * 25);
+            setTimeout(droga2, 0);
+        }
+
+        function droga2() {
+
+
+            if (dziwka_zaliczona == 1) {
+                document.getElementById("uda").style.color = "dimgrey";
+                document.getElementById("uda").onclick = function() {
+                    za_malo_zlota()
+                };
+
+            } else {
+                document.getElementById("uda").style.color = "deeppink";
+                document.getElementById("uda").onclick = function() {
+                    zamtuz()
+                };
+
+            }
+
+
+      
+
+
+
+
+            document.getElementById("miasto").innerHTML = "Novigrad";
+            document.getElementById("miasto").style.color = "yellow";
+            document.getElementById("miasto").style.pointerEvents = 'auto';
+
+            document.getElementById("medytacja").style.pointerEvents = 'auto';
+
+
+            document.getElementById("medytacja").style.color = "cadetblue";
+
+
+
+
+
+
+            if (zlecenie_aktywne_2 == 1)
+
+            {
+                $("#zlecenie_slot").fadeIn(500);
+
+
+            } else
+                $("#zlecenie_slot").fadeOut(0);
+
+
+         
+
+            document.getElementById("medytacja").innerHTML = "Medytacja";
+            document.getElementById("lokacja").style.pointerEvents = 'auto';
+
+
+            document.getElementById("lokacja").style.color = "firebrick";
+
+            wiatr.play();
+
+
+            mapa();
+
+        }
+
+
+
+        function wroc() {
+        
+       
+
+            document.getElementById("strona_novigard").style.backgroundImage = "url('city.jpg')";
+           
+            alchemik.stop();
+
+
+            document.getElementById("lokacja").style.pointerEvents = 'auto';
+            document.getElementById("medytacja").style.pointerEvents = 'auto';
+         
+       
+        
+            document.getElementById("zlecenia").onclick = function() {
+                wybor_misji()
+            };
+
+
+
+            document.getElementById("miasto").innerHTML = "Novigrad";
+
+            status_zadan_mapa();
+
+
+            if (dziwka_zaliczona == 1) {
+                document.getElementById("uda").style.color = "dimgrey";
+                document.getElementById("uda").onclick = function() {
+                    za_malo_zlota()
+                };
+
+            } else {
+                document.getElementById("uda").style.color = "deeppink";
+                document.getElementById("uda").onclick = function() {
+                    zamtuz()
+                };
+
+            }
+
+
+        if (miasto_nr2 == 1) {
+            document.getElementById('strona_novigard').style.backgroundImage = "url('city2.jpg')";
+            $("#kowal").fadeTo(0, 0);
+            $("#zlotnik").fadeTo(0, 0);
+            $("#platnerz").fadeTo(0, 0);
+            document.getElementById("kowal").style.pointerEvents = 'none';
+            document.getElementById("zlotnik").style.pointerEvents = 'none';
+            document.getElementById("platnerz").style.pointerEvents = 'none';
+            } 
+            else if(miasto_nr3==1)
+            {
+            document.getElementById('strona_novigard').style.backgroundImage = "url('wyzima.jpg')";
+            $("#zlotnik").fadeTo(0, 0);
+            document.getElementById("zlotnik").style.pointerEvents = 'none';
+            } 
+            else {
+            $("#kowal").fadeTo(1, 1);
+            $("#zlotnik").fadeTo(1, 1);
+            $("#platnerz").fadeTo(1, 1);
+            document.getElementById("kowal").style.pointerEvents = 'auto';
+            document.getElementById("zlotnik").style.pointerEvents = 'auto';
+            document.getElementById("platnerz").style.pointerEvents = 'auto';
+            }
+
+
+
+
+        }
+
+
+
+        function novigard()
+
+        {
+
+            klik.play();
+            var liczba1 = Math.floor(Math.random() * 3) + 1;
+            if (liczba1 == 1)
+                walk1.play();
+            if (liczba1 == 2)
+                walk2.play();
+            if (liczba1 == 3)
+                walk3.play();
+
+            wiatr.stop();
+            $("#okno_teren").fadeOut(200);
+            setTimeout(droga3, 2000);
+        }
+
+
+        function ppl_zoom_out() {
+          
+       
+         
+            setTimeout(droga3, 0);
+        }
+
+
+
+
+        function droga3() {
+              document.getElementById('strona_novigard').style.backgroundImage = "url('city.jpg')";
+            $("#krypta_poziom").fadeOut(0);
+            document.getElementById("zlecenie_slot").style.borderStyle = "solid";
+            document.getElementById("miasto").style.borderStyle = "solid";
+
+
+
+            klik.play();
+            kosci_rzucone = 0; //by mozna bylo znowu grac u kupca w kosci
+            miasto_odwiedzone = 1;
+            //$("#cala_mapa").fadeOut(0);
+            wiatr.stop();
+      
+        
+            new_city.play();
+         $("#cala_mapa").transition({ scale:0,opacity:0}, 1000, 'ease');
+              $("#okno3").transition({ scale:1,opacity:1}, 1000, 'ease');
+  $("#okno_teren").transition({ scale:0,opacity:0}, 0, 'ease');
+         
+
+
+            if (plec_typ == 1)
+                document.getElementById("uda").innerHTML = '<i class="icon-heart"></i>' + " CHĘTNE UDA";
+
+            else if (plec_typ == 2)
+                document.getElementById("uda").innerHTML = '<i class="icon-heart"></i>' + " TWARDA PAŁA";
+
+            if (dziwka_zaliczona == 1) {
+                document.getElementById("uda").style.color = "dimgrey";
+                document.getElementById("uda").onclick = function() {
+                    za_malo_zlota()
+                };
+
+            } else {
+                document.getElementById("uda").style.color = "deeppink";
+                document.getElementById("uda").onclick = function() {
+                    zamtuz()
+                };
+
+            }
+
+            music_ambient.stop();
+            arrow_check();
+
+
+            if (miasto_nr2 == 1) {
+            document.getElementById('strona_novigard').style.backgroundImage = "url('city2.jpg')";
+            $("#kowal").fadeTo(0, 0);
+            $("#zlotnik").fadeTo(0, 0);
+            $("#platnerz").fadeTo(0, 0);
+            document.getElementById("kowal").style.pointerEvents = 'none';
+            document.getElementById("zlotnik").style.pointerEvents = 'none';
+            document.getElementById("platnerz").style.pointerEvents = 'none';
+            } 
+            else if(miasto_nr3==1)
+            {
+            document.getElementById('strona_novigard').style.backgroundImage = "url('wyzima.jpg')";
+            $("#zlotnik").fadeTo(0, 0);
+            document.getElementById("zlotnik").style.pointerEvents = 'none';
+            } 
+            else {
+            $("#kowal").fadeTo(1, 1);
+            $("#zlotnik").fadeTo(1, 1);
+            $("#platnerz").fadeTo(1, 1);
+            document.getElementById("kowal").style.pointerEvents = 'auto';
+            document.getElementById("zlotnik").style.pointerEvents = 'auto';
+            document.getElementById("platnerz").style.pointerEvents = 'auto';
+            }
+
+
+        }
+
+
+
+
+
+
+        function zindex() {
+            document.getElementById('player').className = "player_a";
+
+        }
+
+
+
+        function gif_out() {
+            lost.play();
+            document.getElementById(nazwa_gifa).className = "gif_out";
+            gif_zoom_out = 0;
+        }
+
+
+        function idz_dalej() {
+            document.getElementById("okno_teren").style.zIndex = 0;
+
+            wiatr.play();
+
+            kupiec_music.stop();
+            kroki();
+            document.getElementById("player").style.backgroundImage = "url('gif.gif')";
+            var czy_walka = Math.floor(Math.random() * 3) + 1;
+
+            po_evencie();
+
+            $("#cala_mapa").fadeIn(1500);
+            document.getElementById('strona_novigard').style.backgroundImage = "url('mapa2.jpg')";
+            kupiec_music.stop();
+
+            $("#okno_teren").fadeOut(0);
+            document.getElementById("lokacja").style.pointerEvents = 'none';
+            $("#zlecenie_slot").fadeOut(0);
+            $("#lokacja").fadeOut(0);
+            $("#medytacja").fadeOut(0);
+            $("#miasto").fadeOut(0);
+            $("#tekst").fadeOut(0);
+
+            setTimeout(sprawdz_kierunki_aktywne, 3000);
+        }
+
+
+       
+
+
+        function cofanie() {
+
+
+
+
+
+            if (kierunek == 6) {
+                $("#player").animate({
+                    top: 21,
+                    x: 7
+                }, 1200);
+                $("#player").animate({
+                    top: 0,
+                    x: 0
+                }, 2200);
+                kierunek = 5;
+            } else if (kierunek == 65) {
+                if (kierunek_sprawdzony == gdzie_zlecenie) {
+                    $("#player").animate({
+                        top: 21,
+                        x: 7
+                    }, 1200);
+                    $("#player").animate({
+                        top: 41,
+                        x: -7
+                    }, 2200);
+
+                } else
+                    $("#player").animate({
+                        top: 82,
+                        x: -63
+                    }, 2200);
+                kierunek = 6;
+            } else if (kierunek == 76) {
+                $("#player").animate({
+                    top: 100,
+                    x: 80
+                }, 1000);
+                kierunek = 7;
+                miasto_odwiedzone = 0;
+            } else if (kierunek == 3) {
+                $("#player").animate({
+                    top: -43,
+                    x: -150
+                }, 2200);
+                kierunek = 4;
+
+            } else if (kierunek == 34) {
+                $("#player").animate({
+                    top: -78,
+                    x: -12
+                }, 2200);
+                kierunek = 3;
+
+            } else if (kierunek == 5) {
+                $("#player").animate({
+                    top: -43,
+                    x: -150
+                }, 1200);
+                kierunek = 4;
+
+
+            } else if (kierunek == 2) {
+                $("#player").animate({
+                    top: -78,
+                    x: -12
+                }, 2200);
+
+                kierunek = 3;
+
+            } else if (kierunek == 8) {
+                $("#player").animate({
+                    top: 100,
+                    x: 160
+                }, 2000);
+
+                $("#player").animate({
+                    top: 100,
+                    x: 80
+                }, 1000);
+                kierunek = 7;
+                setTimeout(eventy, 3000);
+
+            }
+
+
+
+
+            sprawdz_kierunki_aktywne();
+
+
+        }
+
+
+
+
+        function kierunek_wlasciwy() {
+            kierunek = kierunek_temp;
+            sprawdz_kierunki_aktywne();
+
+        }
+
+
+
+
+        function powrot_na_trakt() {
+            if (liczba_escape == 1) {
+                $("#blood").fadeOut(400);
+                liczba_escape = 0;
+            }
+
+            droga2();
+
+        }
+
+        function inventory_box() 
+        {
+            
+jaka_szkola();
+            
+    if(plec_typ==2)
+       document.getElementById('logo').style.backgroundImage = "url('ona.png')";  
+    else
+          document.getElementById('logo').style.backgroundImage = "url('on.png')"; 
+           
+
+            
+            
+            
+            
+            miecz_znak();
+
+            document.getElementById("kill_counter").innerHTML = "Zabite potwory:" + " " + dead_monsters;
+
+            document.getElementById("zlecenie").innerHTML ="Zlecenie:" + "&nbsp &nbsp &nbsp" + zlecenie_typ2 + "&nbsp &nbsp &nbsp &nbsp" + "Status:" + "&nbsp &nbsp &nbsp" + zlecenie_status2;
+
+
+            document.getElementById("jaskolka").innerHTML = "Jaskolka:" + " " + jaskolka_amount;
+            document.getElementById("puszczyk").innerHTML = "Puszczyk:" + " " + puszczyk_amount;
+            document.getElementById("wilga").innerHTML = "Wilga:" + " " + wilga_amount;
+            document.getElementById("grom").innerHTML = "Grom:" + " " + grom_amount;
+
+
+
+
+            document.getElementById("weapon").innerHTML = "Miecz (wartość " + weapon_sell_value + ")";
+
+            document.getElementById("herbs").innerHTML = "Zioła:" + " " + herbs_amount;
+
+
+            document.getElementById("items").innerHTML = "Składniki:" + " " + skladniki_amount;
+            document.getElementById("skins").innerHTML = "Skóry:" + " " + skory_amount;
+            document.getElementById("runes").innerHTML = "Runy:" + " " + runy_amount;
+            document.getElementById("armour_info").innerHTML = nazwa_posiadanej_zbroi;
+            document.getElementById("armour_bonus").innerHTML = "Obrona:" + "&nbsp" + obrona_temp;
+
+            if (zbroja_magiczna_aktywna == 1) {
+                
+                var zycie = "Życie + " +zbroja_magiczna_zycie;
+                var kolor = zycie.fontcolor("red");
+                
+                
+                
+                nazwa_posiadanej_zbroi = nazwa_posiadanej_zbroi_magic;
+                document.getElementById("armour_info").innerHTML = nazwa_posiadanej_zbroi + " , " + kolor;
+            }
+
+
+            
+            
+
+
+            if (ring_1_aktywny == 0)
+                {
+                    document.getElementById("ring_info").style.color ="dimgrey"; 
+                document.getElementById("ring_info").innerHTML = "Brak pierścienia";
+                }
+            else
+                {
+                     document.getElementById("ring_info").style.color ="white";     
+                document.getElementById("ring_info").innerHTML = ring_1_name_kolor + "&nbsp" + ring_1_info + "&nbsp" + ring_1_value + "&nbsp" + ring_1_symbol;
+                }
+            
+            if (ring_2_aktywny == 0)
+                {
+                 document.getElementById("ring_info2").style.color ="dimgrey";     
+                document.getElementById("ring_info2").innerHTML = "Brak pierścienia";
+                }
+            else
+                {
+                document.getElementById("ring_info2").style.color ="white";     
+                document.getElementById("ring_info2").innerHTML = ring_2_name_kolor + "&nbsp" + ring_2_info + "&nbsp" + ring_2_value + "&nbsp" + ring_2_symbol;
+                }
+
+            
+             document.getElementById("artefakt").innerHTML = "Artefakty "+ artefacts +"/"+"5"; 
+            
+            if (devs == 0)
+                $("#ring_exitX").fadeOut(0);
+
+            if(cecha_na_zbroi==1)
+            zbroja_z_cechami();
+            
+            
+       
+      
+        }
+
+
+
+
+
+
+
+
+
+        function medytacja_end() {
+            klik.play();
+            $("#medytacja_window").fadeOut(500);
+            $("#tworzenie_eliksirow").fadeOut(0);
+            $("#opis_eliksirow").fadeOut(0);
+
+            $("#picie_eliksirow").fadeOut(0);
+
+        }
+ 
+          
+    </script>
+    </body>
+</html>

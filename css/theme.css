@@ -1,0 +1,186 @@
+.pace {
+  -webkit-pointer-events: none;
+  pointer-events: none;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+
+
+
+
+
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+
+  z-index: 2000;
+  position: fixed;
+  margin: auto;
+  top:270px;
+  left: -56px;
+  right: 0;
+  bottom: 0;
+  width: 200px;
+  height: 90px;
+  overflow: hidden;
+    color: red;
+}
+
+@font-face {
+  font-family: "own";
+  src: url("DoubleFeature21.ttf");
+  }
+
+.pace .pace-progress {
+
+
+
+
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+
+  display: block;
+  position: absolute;
+  right: 100%;
+  margin-right: -7px;
+  width: 93%;
+  top: 7px;
+  height: 14px;
+  font-size: 32px;
+  background: red;
+
+  line-height: 60px;
+
+   font-family: own; 
+    color: red;
+
+}
+
+.pace .pace-progress:after {
+  content: attr(data-progress-text);
+  display: inline-block;
+  position: fixed;
+  width: 45px;
+  text-align: right;
+  right: 0;
+  padding-right: 16px;
+  top: 4px;
+}
+
+.pace .pace-progress[data-progress-text="Loadaing data 0%"]:after { right: -200px }
+.pace .pace-progress[data-progress-text="Loadaing data 1%"]:after { right: -198.14px }
+.pace .pace-progress[data-progress-text="Loadaing data 2%"]:after { right: -196.28px }
+.pace .pace-progress[data-progress-text="Loadaing data 3%"]:after { right: -194.42px }
+.pace .pace-progress[data-progress-text="Loadaing data 4%"]:after { right: -192.56px }
+.pace .pace-progress[data-progress-text="Loadaing data 5%"]:after { right: -190.7px }
+.pace .pace-progress[data-progress-text="Loadaing data 6%"]:after { right: -188.84px }
+.pace .pace-progress[data-progress-text="Loadaing data 7%"]:after { right: -186.98px }
+.pace .pace-progress[data-progress-text="Loadaing data 8%"]:after { right: -185.12px }
+.pace .pace-progress[data-progress-text="Loadaing data 9%"]:after { right: -183.26px }
+.pace .pace-progress[data-progress-text="Loadaing data 10%"]:after { right: -181.4px }
+.pace .pace-progress[data-progress-text="Loadaing data 11%"]:after { right: -179.54px }
+.pace .pace-progress[data-progress-text="Loadaing data 12%"]:after { right: -177.68px }
+.pace .pace-progress[data-progress-text="Loadaing data 13%"]:after { right: -175.82px }
+.pace .pace-progress[data-progress-text="Loadaing data 14%"]:after { right: -173.96px }
+.pace .pace-progress[data-progress-text="Loadaing data 15%"]:after { right: -172.1px }
+.pace .pace-progress[data-progress-text="Loadaing data 16%"]:after { right: -170.24px }
+.pace .pace-progress[data-progress-text="Loadaing data 17%"]:after { right: -168.38px }
+.pace .pace-progress[data-progress-text="Loadaing data 18%"]:after { right: -166.52px }
+.pace .pace-progress[data-progress-text="Loadaing data 19%"]:after { right: -164.66px }
+.pace .pace-progress[data-progress-text="Loadaing data 20%"]:after { right: -162.8px }
+.pace .pace-progress[data-progress-text="Loadaing data 21%"]:after { right: -160.94px }
+.pace .pace-progress[data-progress-text="Loadaing data 22%"]:after { right: -159.08px }
+.pace .pace-progress[data-progress-text="Loadaing data 23%"]:after { right: -157.22px }
+.pace .pace-progress[data-progress-text="Loadaing data 24%"]:after { right: -155.36px }
+.pace .pace-progress[data-progress-text="Loadaing data 25%"]:after { right: -153.5px }
+.pace .pace-progress[data-progress-text="Loadaing data 26%"]:after { right: -151.64px }
+.pace .pace-progress[data-progress-text="Loadaing data 27%"]:after { right: -149.78px }
+.pace .pace-progress[data-progress-text="Loadaing data 28%"]:after { right: -147.92px }
+.pace .pace-progress[data-progress-text="Loadaing data 29%"]:after { right: -146.06px }
+.pace .pace-progress[data-progress-text="Loadaing data 30%"]:after { right: -144.2px }
+.pace .pace-progress[data-progress-text="Loadaing data 31%"]:after { right: -142.34px }
+.pace .pace-progress[data-progress-text="Loadaing data 32%"]:after { right: -140.48px }
+.pace .pace-progress[data-progress-text="Loadaing data 33%"]:after { right: -138.62px }
+.pace .pace-progress[data-progress-text="Loadaing data 34%"]:after { right: -136.76px }
+.pace .pace-progress[data-progress-text="Loadaing data 35%"]:after { right: -134.9px }
+.pace .pace-progress[data-progress-text="Loadaing data 36%"]:after { right: -133.04px }
+.pace .pace-progress[data-progress-text="Loadaing data 37%"]:after { right: -131.18px }
+.pace .pace-progress[data-progress-text="Loadaing data 38%"]:after { right: -129.32px }
+.pace .pace-progress[data-progress-text="Loadaing data 39%"]:after { right: -127.46px }
+.pace .pace-progress[data-progress-text="Loadaing data 40%"]:after { right: -125.6px }
+.pace .pace-progress[data-progress-text="Loadaing data 41%"]:after { right: -123.74px }
+.pace .pace-progress[data-progress-text="Loadaing data 42%"]:after { right: -121.88px }
+.pace .pace-progress[data-progress-text="Loadaing data 43%"]:after { right: -120.02px }
+.pace .pace-progress[data-progress-text="Loadaing data 44%"]:after { right: -118.16px }
+.pace .pace-progress[data-progress-text="Loadaing data 45%"]:after { right: -116.3px }
+.pace .pace-progress[data-progress-text="Loadaing data 46%"]:after { right: -114.44px }
+.pace .pace-progress[data-progress-text="Loadaing data 47%"]:after { right: -112.58px }
+.pace .pace-progress[data-progress-text="Loadaing data 48%"]:after { right: -110.72px }
+.pace .pace-progress[data-progress-text="Loadaing data 49%"]:after { right: -108.86px }
+.pace .pace-progress[data-progress-text="Loadaing data 50%"]:after { right: -107px }
+.pace .pace-progress[data-progress-text="Loadaing data 51%"]:after { right: -105.14px }
+.pace .pace-progress[data-progress-text="Loadaing data 52%"]:after { right: -103.28px }
+.pace .pace-progress[data-progress-text="Loadaing data 53%"]:after { right: -101.42px }
+.pace .pace-progress[data-progress-text="Loadaing data 54%"]:after { right: -99.56px }
+.pace .pace-progress[data-progress-text="Loadaing data 55%"]:after { right: -97.7px }
+.pace .pace-progress[data-progress-text="Loadaing data 56%"]:after { right: -95.84px }
+.pace .pace-progress[data-progress-text="Loadaing data 57%"]:after { right: -93.98px }
+.pace .pace-progress[data-progress-text="Loadaing data 58%"]:after { right: -92.12px }
+.pace .pace-progress[data-progress-text="Loadaing data 59%"]:after { right: -90.26px }
+.pace .pace-progress[data-progress-text="Loadaing data 60%"]:after { right: -88.4px }
+.pace .pace-progress[data-progress-text="Loadaing data 61%"]:after { right: -86.53999999999999px }
+.pace .pace-progress[data-progress-text="Loadaing data 62%"]:after { right: -84.68px }
+.pace .pace-progress[data-progress-text="Loadaing data 63%"]:after { right: -82.82px }
+.pace .pace-progress[data-progress-text="Loadaing data 64%"]:after { right: -80.96000000000001px }
+.pace .pace-progress[data-progress-text="Loadaing data 65%"]:after { right: -79.1px }
+.pace .pace-progress[data-progress-text="Loadaing data 66%"]:after { right: -77.24px }
+.pace .pace-progress[data-progress-text="Loadaing data 67%"]:after { right: -75.38px }
+.pace .pace-progress[data-progress-text="Loadaing data 68%"]:after { right: -73.52px }
+.pace .pace-progress[data-progress-text="Loadaing data 69%"]:after { right: -71.66px }
+.pace .pace-progress[data-progress-text="Loadaing data 70%"]:after { right: -69.8px }
+.pace .pace-progress[data-progress-text="Loadaing data 71%"]:after { right: -67.94px }
+.pace .pace-progress[data-progress-text="Loadaing data 72%"]:after { right: -66.08px }
+.pace .pace-progress[data-progress-text="Loadaing data 73%"]:after { right: -64.22px }
+.pace .pace-progress[data-progress-text="Loadaing data 74%"]:after { right: -62.36px }
+.pace .pace-progress[data-progress-text="Loadaing data 75%"]:after { right: -60.5px }
+.pace .pace-progress[data-progress-text="Loadaing data 76%"]:after { right: -58.64px }
+.pace .pace-progress[data-progress-text="Loadaing data 77%"]:after { right: -56.78px }
+.pace .pace-progress[data-progress-text="Loadaing data 78%"]:after { right: -54.92px }
+.pace .pace-progress[data-progress-text="Loadaing data 79%"]:after { right: -53.06px }
+.pace .pace-progress[data-progress-text="Loadaing data 80%"]:after { right: -51.2px }
+.pace .pace-progress[data-progress-text="Loadaing data 81%"]:after { right: -49.34px }
+.pace .pace-progress[data-progress-text="Loadaing data 82%"]:after { right: -47.480000000000004px }
+.pace .pace-progress[data-progress-text="Loadaing data 83%"]:after { right: -45.62px }
+.pace .pace-progress[data-progress-text="Loadaing data 84%"]:after { right: -43.76px }
+.pace .pace-progress[data-progress-text="Loadaing data 85%"]:after { right: -41.9px }
+.pace .pace-progress[data-progress-text="Loadaing data 86%"]:after { right: -40.04px }
+.pace .pace-progress[data-progress-text="Loadaing data 87%"]:after { right: -38.18px }
+.pace .pace-progress[data-progress-text="Loadaing data 88%"]:after { right: -36.32px }
+.pace .pace-progress[data-progress-text="Loadaing data 89%"]:after { right: -34.46px }
+.pace .pace-progress[data-progress-text="Loadaing data 90%"]:after { right: -32.6px }
+.pace .pace-progress[data-progress-text="Loadaing data 91%"]:after { right: -30.740000000000002px }
+.pace .pace-progress[data-progress-text="Loadaing data 92%"]:after { right: -28.880000000000003px }
+.pace .pace-progress[data-progress-text="Loadaing data 93%"]:after { right: -27.02px }
+.pace .pace-progress[data-progress-text="Loadaing data 94%"]:after { right: -25.16px }
+.pace .pace-progress[data-progress-text="Loadaing data 95%"]:after { right: -23.3px }
+.pace .pace-progress[data-progress-text="Loadaing data 96%"]:after { right: -21.439999999999998px }
+.pace .pace-progress[data-progress-text="Loadaing data 97%"]:after { right: -19.58px }
+.pace .pace-progress[data-progress-text="Loadaing data 98%"]:after { right: -17.72px }
+.pace .pace-progress[data-progress-text="Just few more seconds 99%"]:after { right: -15.86px }
+.pace .pace-progress[data-progress-text="Loadaing data 100%"]:after { right: -14px }
+
+
+.pace .pace-activity {
+  position: absolute;
+  width: 100%;
+  height: 28px;
+  z-index: 2001;
+  box-shadow: inset 0 0 0 2px white, inset 0 0 0 2px white;
+  border-radius: 5px;
+}
+
+.pace.pace-inactive {
+  
+  display: none;
+}

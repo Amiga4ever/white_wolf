@@ -1,0 +1,596 @@
+				<!DOCTYPE html>
+				<html>
+				<head>
+		
+
+				<!--  document.getElementById("skrzynki1").style.pointerEvents = 'none';
+				$("#bonusextrainfo").fadeTo(1000, 1);-->
+
+
+				<!-- <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=1.0, user-scalable=no"> 
+				<!-- <meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> tablet-->
+
+
+
+		
+		
+	
+		      <!-- phantom library, needed for Cordova api calls, added during build -->
+	        <!-- recommended location of your JavaScript code relative to other JS files -->
+                <script src="js/main.js"></script>
+      
+              <script src="js/app.js"></script>
+         <!--<script src="js/cordova.js"></script> -->
+	
+	
+			     <script type="text/javascript" charset="utf-8" src="js/jquery-3.1.1.js"></script>
+				<link rel="stylesheet" href="css/wiedzmin.css?v=34" type="text/css">
+		
+		<link rel="stylesheet" href="css/fonts.css?v=34" type="text/css">
+		
+		
+		
+				<link href="css/bootstrap.css" rel="stylesheet">
+				<script src="js/bootstrap.js"></script>
+				<audio id="play1" src="sfx/title.ogg"></audio>
+				<audio id="play2" src="sfx/start.ogg"></audio>
+				<audio id="play3" src="sfx/miecz1.ogg"></audio>
+                <audio id="play4" src="sfx/klik2.ogg"></audio>
+				<audio id="zlecenie2_sfx" src="sfx/magic1.ogg"></audio>
+
+				<script>
+				var zapis_obecny = 0;
+				var odczyt = 0;
+				var devs=0;
+                var life_amount;
+                    var klik=0;
+          var klik_zmiany=0;
+                    
+                    
+                    
+function onDeviceReady() 
+            {
+            console.log(StatusBar.hide);
+            console.log(navigator.vibrate);
+      
+                
+            document.addEventListener("backbutton", function(e) {
+            e.preventDefault();
+            return;
+            }, false);  
+                
+                
+    
+            document.addEventListener("backbutton", wyjdziesz, false);      
+
+            $(document).on('backbutton', function(e){
+            wyjdziesz();
+            });  
+                
+                 console.log("Dziala");     
+                
+                  
+}
+                    
+            function wyjdziesz() 
+                {
+                    
+                document.getElementById("zdarzenie").style.zIndex = 9000;
+                document.getElementById("zdarzenie_info").innerHTML = " ";
+                document.getElementById("zdarzenie_info2").innerHTML = " ";
+                document.getElementById("zdarzenie_info3").innerHTML = "Zapisz i wyjdź - koszt 15 złota ";  
+                document.getElementById("zdarzenie_info").className = "flash0";
+                document.getElementById('zdarzenie').style.backgroundImage = "url('zlecenie_art.jpg')";
+                document.getElementById("zdarzenie_info").innerHTML = "Chcesz wyjśc z gry?";
+                document.getElementById("zdarzenie_open").style.color = "red"
+                document.getElementById("zdarzenie_quit").style.color="green";
+                document.getElementById("zdarzenie_open").onclick = function() {
+                navigator.app.exitApp();
+                
+                
+                
+                };
+                document.getElementById("zdarzenie_quit").onclick = function() {
+                document.getElementById("zdarzenie").style.zIndex = 2001;
+                document.getElementById("zdarzenie_info3").style.borderStyle = "none";
+                zdarzenie_zanik_x()};
+                document.getElementById("zdarzenie_open").innerHTML = "Tak";
+                document.getElementById("zdarzenie_quit").innerHTML = "Nie";
+                zdarzenie_pokaz();
+                }
+
+
+
+            
+                                        function onDeviceReady() {
+
+        document.addEventListener("backbutton", wyjdziesz, false);
+    }
+          
+                    
+                    
+                    
+                   
+                    
+				function nowagra()
+				{
+                  
+       document.addEventListener("deviceready", onDeviceReady, false);
+  
+                    
+                    
+                    
+                document.addEventListener("backbutton", function(e) {
+            e.preventDefault();
+            return;
+            }, false);  
+                
+                
+           
+            document.addEventListener("backbutton", wyjdziesz, false);      
+
+            $(document).on('backbutton', function(e){
+            wyjdziesz();
+            });  
+                    
+                    
+                    var ekran = Math.floor(Math.random() * 2);
+                    
+                    if(ekran==0)
+                        {
+                     
+                            document.getElementById("nowa").style.color = "white";
+                            document.getElementById("continue").style.color = "white";
+                            document.getElementById("zmiany").style.color = "white";
+                            document.getElementById("support").style.color = "white";
+                            document.getElementById("credits").style.color = "white";
+                            document.getElementById("dotacje").style.color = "white";
+                            
+                            
+                            
+                            
+                            document.getElementById("strona").style.backgroundImage = "url('menu_new.jpg')";
+                                  $("#strona").fadeIn(500);
+                        }
+                        else
+                            {
+                                               document.getElementById("nowa").style.color = "black";
+                            document.getElementById("continue").style.color = "black";
+                            document.getElementById("zmiany").style.color = "black";
+                            document.getElementById("support").style.color = "black";
+                            document.getElementById("credits").style.color = "black";
+                            document.getElementById("dotacje").style.color = "black";
+                               document.getElementById("strona").style.backgroundImage = "url('menu_new2.jpg')";
+                                $("#strona").fadeIn(500);
+                            }
+                    
+                    
+
+                    
+                    
+                    
+					document.getElementById('play1').play();
+					zapis_obecny = localStorage.getItem('zapis_obecny');
+					artefacts = parseInt(localStorage.getItem('artefacts')); 
+					if(artefacts>=0)
+					{ 
+					document.getElementById('continue').style.pointerEvents="auto";    
+					$("#continue").fadeIn(0);
+                }           
+				}
+
+
+
+				function playSound2()
+				{
+				document.getElementById('play2').play();
+				$("#statystyki").fadeIn(2000);
+				$("#mainscreen").fadeOut(0);
+				}
+
+                    function start_game(value)
+                    {
+	$("#osoby").fadeOut(100);
+						$("#device").fadeIn(100);
+					
+						document.getElementById("strona").style.opacity = "0.1";              
+						document.getElementById("zmiany").style.pointerEvents="none";                    
+				
+                        
+						if(value==1)
+						{
+						odczyt= 0;
+						document.getElementById('play2').play();
+						}
+
+						if(value==2)
+						{
+						odczyt= 1;
+						document.getElementById('zlecenie2_sfx').play();
+						}
+
+						localStorage.setItem('odczyt', odczyt);
+						
+
+
+						}
+                  
+
+
+                function game2()
+				{
+				window.location.href = "novigrad2.html";
+				}
+                    
+                    
+                    
+                    
+				function game()
+				{
+				window.location.href = "novigrad.html";
+				}
+
+				function mobile()
+				{
+             
+	
+				
+				document.getElementById('play4').play();
+                    	$("#device").fadeOut(1500);
+				$("#strona").fadeOut(1500);
+				setTimeout(game, 1500);
+				}
+
+
+		function tablet()
+				{
+					document.getElementById('play4').play();
+                    	$("#device").fadeOut(1500);
+				$("#strona").fadeOut(1500);
+				setTimeout(game2, 1500);
+				}
+                    
+                    
+                    
+                    
+
+
+                 
+                  
+ 
+
+				</script>
+				</head>
+				<body onload="nowagra();">
+				</br>
+				<div  class="container text-center">
+				<div id="strona">
+			     <div  class="menu">
+				<div  class="changes" id="nowa" font-family: own; onclick="start_game(1);" >Nowa gra</div>
+                     	</br>	</br>	</br>	</br>
+				<div  class="changes" id="continue" onclick="start_game(2);" >Kontynuacja</div>
+                    	</br>	</br>	</br>	</br>
+				<!--<button  class="btn-default"id="buttonXb" onclick="changes_show();" ></button> -->
+				<div class="changes" id="zmiany" onclick="changes_show();" >
+					 Zmiany 2.0.7
+				</div>
+                    	</br>	</br>	</br>	</br>
+               <div class="changes" id="dotacje" ONCLICK="window.location.href='https://www.paypal.me/MarcinKrupinski'"  >
+					 Dotacje
+				</div></br></br></br></br>
+                <div class="changes"  id="support" ONCLICK="window.location.href='http://marcinkrupinski.pl/wolf'"  >
+					 Support
+				</div></br></br></br></br>
+                 <div class="changes" id="credits" onclick="credits_show();" >
+					 Credits
+				</div>
+                </div>
+                    
+				<div id="autorzy">
+				</br>            
+				<div id="autor" >
+                    <p  >&copy MK games 2017 </br> Wersja 2.0.7</p>
+				</div>
+			
+		
+				</div>
+
+				<div id="changes_list" > <spam style="color:cadetblue;">Lista poprawek 2.0.7 [02.08.2017]</spam>
+
+</br></br>
+
+
+<spam style="color:green;">Wersja 2.0.7</spam></br>
+	- Gdy podczas ucieczki udzerzy potwór to traci się życie odpowiadające poziomowi postaci</br> 
+	- Ulepszona Jaskółka daje +2 zamiast +3</br> 
+	- Zwiększona składnik potrzebny do zrobienia jaskółki o 1 i obniżono zioło potrzebne do gromu o 2</br> 
+	- Efekty pozytywne z Zamtuzy trwają 1 walke dłużej i obnizono koszt usługi o 2 złota</br>
+	- Gdy walczymy z więcej niż 1 potworem to koncentracja między tymi walkami nie spada</br>
+	- Przywrócono pierścien Furii ponownie do kupienia</br>
+	- Przeciwnik ogłuszony nie jest już zdowlny do uniku</br>
+	- Dodano 10% ,że znak chybi</br>
+	- Bandyci nie mają już tylko 1hp</br>
+	- Atak Upadłego Rycerza został zwiekszony</br>
+	- Naprawiono błąd z Upadłą Trójcą i jaskinią po pokonaniu skorpiona</br>
+
+                    
+
+
+<spam style="color:green;">Wersja 2.0.4</spam></br>
+ - Dodano 4 szkoły cechu Wilka,Kota,Gryfa i Niedźwiedzia podczas wyboru postaci. Każda szkoła zapewnia inne bonusy.</br> 
+ - Zwiększona ilość złota na wyższych poziomach postaci</br> 
+  - Mikstura leczenia +10 kosztuje 10 złota zaś ulepszona +15 kosztuje 15 złota. </br> 
+  - Dodano Endgame - po zdobyciu 5 artefaktów</br>
+     - Szereg innych usprawnień</br>
+   ---------------------------------------------------------------</br>
+<spam style="color:green;">Wersja 2.0</spam></br>
+ - Zmniejszenie czcionki względem jej przypadkowego zwiększenia w poprzedniej aktualizacji</br> 
+ - Szereg poprawek i zmian w balansie</br> 
+  - Nadanie broni lub zbroi cech specjalnych podnosci wartość sprzedaży o 15</br> 
+  - Wyeliminowanio w pełni zawieszanie aplikacji powstałe kilka aktualizacji wstecz</br> 
+   ---------------------------------------------------------------</br>
+
+<spam style="color:green;">Wersja 1.9.2</spam></br>
+  - Szereg mniejszych lub większych poprawek</br> 
+  - Od teraz po ulepszeniu broni na maksimum można nadac specjalna właściwośc taka jak: Krwawienie, Ogłuszenie lub Wampiryzm.</br> 
+   ---------------------------------------------------------------</br>
+
+<spam style="color:green;">Wersja 1.9.1</spam></br>
+- Dodano zapis z poziomu Medytacji</br> 
+   ---------------------------------------------------------------</br>
+<spam style="color:green;">Wersja 1.8</spam></br>
+- Kilka innych poprawek</br> 
+   ---------------------------------------------------------------</br>
+<spam style="color:green;">Wersja 1.7.8</spam></br>
+- Kilka innych poprawek</br> 
+- Dodano sklep alchemiczny u Mathei z receptami na mocniejsze eliksiry</br>
+- Dodano nową misję, zmieniono misję z bandytami, dodano zdarzenia losowe na drugiej części mapy</br>
+- Naprawiono problem niemozżności otworzenia panelu postaci zanim wejdzie się do miasta po wczytaniu gry</br></br></br>
+   ---------------------------------------------------------------</br>
+
+
+
+<spam style="color:green;">Wersja 1.7.4</spam></br>
+- Od teraz mozna uzyskać 3 miksturę leczenia oraz ją wzmocnić u Mathei</br>  
+- Od teraz są dwa poziomy wiedźmińskich eliksirów</br>  
+- Dodano informację w trakcie walkiile życia uzupełnia Jaskółka</br>  
+- Zmodyfikowano trochę pierwszy dialog z Druidem</br> 
+- Dodano sklep alchemiczny u Mathei z receptami na mocniejsze eliksiry</br>
+- Zbalansowano bardziej rozgrywkę</br>
+- Naparwiono sporo błędów wizualnych jak i technicznych</br></br></br>
+   ---------------------------------------------------------------</br>
+<spam style="color:green;">Wersja 1.7.3</spam></br>
+- Po ulepszeniu zbroi na maksa dostajemy możliwość nadania losowej właściwości magicznej</br>
+- Poprawiono kilka błędów wykrytych przez mojego najlepszego testera - Matheę</br></br>
+---------------------------------------------------------------</br>
+
+<spam style="color:green;">Wersja 1.7</spam></br>
+- Naprawiono znikający Xp. Zostanie odzyskany po wczytaniu gry</br>
+- Naprawiono wyświetlanie mapy po zabiciu Bandytów</br>
+- Naprawiono dialog z Matheą odnośnie bariery koło Pirmamidy</br>
+- Dodano misje po dostaniu się do Wyzimy</br></br></br>
+   ---------------------------------------------------------------</br>
+<spam style="color:green;">Wersja 1.6.9</spam></br>
+- potwory ze Zlecenia mają teraz zawsze jakąś odporność</br>  
+- dodano na mapie limit zabić na cmentarzu</br>  
+- Naprawiono błędy wynikające z poprzedniej aktualizacji: niemożnośc ruchu na tablecie, sła mapa ze skrótem po pokonaniu bandytów i kilka innych</br> 
+- Zwiększono atak Upiora w krypcie i Magicznego Straznika w wieży</br>
+- Po stworzeiu lub wypiciu mikstury okno zostaje automatycznie zamknięte</br>
+- Dialog z Mathe'ą został naprawiony</br> 
+- Poziom Wieży na mapie został przywrócony po wczytaniu gry</br> 
+- Pierścień Szkolenia został usunięty</br> 
+- Walka z nietoperzem przed piramidą naprawiona</br> 
+- Potwory z Legowiska mają pomniejszony atak maksymalny</br> 
+- Okno tworzenia zbroi ze schematu otwiera się już normalnie</br> 
+- Pancerze nowe nie pojawiają się tylko wtedy gdy kupimy dostępny. Teraz odbywa się to czasowo</br> 
+- Przywrócono walke w Jaskini z trolem. Po ostatniej aktualizacji jej nie było</br> 
+- Po wygraniu w kości z kupcem napis na innych oknach juz nie świeci</br> 
+- Dodano chmurki :) </br> 
+- Pierścien bogactwa daje teraz 20%, 30% lub 40% na wyższych poziomach</br> 
+- Mając maksymalny poziom koncentracji ni spada juz do 0 podczas ucieczki</br>
+- Okno rozdzielania punktów zostało powiększone oraz zmieniona czcionka </br>
+- Koncentracja po wypiciu Puszczyka rgeneruje 2 zamiast błędnych 3</br>
+- Legowisko i Grota potworów maja teraz min poziom/ilość "poziom gracza+1"</br></br></br>
+   ---------------------------------------------------------------</br>
+<spam style="color:green;">Wersja 1.6.6</spam></br></br>
+- Zmieniono chatkę maga. Teraz jest to zielarka Mathea i ma związek z fabułą </br> 
+- Zwiększono wymagania XP na wyższych poziomach </br>
+- Zmieniono misje z Upadłym Rycerzem by współgrała z fabułą </br>
+- Dodano fabułę!</br>
+- Pierścień Siły teraz dodaje +2 siły a powyżej 3 lvl +3 </br></br></br></br>
+<spam style="color:green;">Wersja 1.6.5</spam></br>
+- Modyfikacje wielkości poszczególnych okien </br> 
+- Zmieniono chatkę maga. Teraz jest to zielarka Mathea i ma związek z fabułą </br> 
+- Zwiększono wymagania XP na wyższych poziomach </br>
+- Zmieniono misje z Upadłym Rycerzem by współgrała z fabułą </br>
+- Dodano fabułę!</br>
+- Pierścień Siły teraz dodaje +2 siły a powyżej 3 lvl +3 </br></br></br></br>
+   ---------------------------------------------------------------</br>
+- Przy pierwszej walce Atak znakiem pokazuje Moc 60% zamiast domyslnej wartości</br>
+- Magiczny Golem posiada już poprawne statystyki</br>
+- Pierścień Bogactwa i Szkolenia pokazują już poprawne wartości</br></br></br></br>
+   ---------------------------------------------------------------</br>
+- dodatkowy ekran główny (uruchamiane sa losowo)</br>
+- naprawiono zmiane nazwy ze Zlecenia Wiedźmińskiego gdy odbieraliśmy nagrodę</br>
+- Naprawiono błąd podczas tworzenia zbroi ze schematu</br>
+- Naprawiono grę w kości</br>
+- Siła kosztuje 2 pkt umiejętności aż do uzyskania poziomu 5. Póżnioej koszt wynosi 3</br>
+- Pierscień Wiedzy został usunięty, zaś pierscień Magii dodaje równiez szansę na trafienie krytyczne znakiem.</br>
+- Grom nie odejmuje już dolngo ataku i zamiast blokowac koncentrację spowalnia jej odnowę o 50%</br>
+- Przebudowano zasadę rzucania znaku. Moc zalezna od ilości użytej koncentracji</br></br></br></br>
+   ---------------------------------------------------------------</br>
+- Dodano osoby zaangażowane w pomoc</br>
+- Zmiana statystyki potworów ze zlecenia</br>
+- Podczas walki z cieniem w krypcie był błąd z wyświetlaniem ilości potworów</br>
+- Mając ring bogactwa zamiast % dodać informacje ile złota się dostało extra</br>
+- Krytyczny cios nie działa już na potwory odporne na bron</br>
+- Po wczytaniu gry wieża i piramida wracałą do poziomu 1</br>
+- Idac do obozu przez skróty nie aktywowała się walka z magiem</br>
+- Naprawiono wyświetlanie nowej czcionki</br>
+- Siła gromu zależna jest teraz od poziomu postaci</br>
+- Ulepszono schemat zbroi magicznej</br>
+- Kilka innych poprawek wizualnych jak i w balansie</br></br></br></br>
+   ---------------------------------------------------------------</br>
+- Masa wszelakich usprawnień </br>
+- Zmieniono czcionkę</br> 
+- Dodano mozliwośc save'a podczas wyjścia z gry</br> 
+- Dodano nazwy miast</br> </br></br></br>
+  ---------------------------------------------------------------</br>
+- Dodano silniejszego potwora przed skarbem w jaskini, Piramidzie i Piramidzie</br>
+- Szereg poprawek w balansie</br> 
+- Naprawiono kilka mniejszych błędów</br> 
+- Szereg wizualnych poprawek</br> 
+- Zmieniono sposób naliczania ataku broni oraz ich wariacje dostępne u kowala</br>
+- Dodano skrót do obozu bandytów w chwili ich pokonania</br>
+  ---------------------------------------------------------------</br>
+- Zwiększono życie bandytów i dodano lepszą nagrodę za ich eliminację</br> 
+- Naprawiono błąd znikania szczura po zabiciu jednego z bandytów</br> 
+- Naprawiono błąd z tworzeniem zbroi ze schematu</br> 
+- Zmieniono parametry i dostępność broni w ukowala</br> 
+- Wibracje juz nie działają gdy przeciwnik chybi</br>
+- Naprawiono błąd z brakiem menu po wyjściu z gry w kości</br>
+  ---------------------------------------------------------------</br>
+- I wiele innych usprawnień....</br>
+- Poprawiono wygląd okien</br> 
+- Dodano obóz bandytów i chatę maga</br> 
+- Naprawiono brak menu w zamtuzie</br> 
+- Zbalansowana ilość XP potrzebną do awansu</br> 
+- Zmieniono system pojawiania się broni u kowala</br>
+- Naprawiono błąd z odczytywaniem gry</br>
+  ---------------------------------------------------------------</br>
+- Dodano link do strony gdzie mozna zgłaszać błędy lub uwagi dotyczące gry</br>
+- Naprawiono błąd który powodował otrzymanie dodatkowej 3-ciej mikstury leczenia</br> 
+- Kilka mniejszych usprawnień wizualnych</br> 
+- Zbalansowano ilośc złota otrzymywana z potworów oraz wymagania XP co do leveli</br> 
+- Naprawiono błąd związany z brakiemj wyboru rozmiaru ekranu podczas kontynuowania gry</br> 
+- Naprawiono błąd związany z piramidą podczas wczytywania gry</br>
+- Poprawiono animację okien w mieście</br>
+  ---------------------------------------------------------------</br>
+- Naprawiono błąd z brakiem musyki podczas walki w wieży</br> 
+- Naprawiono błąd z dośiadczeniem po uzyskaniu poziomu w mieście</br>
+- Naprawiono blokowanie gracza grania po pokonaniu szczura</br>
+- Zmniejszono długość vibracji</br>
+- Poprawiono błąd z tworzeniem Wilgii</br>
+- Dodano zanik okien podczas animacji</br>
+- Naprawiono błąd z zadaniem w drugim mieście</br>
+ ---------------------------------------------------------------</br>
+- Wersja 1.3.1 zawiera poprawkę dwóch krytycznych błędy wykrytych podczas kompilacji 1.2.6</br>
+- Dodano "SUPPORT" - miejsce do zgłaszania błędów (jeszcze nieaktywne)</br>
+- Naprawiono błąd z save'em</br>
+- Drastycznie poprawiono płynnośc gry</br>
+- Całkowicie przebudowano animacje okien</br>
+ ---------------------------------------------------------------</br>
+- Wyłączono niebieską poświatę po kliknięciu na pole</br>
+- Dodano przycisk 'wstecz' by umożliwić wyjście z gry</br>
+- Znacząco poprawiono płyność gry</br>
+ ---------------------------------------------------------------</br>
+- Dodano nowy typ zdarzenia losowego  'Grota'</br>
+- Po wyjściu z drugiego miasta mozliwe jest ponowne wejście bez konieczności ruchu </br>
+- Zmniejszono minimalny atak potworów na Cmentarzu </br>
+- Odpornośc na ciosy jeszcze bardziej redukuje uderzenie </br>
+- Zwiększono ilośc poziomów w Piramidzie z 5 do 12</br>
+- Gdy gracz znajduje się na polu ze zleceniem możliwe jest ponowne otworzenie okna informacyjnego bez konieczności ruchu</br>
+- Naprawiono błąd z ilością zycia podczas sprzedaży pierścienia 'Życia'</br>
+- Naprawiono błędy graficzne podczas ucieczki w trakcie walki z Upadłym Rycerzem</br>
+- Naprawiono błąd ze zniszczoną wieżą do której nie mozna było wejśc po wygranej walce</br>
+- Przywrócono muzykę podczas walki ze szczurem oraz zmieniono tło walki</br>
+- Zredukowano liczbę potworów w zdarzeniu Legowisko Potwora</br>
+- Od teraz po walce otrzymać można maksymalnie 1 składnik lub 1 skórę</br>
+- Poprawiono opis Jaskółki</br>
+- Wilga od teraz także redukuje uderzenie 0 30%</br></br></br></br></br></br></br></br>
+ <SPAM STYLE="COLOR:GREEN;">POPRZEDNIE POPRAWKI</SPAM></br>
+ ---------------------------------------------------------------</br>
+- Dodano odgłos bicia serca gdy energia jest poniżej 1/3 ogólnego stanu zdrowia</br>
+- Zmieniono ilość ziół i składników potrzebnych do tworzenia elixirów</br>
+- Zmniejszono o 10 życie niedźwiedzia w Jaskini</br>
+- Zwiększono ilość poziomów w krypcie do 12</br>
+- Składniki od teraz wypadają tylko z potworów lub z nowego zdarzenia losowego</br>
+- JASKÓŁKA od teraz leczy 10% życia zamiast 2pkt</br>
+- PUSZCZYK zwiększa również szansę na blok o kolejne 20%</br>
+- GROM zwiększa jeszcze bardziej gorną granicę ataku </br>
+- zmniejszono wymagania odnośnie run podczas ulepszania zbroi</br>
+- zmieniono ceny ulepszenia broni i zbroi</br>
+---------------------------------------------------------------</br>
+- dodano nowy typ zdarzenia losowego - Legowisko potworów</br>
+- kolejne zbroje i bronie pojawią się w sklepach po kupieniu obecnej dostępnej lub po uzyskaniu kolejnego poziomu doświadzcenia</br>
+- zmniejszono koszt zakupu broni</br>
+- zmniejszono wymagania odnośnie run podczas ulepszania zbroi</br>
+- poprawiono tekst w kilku miejscach</br>
+- dodano kilka nowych grafik</br>
+- zmieniono wymagania XP na kolejnych poziomach postaci</br>
+- dodano zwrot złota za posiadaną zbroję</br>
+- dodano informację o wartości posiadanej zbroi w menu ekwipunku</br>
+---------------------------------------------------------------</br>
+- zmieniono obliczanie ataku podczas walki z odpornym przeciwnikiem</br>
+- zbalansowano walkę w krypcie z bosem</br>
+- przeciwnik z odpornościa daje więcej XP</br>
+- zmieniono system przyznawania doświadczenia 'XP'</br>
+- zmieniono ceny i sposób dostępności broni u kowala</br>
+---------------------------------------------------------------</br>
+- dodano szczura koło wieży</br>
+- wiele mniejszych usprawnień wizualnych</br>
+- nowe elementy graficzne</br>
+---------------------------------------------------------------</br>
+- kilka zmian graficznych</br>
+- dodano 10 poziomów w piramidzie </br>
+- dodano usługi leczenia u kupca</br>
+- dodano 10 poziomów w wieży </br>
+---------------------------------------------------------------</br>
+- usunięto problem z menu u kupca</br>
+- dodano 12 poziomów w jaskini oraz jednorazową mozliwośc gry w kości z krasnalem </br>
+- dodano losową odpornośc na magię <spam style="color:deepskyblue">[^]</spam> lub ciosy  <spam style="color:red">[||]</spam> dla prezciwników</br>
+---------------------------------------------------------------</br>
+- dodano wskaźnik poziomu krypty po pokonaniu  Draculi</br>
+- dodano wskaźnik ilości zabić na cmentarzu</br>
+- wyeliminowano błąd ekranu ekwipunku</br>
+- obnizono cenę usług w Zamtuzie do 12</br>
+- pierścień wiedzy nie dodaje już podwójnej koncentracji podczas wczytywania gry</br>
+- szereg innych usprawnień</br>
+---------------------------------------------------------------</br>
+<br>
+- dodano kilka dodatkowych animacji</br>
+- dodano nowy typ misji w drugim mieście</br>
+- dodano więcej strzałek informujących</br>
+- dodano animację podczas roapoczęcia walki</br>
+- mikstury leczenia +10 do użycia podczas walki</br>
+- podczas kupna broni otrzymuje się 1/3 zwrotu za broń już posiadaną</br>
+- zwiększono ilość poziomów w katakumbach po pokonaniu Draculi do 10</br>
+- zwiększono częstotliwość zdobywania złota i przedmiotów po walce</br>
+- poprawki w balansie</br>
+- naprawiono błąd przy misji z Upadłym Rycerzem i z Jaskinią</br>
+- zwiększona została reakcja na ruchu po mapie</br>
+- wyeliminowano szereg napotkanych błędów</br>
+</br></br>
+
+				</div>
+				<button class="btn-primary"style="font-size:20px;" id="changes_button" onclick="changes_close();">Zamknij</button>
+
+
+				</div>
+				
+				<div id="osoby">
+              <spam style="color:red;">Osoby, którym jestem wdzięczny:</spam> </br>
+             </br>   DiabloManiak </br>
+                Mathea </br>
+                CzareQ</br>
+                Marek</br>
+                Robson </br>
+                
+                
+     
+            </div>
+            
+<div id="device">
+    </br></br></br>
+    <spam style="color:white; font-size:46px;font-family: 'morph';">Wybierz rozmiar ekranu</spam>
+    <br><br></br></br>
+<button class="btn-default" style="height:50px; width:150px; font-size:32px; color:red; font-family:'morph';" onclick="mobile();"> Telefon</button> &copy&copy&copy
+<button class="btn-default"  style="height:50px; width:150px; font-size:32px; color:red; font-family:'morph';" onclick="tablet();"> Tablet</button>
+</div>
+          
+            
+            
+				</div>
+
+				</body>
+				</html>
