@@ -1,6 +1,6 @@
 body
 {
-  
+
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: auto;
@@ -21,7 +21,7 @@ body
 }
 
 
-      
+
 
 #city_novigard
 {
@@ -32,12 +32,12 @@ body
     margin-top:430px;
     margin-left:290px;
     position:absolute;
-    
+
 }
 
 #city_oxenfurt
 {
-    
+
       opacity:.8;
         position:absolute;
     font-family: "morph";
@@ -49,7 +49,7 @@ body
 
 #city_wyzima
 {
-    
+
     font-family: "morph";
       font-size: 26px;
     color:white;
@@ -61,7 +61,7 @@ body
 
 #city_elander
 {
-    
+
      font-family: "morph";
      font-size: 26px;
     color:white;
@@ -78,7 +78,7 @@ body
 
 #device
 {
-    
+
 width: 600px;
     height: 330px;
     border: 5px ridge grey;
@@ -89,7 +89,7 @@ width: 600px;
     position: relative;
 
     display:none;
-    
+
 }
 
 @font-face {
@@ -114,8 +114,8 @@ width: 600px;
 
 #continue
 {
-display:none;    
-    
+display:none;
+
 }
 
 
@@ -125,27 +125,27 @@ display:none;
     margin-top: 100px;
     display: flex;
     position: absolute;
-    
+
 }
 
 #wyjscie_tak
 {
-z-index:9000;    
-    
-    
+z-index:9000;
+
+
 }
 
 
 th
 {
     color:white;
-    
+
 }
 
 table
 {
     padding: 5px;
-    
+
 }
 
 #nagrody
@@ -156,8 +156,8 @@ table
 	margin-right: auto;
     display: inline-block;
 
-    
-    
+
+
 }
 
 #polowanie_zadanie
@@ -197,8 +197,8 @@ table
 
 
 }
-    
-    
+
+
 
 
 
@@ -218,7 +218,7 @@ font-size:22px;
 
    text-shadow:
        2px 2px 0 #000,
-     -1px -1px 0 #000,  
+     -1px -1px 0 #000,
       1px -1px 0 #000,
       -1px 1px 0 #000,
        1px 1px 0 #000;
@@ -229,8 +229,8 @@ position: relative;
     padding:10px;
     letter-spacing: 2px;
     line-height:1.5
-    
-    
+
+
 }
 
 #changes_button
@@ -246,19 +246,22 @@ z-index: 2000;
 margin-left: 60px;
     margin-top: 150px;
 font-size:38px;
-   font-family: morph; 
+   font-family: morph;
     color:black;
   letter-spacing: 3px;
- 
+
     transition: all .5s ease-in-out;
     position: absolute;
     font-weight: bold;
 
 }
 
+
+
+
 .changes:hover
 {
-    
+
    transform: scale(1.2);
 }
 
@@ -292,12 +295,41 @@ font-size:38px;
 
 }
 
+
+
+
+#sql
+{
+	position: absolute;
+			color:white;
+	font-family: "morph";
+	margin-left: 400px;
+			margin-top: 190px;
+			font-size: 36px;
+	background-color: rgba(0,0,0,.8);
+	font-weight: bold;
+	padding:20px;
+border:4px ridge grey;
+	letter-spacing: 5px;
+	width:730px;
+transition: all .5s;
+color:white;
+
+}
+
+.center-block
+{
+	display: block;
+margin-left: auto;
+margin-right: auto;
+
+}
 #autorzy
 {
 position: relative;
- margin-top: 240px;
+ margin-top: 170px;
 margin-left: 120px;
-  
+
 }
 
 #buttonX
@@ -343,7 +375,7 @@ font-family: "morph";
     height:300px;
     opacity: 0;
     transform: scale(0);
-        
+
 }
 
 #imie_pytanie
@@ -364,7 +396,7 @@ font-family: "morph";
 
 #plec_ona, #plec_on
 {
-    
+
    font-family: "morph";
     margin-top: 100px;
 }
@@ -405,21 +437,21 @@ font-family: "morph";
 {
     height:450px;
     margin-left: 250px;
-    
+
 }
 
 #new_medytacja_okno
 {
-    
+
         margin-left: 251px;
-    
+
 }
 
 #new_medytacja_okno_pij
 {
-    
+
     margin-left: 250px;
-    
+
 }
 
 
@@ -593,7 +625,7 @@ letter-spacing: 3px;
 text-align: center;
 background-color: rgba(0,0,0,0.3);
 display:none;
-  
+
 }
 
 
@@ -744,7 +776,7 @@ opacity:.7;
     text-align: center;
 display: none;
 z-index: 11;
-    
+
 
 }
 #arrow5
@@ -836,8 +868,8 @@ transition: transform 1s  ease-in-out ;
 
 .golem_z
 {
-     z-index: 500; 
-    
+     z-index: 500;
+
 }
 
 
@@ -856,7 +888,7 @@ transition: transform 1s  ease-in-out ;
     vertical-align: middle;
     line-height: 381px;
     text-align: center;
-  
+
       display:none;
 transition: transform 1s  ease-in-out ;
 }
@@ -864,7 +896,7 @@ transition: transform 1s  ease-in-out ;
 .blob_z
 {
       z-index: 500;
-    
+
 }
 
 
@@ -1079,7 +1111,7 @@ transition: transform 1s  ease-in-out ;
 {
      z-index: 220;
 
-    
+
 }
 
 
@@ -1119,7 +1151,7 @@ transition: transform 1s  ease-in-out ;
     vertical-align: middle;
     line-height: 381px;
     text-align: center;
-  
+
 transition: transform 1s  ease-in-out ;
     transform: scale(1.3);
 
@@ -1268,7 +1300,7 @@ opacity:0;
     line-height: 381px;
     text-align: center;
     z-index: 1850;
-   
+
 
 
 }
@@ -1289,8 +1321,8 @@ opacity:0;
     vertical-align: middle;
     line-height: 381px;
     text-align: center;
-    
-   
+
+
 
 
 }
@@ -1322,7 +1354,7 @@ opacity:0;
 
 #ship_gif3
 {
-	
+
 	background-image: url("ship_gif.gif");
     width: 56px;
     height: 48px;
@@ -1483,7 +1515,7 @@ display:none;
     margin-left: 1047px;
     margin-top: 236px;
   z-index: 500;
-   
+
 
 }
 
@@ -1497,7 +1529,7 @@ display:none;
     margin-left: 1040px;
     margin-top: 342px;
   z-index: 700;
-   
+
 
 }
 
@@ -1510,7 +1542,7 @@ display:none;
     margin-left: 906px;
     margin-top: 306px;
   z-index: 300;
-   
+
 
 }
 
@@ -1523,7 +1555,7 @@ display:none;
     margin-left: 597px;
     margin-top: -24px;
   z-index: 300;
-   
+
 
 }
 
@@ -1548,7 +1580,7 @@ display:none;
     height: 24px;
     margin-left: 1010px;
     margin-top: 340px;
-  
+
    animation-iteration-count: infinite;
     animation-timing-function: linear;
     transform-origin: 50% 50%;
@@ -1575,7 +1607,7 @@ display:none;
 
 #wiatrak_spinning
 {
-    
+
     margin-left: -20px;
 margin-top: 60px;
     z-index: 1500;
@@ -1606,7 +1638,7 @@ margin-top: 60px;
     margin-left: 1030px;
     margin-top: 340px;
   z-index: 300;
-   
+
 
 }
 
@@ -1664,7 +1696,7 @@ margin-top: 60px;
     vertical-align: middle;
     line-height: 381px;
     text-align: center;
-   
+
 
 
 }
@@ -1695,7 +1727,7 @@ margin-top: 60px;
 
 #zabicia
 {
-position: absolute;  
+position: absolute;
     margin-left: 450px;
     margin-top: 420px;
 font-size: 18px;
@@ -1716,7 +1748,7 @@ background-color: rgba(0,0,0,.3);
 #soldier
 {
 	position: absolute;
-	
+
     width: 31px;
     height: 63px;
     margin-left: 230px;
@@ -1927,7 +1959,7 @@ display: none;
     z-index: 5700;
     font-size: 13px;
 
-    
+
 }
 
 #mainscreen
@@ -2548,7 +2580,7 @@ background-image: linear-gradient(to bottom, #000000, #1a1c23);
     ;
     text-align: center;
      font-family: "morph";
-  
+
 }
 
 
@@ -3262,7 +3294,7 @@ z-index: 4;
 #gif23
 {
 	position: absolute;
-	
+
        height: 33px;
 width: 53px;
     margin-top: 159px;
@@ -3273,7 +3305,7 @@ width: 53px;
     vertical-align: middle;
     line-height: 381px;
     text-align: center;
- 
+
 
 
 }
@@ -3323,7 +3355,7 @@ transition: transform 1s  ease-in-out ;
 {
 
 width: 53px;
-margin-left:780px;    
+margin-left:780px;
 margin-top: 263px;
 height: 33px;
 color:white;
@@ -3335,7 +3367,7 @@ z-index: 1600;
 {
 
 width: 53px;
-margin-left:948px;    
+margin-left:948px;
 margin-top: 348px;
 height: 33px;
 position: absolute;
@@ -3350,14 +3382,14 @@ color:white;
 {
 
 width: 53px;
-margin-left:888px;    
+margin-left:888px;
 margin-top: 297px;
 height: 33px;
 position: absolute;
 color:white;
     font-size:24px;
     z-index: 6000;
- 
+
 
 }
 
@@ -3365,14 +3397,14 @@ color:white;
 {
 
 width: 53px;
-margin-left:1108px;    
+margin-left:1108px;
 margin-top: 196px;
 height: 33px;
 position: absolute;
 color:white;
     font-size:24px;
     z-index: 6000;
-  
+
 
 }
 
@@ -3384,7 +3416,7 @@ color:white;
 {
 
 width: 53px;
-margin-left:1120px;    
+margin-left:1120px;
 margin-top: 315px;
 height: 33px;
 position: absolute;
@@ -3398,7 +3430,7 @@ color:white;
 {
 
 width: 53px;
-margin-left:820px;    
+margin-left:820px;
 margin-top: 164px;
 height: 33px;
 position: absolute;
@@ -3413,7 +3445,7 @@ color:white;
 {
 
 width: 53px;
-margin-left:675px;    
+margin-left:675px;
 margin-top: 144px;
 height: 33px;
 position: absolute;
@@ -3429,7 +3461,7 @@ color:white;
 {
 
 width: 53px;
-margin-left:569px;    
+margin-left:569px;
 margin-top: 110px;
 height: 33px;
 position: absolute;
@@ -3443,7 +3475,7 @@ color:white;
 {
 
 width: 53px;
-margin-left: 928px;    
+margin-left: 928px;
 margin-top: 187px;
 height: 33px;
 position: absolute;
@@ -3457,7 +3489,7 @@ color:white;
 {
 
 width: 53px;
-margin-left: 1138px;    
+margin-left: 1138px;
 margin-top: 140px;
 height: 33px;
 position: absolute;
@@ -3472,7 +3504,7 @@ color:white;
 {
 
 width: 53px;
-margin-left: 1027px;    
+margin-left: 1027px;
 margin-top: 419px;
 height: 33px;
 position: absolute;
@@ -3489,7 +3521,7 @@ color:white;
 {
 
 width: 53px;
-margin-left: 601px;    
+margin-left: 601px;
 margin-top: 208px;
 height: 33px;
 position: absolute;
@@ -3506,14 +3538,14 @@ color:white;
 
 .fight
 {
-transform: scale(12);    
-z-index: 2005;    
+transform: scale(12);
+z-index: 2005;
 }
 
 .fight_over
 {
-transform: scale(1);    
-z-index: 2005;   
+transform: scale(1);
+z-index: 2005;
 }
 
 .gif_out
@@ -3549,9 +3581,23 @@ margin-top: 129px;
     margin-left: 423px;
 height: 33px;
 position: absolute;
-;
 
 }
+
+#event_mob
+{
+
+width: 90px;
+margin-top:0px;
+    margin-left: 423px;
+height: 90px;
+background-image: url('event_mob.gif');
+position: absolute;
+display:none;
+transition: transform 1s  ease-in-out ;
+}
+
+
 #gif20
 {
 width: 53px;
@@ -3803,8 +3849,8 @@ background-image: linear-gradient(to bottom, #000000, #1a1c23);
     border-radius: 5px;
     text-shadow: 2px 0px 0px #000000;
     width: 26%;
- 
-  
+
+
     position: absolute;
     position: absolute;
     z-index: 200;
@@ -3889,8 +3935,8 @@ transition: all .2s ease-in-out;
 
 #informacja2
 {
-    
- 
+
+
     margin-left: 310px;
     margin-top: 0px;
     height:300px;
@@ -3912,7 +3958,7 @@ position: absolute;
 #okno_z_informacja
 {
     margin-top:30px;
-    
+
 }
 
 
@@ -5190,7 +5236,7 @@ background-image: linear-gradient(to bottom, #000000, #1a1c23);
  font-family: "morph";
     transition: transform 1s  ease-in-out ;
     position: absolute;
-    
+
 
 }
 #enemy_amount
@@ -5784,14 +5830,14 @@ background-image: linear-gradient(to bottom, #000000, #1a1c23);
     ;
     text-align: center;
       display: none;
-    
+
   font-family: "morph";
 
-   
+
 
 animation: flash .7s infinite ;
 
-    
+
 }
 #loot5
 {
@@ -7879,7 +7925,7 @@ background-image: url('heal.jpg');
     margin-top: 160px;
     height:300px!important;
 
-   
+
 
 }
 
@@ -7893,10 +7939,10 @@ background-image: url('heal.jpg');
 
 #okno_leczenie_cena
 {
-    
+
       font-family: "morph";
-   
-    
+
+
 }
 
 
@@ -7997,7 +8043,7 @@ background-image: url('heal.jpg');
 #okno_bron_dmg
 {
     margin: auto;
-    
+
     margin-left: 45px;
     text-align: center;
     font-weight: bold;
@@ -8020,7 +8066,7 @@ background-image: url('heal.jpg');
     position: absolute;
     z-index: 610;
     margin-left: 30%;
- 
+
 
         margin: 0 auto;
     position: relative;
@@ -8067,7 +8113,7 @@ background-image: url('heal.jpg');
 #okno_bron_cena
 {
     margin: auto;
-   
+
     text-align: center;
     font-weight: bold;
     letter-spacing: 3px;
@@ -8693,7 +8739,7 @@ letter-spacing: 4px;
 
 #zdarzenie_info2
 {
-margin-top: 10px;    
+margin-top: 10px;
     width: 550px;
      font-family: "morph";
         font-size: 22px!important;
@@ -8701,7 +8747,7 @@ margin-top: 10px;
 
 #zdarzenie_info3
 {
-margin-top: 40px;    
+margin-top: 40px;
     width: 550px;
      font-family: "morph";
     font-size: 28px;
@@ -8739,7 +8785,7 @@ margin-top: 40px;
     color: cadetblue;
     text-align: center;
     position: relative;
- 
+
 z-index: 10;
      font-family: "morph";
 
@@ -8816,10 +8862,10 @@ z-index: 10;
 
 #kup_zbroje_magic_zamknij, #kup_zbroje_button_magic
 {
-    
+
     margin-top: 40px;
-    
-    
+
+
 }
 
 #okno_nazwa_zbroi_magicznej
@@ -8827,14 +8873,14 @@ z-index: 10;
     font-family: "morph";
       margin-top: 20px;
     font-size: 32px;
-    animation: 
+    animation:
 }
 
 #okno_nazwa_zbroi
 {
-    
+
     font-size:28px;
-    
+
 }
 
 
@@ -8842,7 +8888,7 @@ z-index: 10;
 #okno_zbroja_magiczna_wymagania
 {
       margin-top: 80px;
-    
+
 }
 
 
@@ -8944,19 +8990,19 @@ z-index: 2001;
 #okno_zadania_info
 {
     width:500px;
-    
-    
+
+
 }
 #okno_zadania_nagroda
 {
-    
+
     margin-top:60px;
-    
+
 }
 
 #okno_zadania_status
 {
-    
+
         margin-top:30px;
 }
 
@@ -8966,19 +9012,19 @@ z-index: 2001;
 #zadanie_button
 {
     margin-top: 30px;
-    
+
 }
 #zadanie_zamknij
 {
-    
-    
+
+
 }
 
 
 #okno_nazwa_broni_posiadanej
 {
     margin: auto;
-  
+
     margin-left: 45px;
     text-align: center;
     font-weight: bold;
@@ -9008,7 +9054,7 @@ z-index: 2001;
     margin-top:20px;
     font-family: "morph";
     font-weight: 900!important;
-    
+
 }
 
 
@@ -9044,7 +9090,7 @@ z-index: 2001;
         margin: 0 auto;
     position: relative;
     margin-top:90px;
-    
+
 }
 
 #okno_ulepszenie_wymagania
@@ -9123,7 +9169,7 @@ z-index: 2001;
 
     margin: auto;
     margin-top: 230px;
- 
+
     text-align: center;
     font-weight: bold;
     letter-spacing: 3px;
@@ -9186,7 +9232,7 @@ z-index: 2001;
     width: 600px;
     height: 400px;
     color: cadetblue;
-    
+
     text-align: center;
     position: absolute;
     z-index: 1600;
@@ -9197,7 +9243,7 @@ z-index: 2001;
 
 #new_alchemik_sklep
 {
- 
+
     z-index: 2001;
    margin-top: 140px!important;
     height:450px;
@@ -9247,7 +9293,7 @@ z-index: 2001;
 #potion_info
 {
     font-family: "morph";
-    
+
 }
 
 #new_medytacja_info
@@ -10013,7 +10059,7 @@ display:none;
 {
     margin-top:150px;
     height:500px;
-    
+
 }
 
 #ring_exitX
@@ -10454,7 +10500,7 @@ float: left;
     background: #142829;
     background-image: -webkit-linear-gradient(top, #000000,#1a1c23);
     background-image: -moz-linear-gradient(top, #000000, #1a1c23);
- 
+
     background-image: linear-gradient(to bottom, #000000, #1a1c23);
     border-radius: 5px;
     text-shadow: 2px 0px 0px #000000;
@@ -10468,7 +10514,7 @@ float: left;
     width: 500px;
     height: 360px;
     color: cadetblue;
-    
+
     text-align: center;
     position: relative;
     z-index: 2001;
@@ -10711,7 +10757,7 @@ background-image: url('platnerz_background.jpg');
     background: #142829;
     background-image: -webkit-linear-gradient(top, #000000,#1a1c23);
     background-image: -moz-linear-gradient(top, #000000, #1a1c23);
-  
+
     background-image: linear-gradient(to bottom, #000000, #1a1c23);
     border-radius: 5px;
     text-shadow: 2px 0px 0px #000000;
@@ -10725,13 +10771,13 @@ background-image: url('platnerz_background.jpg');
     width: 500px;
     height: 300px;
     color: cadetblue;
-    
+
     text-align: center;
     position: relative;
     z-index: 2001;
 display:none;
 background-image: url('platnerz_background.jpg');
-  
+
 }
 
 .okno_nazwa_zbroi
@@ -10791,7 +10837,7 @@ background-image: url('platnerz_background.jpg');
     height: 25px;
     ;
     text-align: center;
-    
+
     z-index: 610;
 
 
@@ -10804,7 +10850,7 @@ color: white;
 #okno_wartosc_obecnej_zbroi
 {
     margin-top: 70px!important;
-    
+
 }
 
 
@@ -11112,7 +11158,7 @@ color: white;
 {
        margin-top: 55px;
     font-size:18px;
-    
+
 }
 
 
@@ -11121,7 +11167,7 @@ color: white;
 {
     background-image: url("zlecenie_okno.jpg");
 z-index: 2001;
-    
+
     height:360px;
     margin-left:290px
 }
@@ -11129,9 +11175,9 @@ z-index: 2001;
 
 #zlecenie_button
 {
-    
+
     margin-top:60px;
-    
+
 }
 
 
@@ -11675,14 +11721,14 @@ float: left;
     position: relative;
     margin-left: 10px;
 
-	
-	
-	
+
+
+
 }
 
 
 #osoby{
-    
+
     position: relative;
         color:white;
     font-family: "morph";
@@ -11695,9 +11741,9 @@ float: left;
    display:none;
     letter-spacing: 5px;
     width:700px;
-    
 
-    
+
+
 }
 
 
@@ -11743,24 +11789,24 @@ p.shine
 margin-top: 70px;
     color:deeppink;
     font-family: "morph";
-    
+
 }
 
 #okno_kup_zbroje
 {
 z-index: 6000;
   width:500px!important;
-   height:360px!important;  
+   height:360px!important;
     margin-left:320px;
-    
+
 }
 
 #dialog
 {
-     
+
     margin-top: -310px;
     margin-left: 250px;
-  
+
     font-weight: bold;
     letter-spacing: 3px;
     font-weight: bold;
@@ -11787,15 +11833,15 @@ z-index: 6000;
     z-index: 1000;
 
      font-family: "morph";
-  
-    
-  
+
+
+
 }
 
 .opcja_dialogu
 {
     text-align: center;
-width:70%;    
+width:70%;
      display:inline-block;
     margin-bottom:20px;
     padding: 2px 0px 2px 0px;
@@ -11814,10 +11860,10 @@ background-image: linear-gradient(to bottom, #000000, #1a1c23);
 #odpowiedzi
 {
        z-index:1100 ;
-    margin-top:-60px; 
+    margin-top:-60px;
     position: relative;
 
-  
+
   width:70%;
    margin-left:-85px;
     letter-spacing: 3px;
@@ -11830,9 +11876,9 @@ background-image: linear-gradient(to bottom, #000000, #1a1c23);
     color: #ffffff;
     font-size: 16px;
     padding: 2px 0px 2px 0px;
-  
+
     text-decoration: none;
- 
+
     font-weight: bold;
 
     color: green;
@@ -11853,11 +11899,11 @@ background-image: linear-gradient(to bottom, #000000, #1a1c23);
 
 #talk
 {
-    
+
     margin-top: 460px;
- 
-    
-    
+
+
+
 }
 
 
@@ -11871,7 +11917,7 @@ background-image: linear-gradient(to bottom, #000000, #1a1c23);
     z-index: 9999;
     transform: scale(.3);
 
-    
+
 }
 
 #cech
@@ -11895,10 +11941,10 @@ font-family: 'morph';
     z-index: 5500;
     margin-top: -170px;
     margin-left: 570px;
-   
+
     transform: scale(0);
     opacity: 0;
-    
+
 }
 
 
@@ -11927,15 +11973,15 @@ font-family: 'morph';
     margin-top:30px;
 margin-left:10px;
 float: left;
-    
+
 }
 
 #sklep_alchemiczny
 {
 
 margin-top: -375px;
-margin-left: 255px; 
-letter-spacing: 3px;  
+margin-left: 255px;
+letter-spacing: 3px;
 text-shadow: -20px 7px 6px  black;
 background: #142829;
 background-image: -webkit-linear-gradient(top, #000000,#1a1c23);
@@ -11980,22 +12026,22 @@ font-family: "morph";
     width: 200px;
     color: white;
 border: 2px ridge grey;
-     font-family: "morph"; 
+     font-family: "morph";
     margin-left: 190px;
     margin-top: 25px;
-    
+
 }
 
 .kup
 {
-    
- border: 2px ridge grey;   
-    
+
+ border: 2px ridge grey;
+
 }
 
 #zycie_restore
 {
-    
+
   z-index: 444447;
     margin-top: -170px;
     margin-left: 615px;
@@ -12007,7 +12053,7 @@ border: 2px ridge grey;
 
 #enemy_bleeding
 {
-    
+
   z-index: 444447;
     margin-top: 88px;
     margin-left: 480px;
@@ -12020,7 +12066,7 @@ border: 2px ridge grey;
 
 #status_specjalny
 {
-    
+
   z-index: 4447;
     margin-top: -305px;
     margin-left: 670px;
@@ -12049,7 +12095,7 @@ border: 2px ridge grey;
     margin-left: 282px;
     margin-top:20px;
     border-bottom: 2px ridge white;
-    
+
 }
 
 
@@ -12058,12 +12104,12 @@ border: 2px ridge grey;
     margin-left: 10px;
     margin-top: -60px;
         z-index:17000;
-   
+
     position: absolute;
     width:50px;
     height:20px;
-    
-    
+
+
 }
 
 
@@ -12078,7 +12124,7 @@ font-family:"morph";
      letter-spacing: 3px;
     font-weight: bold;
     font-size: 18px;
-    
+
 }
 
 
@@ -12123,13 +12169,13 @@ font-family:"morph";
 
      width: 500px;
     height: 300px;
-    border: 1px ridge white; 
+    border: 1px ridge white;
     margin-left:330px;
-        margin-top: -30px;    
+        margin-top: -30px;
     z-index: 9000!important;
     position: absolute;
 
-    
+
 }
 
 #ona
@@ -12149,7 +12195,7 @@ font-family:"morph";
     background-image: url('on.png');
     width: 267px;
     height:417px;
-      
+
         transform: scale(0.3);
         position: absolute;
     margin-left: 210px;
@@ -12164,17 +12210,17 @@ font-family: "morph";
     height:300px;
     opacity: 0;
     transform: scale(0);
-    
+
 }
 
 #szkoly_calosc
 {
     margin-left: 0px;
-    
+
 }
 .szkola_button
 {
-    
+
     margin: auto;
     margin-top: 200px;
     margin-left: 40px;
@@ -12209,7 +12255,7 @@ font-family: "morph";
     position: relative;
     margin-top:15px;
     float:left;
-    
+
 }
 .szkola_opis
 {
@@ -12221,8 +12267,3 @@ font-family: "morph";
     width:300px;
         font-size: 16px;
 }
-
-
-
-
-

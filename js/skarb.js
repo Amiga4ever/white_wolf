@@ -1,5 +1,5 @@
 function skarb_check(wartosc, min, max) {
-    
+
 
 
     document.getElementById("zdarzenie_open").style.color = "dimgrey";
@@ -71,14 +71,14 @@ function skarb_loot(wartosc, min, max) {
     if (liczba4 == 100)
         setTimeout(skarb_loot, 0);
 
-    
 
-  var ile_event = Math.floor(Math.random() * level_amount) + 1;  
-    
+
+  var ile_event = Math.floor(Math.random() * level_amount) + 1;
+
     if ((typ_tla == 15)||(typ_tla==16))
         liczba4 = Math.floor(Math.random() * 3) + 1;
-      
-  
+
+
 
 
 
@@ -93,17 +93,17 @@ function skarb_loot(wartosc, min, max) {
             document.getElementById("zdarzenie_info").innerHTML = "Zdobyto " + ilosc1 + " zioła";
         herbs_amount = herbs_amount + ilosc1;
         document.getElementById("zdarzenie_info").style.color = "green";
-        
-        
-        
-        
+
+
+
+
     } else if (liczba4 == 1) {
         inventory.play();
-  
-        
+
+
             if(ile_event>3)
             ile_event=3;
-        
+
         if(ile_event==1)
             document.getElementById("zdarzenie_info").innerHTML = "Zdobyto skórę";
         else
@@ -113,10 +113,10 @@ function skarb_loot(wartosc, min, max) {
         document.getElementById("zdarzenie_info").style.color = "yellow";
     } else if (liczba4 == 2) {
         inventory.play();
-    
+
               if(ile_event>3)
             ile_event=3;
-        
+
                 if(ile_event==1)
             document.getElementById("zdarzenie_info").innerHTML = "Zdobyto składnik";
         else
@@ -138,20 +138,20 @@ function skarb_loot(wartosc, min, max) {
         runy_amount = runy_amount + ile_event;
         document.getElementById("zdarzenie_info").style.color = "darkturquoise";
 
-        
-        
-        
-        
+
+
+
+
     } else if (liczba4 == 4) {
         inventory.play();
         document.getElementById("zdarzenie_info").innerHTML = "Znaleziono sterte śmieci";
         document.getElementById("zdarzenie_info").style.color = "white";
     } else if (liczba4 == 5) {
-        
+
         ilosc5 = ilosc5 + level_amount*1.5;
         ilosc5 = Math.round(ilosc5);
-        
-        
+
+
         sell.play();
         document.getElementById("zdarzenie_info").innerHTML = "Zdobyto złoto w ilości" + " " + ilosc5;
         gold_amount = gold_amount + ilosc5;
@@ -166,9 +166,9 @@ function skarb_loot(wartosc, min, max) {
     } else if (liczba4 == 7) {
            ilosc5 = ilosc5 + level_amount*1.5;
            ilosc5 = Math.round(ilosc5);
-        
-        
-        
+
+
+
         sell.play();
         document.getElementById("zdarzenie_info").innerHTML = "Zdobyto złoto w ilości" + " " + ilosc5;
         gold_amount = gold_amount + ilosc5;
@@ -231,7 +231,7 @@ function skarb_loot(wartosc, min, max) {
         wieza_klucz = 2;
         artefacts++;
         kierunek=20;
-              document.getElementById("player").style.backgroundImage = "url('gif.gif')"; 
+              document.getElementById("player").style.backgroundImage = "url('gif.gif')";
         sprawdz_kierunki_aktywne();
     } else if (liczba4 == 12) {
         document.getElementById("zdarzenie_info3").innerHTML = " ";
@@ -267,7 +267,7 @@ function skarb_loot(wartosc, min, max) {
         document.getElementById("gold").innerHTML = "Złoto:" + " " + gold_amount;
         wieza_klucz = 1;
         artefacts++;
-    } 
+    }
      else if (liczba4 == 14) {
         ilosc5 = Math.floor(Math.random() * 20) + 15;
 
@@ -291,26 +291,28 @@ document.getElementById("zdarzenie_open").innerHTML = "--";
                         document.getElementById("zdarzenie_info3").style.color="white";
            document.getElementById("zdarzenie_info3").innerHTML = "Znaleziono <spam style='color:deeppink';>AFTEFAKT</spam>";
         artefacts++;
-    } 
+    }
      else if (liczba4 == 16) {
         inventory.play();
 
 
 
         document.getElementById("zdarzenie_info").innerHTML = "Zdobyto " + ilosc1 +" runy";
+        if(ilosc1>4)
+          document.getElementById("zdarzenie_info").innerHTML = "Zdobyto " + ilosc1 +" run";
 
         runy_amount = runy_amount + ilosc1;
         document.getElementById("zdarzenie_info").style.color = "darkturquoise";
 
-        
-        
-        
-        
+
+
+
+
     }
-    
-    
-    
-    else(liczba4 == 20) 
+
+
+
+    else(liczba4 == 20)
     {
 
     }

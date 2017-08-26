@@ -28,9 +28,9 @@
                     }
 
                     function walka() {
-             
+
                     document.getElementById("potion_walka").innerHTML = "+10 leczenie " + potion2 + "/" + potion_amount;
-                    potion_check();    
+                    potion_check();
                     zakres_ataku_potwora();
                     losuj_potwora();
                     battle_sfx.play();
@@ -38,7 +38,7 @@
                     }
 
                     function walka2() {
-                  medytacja_zanik();
+                    medytacja_zanik();
                     $("#player").transition({ scale:1}, 500, 'ease');
                     $("#enemy_name").transition({scale:1, opacity: 1},1000,'linear');
                     potion_check();
@@ -62,7 +62,7 @@
                     miecz_znak();
                     znak_od_copy= znak_od;
                     znak_do_copy= znak_do;
-                        boost=1;
+                    boost=1;
                     znak_boost();
 
 
@@ -94,7 +94,7 @@
                     $("#panel_walki").fadeIn(300);
                     $("#panel_walki").transition({ scale:1,opacity:1}, 500, 'ease');
 
-         
+
 
 
 
@@ -142,6 +142,9 @@
                     break;
 
                     case 5:
+                      boss.stop();
+                        battle_sfx.stop();
+                        battle_sfx.play();
                     $("#strona_novigard").fadeIn(300);
                     document.getElementById('strona_novigard').style.backgroundImage = "url('cave.jpg')";
                     break;
@@ -244,48 +247,55 @@
 
                     case 17:
                     document.getElementById('strona_novigard').style.backgroundImage = "url('dark_mag.jpg')";
-                    break; 
+                    break;
 
                     case 18:
                     document.getElementById('strona_novigard').style.backgroundImage = "url('desert.jpg')";
-                    break; 
+                    break;
 
                     case 19:
                     document.getElementById('strona_novigard').style.backgroundImage = "url('sand_cave.jpg')";
-                    break; 
+                    break;
 
                     case 20:
                     document.getElementById('strona_novigard').style.backgroundImage = "url('bat.jpg')";
-                    break; 
+                    break;
 
                     case 22:
                     document.getElementById('strona_novigard').style.backgroundImage = "url('nawiedzony.jpg')";
-                    break; 
+                    break;
 
 
                     case 23:
                     document.getElementById('strona_novigard').style.backgroundImage = "url('desert.jpg')";
-                    break; 
+                    break;
 
 
                         case 24:
                     document.getElementById('strona_novigard').style.backgroundImage = "url('desert.jpg')";
-                    break; 
+                    break;
 
-   case 25:
+                    case 25:
                     document.getElementById('strona_novigard').style.backgroundImage = "url('desert.jpg')";
-                    break; 
+                    break;
 
 
                     case 26:
                     document.getElementById('strona_novigard').style.backgroundImage = "url('dark_mag.jpg')";
-                    break; 
+                    break;
 
 
-                            
-                            
+                    case 27:
+                        battle_sfx.stop();
+                    document.getElementById('strona_novigard').style.backgroundImage = "url('event.jpg')";
+                    break;
+
+
+
+
 
                     default:
+                      battle_sfx.play();
                     if(tlo_pustynia==0)
                     document.getElementById('strona_novigard').style.backgroundImage = "url('tlo_walki.jpg')";
                     else
@@ -294,7 +304,7 @@
 
 
 
-                    document.getElementById("enemy_level").innerHTML = "Poziom:" + " " + level_amount;
+
                     document.getElementById("enemy_hp").innerHTML = '<i style="color:forestgreen;" class="icon-heart"></i>' + " " + mob_hp;
                     document.getElementById("enemy_atk").innerHTML = "Atak:" + " " + min_1 + " " + "-" + " " + max_2;
 
@@ -308,7 +318,7 @@
                     }
 
                     potion_check();
-           if (zlecenie_aktywne == 1) 
+           if (zlecenie_aktywne == 1)
                      document.getElementById("enemy_name").className = "flash2a";
                     }
 
@@ -345,52 +355,54 @@
                     function uderzenie_mieczem() {
                     document.getElementById("ucieczka").style.color = "dimgrey";
                     document.getElementById("ucieczka").style.pointerEvents = 'none';
-                    gracz_uderza=1;    
+                    gracz_uderza=1;
                     czy_pudlo();
-                    gracz_uderza=0;    
+                    gracz_uderza=0;
                     document.getElementById("atak_mieczem").style.pointerEvents = 'none';
+                    document.getElementById("atak_znakiem").style.pointerEvents = 'none';
+
                     miecz_hit_sfx();
                     setTimeout(atakuj, 600);
                     }
 
 
                     function atakuj() {
-                
+
                     cios_mieczem = 1;
                     obliczanie_atakiem_miecza();
 
                     if (pudlo == 1) {
-              
+
                     miss.play();
                     miecz_hit = 0;
                     } else {
-                        
-                                 cios_specjalny();  
-                        
+
+                                 cios_specjalny();
+
                            if(stun==1)
                             {
                             document.getElementById("status_specjalny").innerHTML ="Ogłuszony";
                             $("#status_specjalny").transition({scale:1, opacity:1},500,'ease');
                             armor_hit.play();
                             document.getElementById("enemy_hp").innerHTML = '<i style="color:forestgreen;" class="icon-heart"></i>' + " " + mob_hp;
-                            } 
-                        
+                            }
+
                             if(wampire==1)
                             {
                             let ile_zycia = life_max*0.1;
-                            let floor = Math.floor(ile_zycia);    
+                            let floor = Math.floor(ile_zycia);
                             life_amount = life_amount +floor;
                             document.getElementById("life").innerHTML = '<i style="color:red";" class="icon-heart"></i>' + " " + life_amount + "/" + life_max;       $("#zycie_restore").transition({scale:1, opacity:1},0,'ease');
                             $("#zycie_restore").transition({scale:0, opacity:0},4000,'ease');
-                            document.getElementById("zycie_restore").innerHTML ="+"+'<i style="color:red" ; class="icon-heart"></i>' + floor; 
+                            document.getElementById("zycie_restore").innerHTML ="+"+'<i style="color:red" ; class="icon-heart"></i>' + floor;
                             wampire_sfx.play();
                             }
-                        
-                            wampire=0;
-                  
-                 
 
-                        
+                            wampire=0;
+
+
+
+
                     if(enemy_resistant == "sword") {
                     miecz_odporny();
                     miecz_hit = miecz_od - 1;
@@ -403,7 +415,7 @@
 
                     if (cios_krytyczny == 1) {
 
-                    if (enemy_resistant == "sword") 
+                    if (enemy_resistant == "sword")
                     critic_amount = miecz_od+1;
 
 
@@ -418,14 +430,14 @@
                     if (mob_hp < 0)
                     mob_hp = 0;
 
-                     
-                        
-                     
-                        
+
+
+
+
                     if (mob_hp < 0)
                     mob_hp = 0;
-                        
-                        
+
+
                         if((stun!=1)&&(bleeding!=1))
                     document.getElementById("enemy_hp").innerHTML = '<i style="color:forestgreen;" class="icon-heart"></i>' + " " + mob_hp;
                     pos1 = Math.floor(Math.random() * 430) + 1;
@@ -484,11 +496,11 @@
                     if(stun!=1)
                     atak_potwora();
                     else
-                    {  
-                    stun=0;    
+                    {
+                    stun=0;
                     hit_reset();
                     }
-                    
+
                     }
                     }
 
@@ -518,19 +530,19 @@
 
 
 
-                    function atakuj_znakiem2() 
+                    function atakuj_znakiem2()
                     {
                     document.getElementById("atak_mieczem").style.pointerEvents = 'none';
                     mana_amount = mana_amount - mana_koszt;
                     document.getElementById("mana").innerHTML = '<i style="color:deepskyblue;" class="icon-spin6 animate-spin"></i>' + " " + mana_amount + "/" + manal_max;
                     obliczanie_atakiem_znak();
-                        
-                        var value = Math.floor(Math.random() * 10) + 1;
-                        var miss1 = Math.floor(Math.random() * 10) + 1;
-                        if(value!=miss1)
+
+                        var value = Math.floor(Math.random() * 12) + 1;
+                        var miss1 = Math.floor(Math.random() * 12) + 1;
+                        if(value==miss1)
                             {
-                             miss.play();
-                            znak_hit = 0;   
+
+                            znak_hit = 0;
                             pudlo=1;
                             }
                     if (enemy_resistant == "magic") {
@@ -538,10 +550,10 @@
                     znak_hit = znak_od - 4;
                     if(znak_hit<1)
                     znak_hit=1;
-                        
+
                     if(znak_hit>4)
-                    znak_hit=4;  
-                        
+                    znak_hit=4;
+
                     }
 
                     mob_hp = mob_hp - znak_hit;
@@ -573,16 +585,22 @@ if(pudlo==0)
                     document.getElementById("green_blood").style.backgroundImage = "url('blood_crit.png')";
 
 
+
                     trafienie_potwora();
+                      document.getElementById("green_blood").innerHTML = "-" + znak_hit;
     }
                         else
+                        {
+                            document.getElementById("green_blood").style.backgroundImage = "url('blood_critx.png')";
                               document.getElementById("green_blood").innerHTML = "unik";
-                        
+                              pudlo=0;
+                            }
+
                     if(bandyci_aktywni==1)
                     document.getElementById("green_blood").style.backgroundImage = "url('redblood.png')";
                     $("#green_blood").fadeIn(0);
                     document.getElementById("green_blood").style.display = "block";
-                    document.getElementById("green_blood").innerHTML = "-" + znak_hit;
+
                     zgon_potwora();
                     setTimeout(atakuj2, 1500);
 
@@ -595,26 +613,26 @@ if(pudlo==0)
 
 
                     function atak_potwora() {
-                        
+
                                     if((bleeding==1)&&(mob_hp>1))
                             {
                               $("#enemy_bleeding").transition({scale:1, opacity:1},0,'ease');
                             $("#enemy_bleeding").transition({scale:0, opacity:0},4000,'ease');
-                            document.getElementById("enemy_bleeding").innerHTML ="-"+'<i style="color:forestgreen" ; class="icon-heart"></i>' + "1"; 
-                                wampire_sfx.play();  
+                            document.getElementById("enemy_bleeding").innerHTML ="-"+'<i style="color:forestgreen" ; class="icon-heart"></i>' + "1";
+                                wampire_sfx.play();
                                 mob_hp--;
                                  document.getElementById("status_specjalny").innerHTML ="Krwawienie";
                                   $("#status_specjalny").transition({scale:1, opacity:1},500,'ease');
                                 if(mob_hp<0)
                                     mob_hp=2;
-                                
+
                             }
                         else
                               $("#status_specjalny").transition({scale:0, opacity:0},500,'ease');
-                        
-                        
-                        
-                        
+
+
+
+
                               document.getElementById("enemy_hp").innerHTML = '<i style="color:forestgreen;" class="icon-heart"></i>' + " " + mob_hp;
                     flawless = 0;
                     czy_pudlo_potwora();
@@ -689,11 +707,11 @@ if(pudlo==0)
 
                     }
 
-                    function hit_reset() 
+                    function hit_reset()
                     {
 
-                        
-             
+
+
                     eliksir_check_battle();
                     znak_boost();
                     document.getElementById("atak_mieczem").style.pointerEvents = 'auto';
@@ -728,7 +746,7 @@ function cios_specjalny()
 {
 
         let szansa = Math.floor(Math.random() * 100) + 1;
-        if(szansa<12) 
+        if(szansa<12)
         {
         if(cecha_broni_nazwa=="Ogłuszenie")
         stun=1;
@@ -737,17 +755,9 @@ function cios_specjalny()
         if(cecha_broni_nazwa=="Krwawienie")
         bleeding=1;
         }
-    
-        
-    
-    
-    
+
+
+
+
+
 }
-
-
-
-
-
-
-
-

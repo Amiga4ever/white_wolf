@@ -1,84 +1,103 @@
 				<!DOCTYPE html>
 				<html>
 				<head>
-		
+					<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+					<!--  document.getElementById("skrzynki1").style.pointerEvents = 'none';
+					$("#bonusextrainfo").fadeTo(1000, 1);-->
+					<!-- <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=1.0, user-scalable=no">
+					<meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> tablet-->
+					<!-- phantom library, needed for Cordova api calls, added during build -->
+					<!-- recommended location of your JavaScript code relative to other JS files -->
+					<script src="js/main.js"></script>
+					<script src="js/app.js"></script>
+				<script src="js/cordova.js"></script> 
+					<script type="text/javascript" charset="utf-8" src="js/jquery-3.1.1.js"></script>
+					<link rel="stylesheet" href="css/wiedzmin.css?v=34" type="text/css">
+					<link rel="stylesheet" href="css/fonts.css?v=34" type="text/css">
+					<link href="css/bootstrap.css" rel="stylesheet">
+					<script src="js/bootstrap.js"></script>
 
-				<!--  document.getElementById("skrzynki1").style.pointerEvents = 'none';
-				$("#bonusextrainfo").fadeTo(1000, 1);-->
-
-
-				<!-- <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=1.0, user-scalable=no"> 
-				<!-- <meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> tablet-->
 
 
 
-		
-		
-	
-		      <!-- phantom library, needed for Cordova api calls, added during build -->
-	        <!-- recommended location of your JavaScript code relative to other JS files -->
-                <script src="js/main.js"></script>
-      
-              <script src="js/app.js"></script>
-         <!--<script src="js/cordova.js"></script> -->
-	
-	
-			     <script type="text/javascript" charset="utf-8" src="js/jquery-3.1.1.js"></script>
-				<link rel="stylesheet" href="css/wiedzmin.css?v=34" type="text/css">
-		
-		<link rel="stylesheet" href="css/fonts.css?v=34" type="text/css">
-		
-		
-		
-				<link href="css/bootstrap.css" rel="stylesheet">
-				<script src="js/bootstrap.js"></script>
 				<audio id="play1" src="sfx/title.ogg"></audio>
 				<audio id="play2" src="sfx/start.ogg"></audio>
 				<audio id="play3" src="sfx/miecz1.ogg"></audio>
-                <audio id="play4" src="sfx/klik2.ogg"></audio>
+        <audio id="play4" src="sfx/klik2.ogg"></audio>
 				<audio id="zlecenie2_sfx" src="sfx/magic1.ogg"></audio>
 
-				<script>
-				var zapis_obecny = 0;
-				var odczyt = 0;
-				var devs=0;
-                var life_amount;
-                    var klik=0;
-          var klik_zmiany=0;
-                    
-                    
-                    
-function onDeviceReady() 
-            {
-            console.log(StatusBar.hide);
-            console.log(navigator.vibrate);
-      
-                
-            document.addEventListener("backbutton", function(e) {
-            e.preventDefault();
-            return;
-            }, false);  
-                
-                
-    
-            document.addEventListener("backbutton", wyjdziesz, false);      
 
-            $(document).on('backbutton', function(e){
-            wyjdziesz();
-            });  
-                
-                 console.log("Dziala");     
-                
-                  
-}
-                    
-            function wyjdziesz() 
+				<script>
+
+				function close_sql()
+				{
+					document.getElementById('play4').play();
+					$('#sql').css({ transform: 'scale(.0)' });
+				}
+
+
+
+
+					//document.getElementById('wyjscie_z_gry').addEventListener('click', function() {
+							//	 navigator.app.exitApp();
+					//	 });
+
+	// 			document.getElementById('wyjscie_z_gry').addEventListener('click', function() {
+	//
+	// 				$.ajax({
+	// 					method: "GET",
+	// 					contentType: "charset=utf-8",
+	// 					url: "http://marcinkrupinski.pl/test/index.php?wartosc=2",
+	//
+	//
+	// 					success: function(data) {
+	//
+	// 		informacja = data;
+	// $('#sql').css({ transform: 'scale(1)' });
+	// 		$('#ajax').html(data);
+	// 			}
+	// 							})
+	//
+	//
+	// 			 });
+
+
+									$(document).ready(function(){
+
+									$(document).on('backbutton', function(e){
+									navigator.app.exitApp();
+									});
+
+									$('.modal').show();
+									console.log('dziala');
+									$.ajax({
+									method: "GET",
+									contentType: "charset=utf-8",
+									url: "http://marcinkrupinski.pl/test/index.php",
+									success: function(data) {
+									informacja = data;
+									$('#ajax').html(data);
+									}
+									})
+
+									});
+
+
+									var zapis_obecny = 0;
+									var odczyt = 0;
+									var devs=0;
+									var life_amount;
+									var klik=0;
+									var klik_zmiany=0;
+
+
+            		function wyjdziesz()
                 {
-                    
+
                 document.getElementById("zdarzenie").style.zIndex = 9000;
                 document.getElementById("zdarzenie_info").innerHTML = " ";
                 document.getElementById("zdarzenie_info2").innerHTML = " ";
-                document.getElementById("zdarzenie_info3").innerHTML = "Zapisz i wyjdź - koszt 15 złota ";  
+                document.getElementById("zdarzenie_info3").innerHTML = "Zapisz i wyjdź - koszt 15 złota ";
                 document.getElementById("zdarzenie_info").className = "flash0";
                 document.getElementById('zdarzenie').style.backgroundImage = "url('zlecenie_art.jpg')";
                 document.getElementById("zdarzenie_info").innerHTML = "Chcesz wyjśc z gry?";
@@ -86,10 +105,9 @@ function onDeviceReady()
                 document.getElementById("zdarzenie_quit").style.color="green";
                 document.getElementById("zdarzenie_open").onclick = function() {
                 navigator.app.exitApp();
-                
-                
-                
                 };
+
+
                 document.getElementById("zdarzenie_quit").onclick = function() {
                 document.getElementById("zdarzenie").style.zIndex = 2001;
                 document.getElementById("zdarzenie_info3").style.borderStyle = "none";
@@ -100,84 +118,43 @@ function onDeviceReady()
                 }
 
 
+										function nowagra()
+										{
+										var ekran = Math.floor(Math.random() * 2);
 
-            
-                                        function onDeviceReady() {
+										if(ekran==0)
+										{
+										document.getElementById("nowa").style.color = "white";
+										document.getElementById("continue").style.color = "white";
+										document.getElementById("zmiany").style.color = "white";
+										document.getElementById("support").style.color = "white";
+										document.getElementById("credits").style.color = "white";
+										document.getElementById("dotacje").style.color = "white";
+										document.getElementById("strona").style.backgroundImage = "url('menu_new.jpg')";
+										$("#strona").fadeIn(500);
+										}
+										else
+										{
+										document.getElementById("nowa").style.color = "black";
+										document.getElementById("continue").style.color = "black";
+										document.getElementById("zmiany").style.color = "black";
+										document.getElementById("support").style.color = "black";
+										document.getElementById("credits").style.color = "black";
+										document.getElementById("dotacje").style.color = "black";
+										document.getElementById("strona").style.backgroundImage = "url('menu_new2.jpg')";
+										$("#strona").fadeIn(500);
+										}
 
-        document.addEventListener("backbutton", wyjdziesz, false);
-    }
-          
-                    
-                    
-                    
-                   
-                    
-				function nowagra()
-				{
-                  
-       document.addEventListener("deviceready", onDeviceReady, false);
-  
-                    
-                    
-                    
-                document.addEventListener("backbutton", function(e) {
-            e.preventDefault();
-            return;
-            }, false);  
-                
-                
-           
-            document.addEventListener("backbutton", wyjdziesz, false);      
+										document.getElementById('play1').play();
+										zapis_obecny = localStorage.getItem('zapis_obecny');
+										artefacts = parseInt(localStorage.getItem('artefacts'));
 
-            $(document).on('backbutton', function(e){
-            wyjdziesz();
-            });  
-                    
-                    
-                    var ekran = Math.floor(Math.random() * 2);
-                    
-                    if(ekran==0)
-                        {
-                     
-                            document.getElementById("nowa").style.color = "white";
-                            document.getElementById("continue").style.color = "white";
-                            document.getElementById("zmiany").style.color = "white";
-                            document.getElementById("support").style.color = "white";
-                            document.getElementById("credits").style.color = "white";
-                            document.getElementById("dotacje").style.color = "white";
-                            
-                            
-                            
-                            
-                            document.getElementById("strona").style.backgroundImage = "url('menu_new.jpg')";
-                                  $("#strona").fadeIn(500);
-                        }
-                        else
-                            {
-                                               document.getElementById("nowa").style.color = "black";
-                            document.getElementById("continue").style.color = "black";
-                            document.getElementById("zmiany").style.color = "black";
-                            document.getElementById("support").style.color = "black";
-                            document.getElementById("credits").style.color = "black";
-                            document.getElementById("dotacje").style.color = "black";
-                               document.getElementById("strona").style.backgroundImage = "url('menu_new2.jpg')";
-                                $("#strona").fadeIn(500);
-                            }
-                    
-                    
-
-                    
-                    
-                    
-					document.getElementById('play1').play();
-					zapis_obecny = localStorage.getItem('zapis_obecny');
-					artefacts = parseInt(localStorage.getItem('artefacts')); 
-					if(artefacts>=0)
-					{ 
-					document.getElementById('continue').style.pointerEvents="auto";    
-					$("#continue").fadeIn(0);
-                }           
-				}
+										if(artefacts>=0)
+										{
+										document.getElementById('continue').style.pointerEvents="auto";
+										$("#continue").fadeIn(0);
+										}
+										}
 
 
 
@@ -188,122 +165,140 @@ function onDeviceReady()
 				$("#mainscreen").fadeOut(0);
 				}
 
-                    function start_game(value)
-                    {
-	$("#osoby").fadeOut(100);
-						$("#device").fadeIn(100);
-					
-						document.getElementById("strona").style.opacity = "0.1";              
-						document.getElementById("zmiany").style.pointerEvents="none";                    
-				
-                        
-						if(value==1)
-						{
-						odczyt= 0;
-						document.getElementById('play2').play();
-						}
+										function start_game(value)
+										{
+										$('#sql').css({ transform: 'scale(0)' });
+										$("#osoby").fadeOut(100);
+										$("#device").fadeIn(100);
 
-						if(value==2)
-						{
-						odczyt= 1;
-						document.getElementById('zlecenie2_sfx').play();
-						}
-
-						localStorage.setItem('odczyt', odczyt);
-						
+										document.getElementById("strona").style.opacity = "0.1";
+										document.getElementById("zmiany").style.pointerEvents="none";
 
 
-						}
-                  
+										if(value==1)
+										{
+										odczyt= 0;
+										document.getElementById('play2').play();
+										}
+										if(value==2)
+										{
+										odczyt= 1;
+										document.getElementById('zlecenie2_sfx').play();
+										}
+										localStorage.setItem('odczyt', odczyt);
+										}
 
 
-                function game2()
-				{
-				window.location.href = "novigrad2.html";
-				}
-                    
-                    
-                    
-                    
-				function game()
-				{
-				window.location.href = "novigrad.html";
-				}
 
-				function mobile()
-				{
-             
-	
-				
-				document.getElementById('play4').play();
-                    	$("#device").fadeOut(1500);
-				$("#strona").fadeOut(1500);
-				setTimeout(game, 1500);
-				}
+										function game2()
+										{
+										window.location.href = "novigrad2.html";
+										}
+
+										function game()
+										{
+										window.location.href = "novigrad.html";
+										}
+
+										function mobile()
+										{
 
 
-		function tablet()
-				{
-					document.getElementById('play4').play();
-                    	$("#device").fadeOut(1500);
-				$("#strona").fadeOut(1500);
-				setTimeout(game2, 1500);
-				}
-                    
-                    
-                    
-                    
+										document.getElementById('play4').play();
+										$("#device").fadeOut(1500);
+										$("#strona").fadeOut(1500);
+										setTimeout(game, 1500);
+										}
 
 
-                 
-                  
- 
+										function tablet()
+										{
+										document.getElementById('play4').play();
+										$("#device").fadeOut(1500);
+										$("#strona").fadeOut(1500);
+										setTimeout(game2, 1500);
+										}
+
+
+										function terminate() {
+										navigator.app.exitApp();
+										}
 
 				</script>
-				</head>
-				<body onload="nowagra();">
-				</br>
-				<div  class="container text-center">
-				<div id="strona">
-			     <div  class="menu">
-				<div  class="changes" id="nowa" font-family: own; onclick="start_game(1);" >Nowa gra</div>
-                     	</br>	</br>	</br>	</br>
-				<div  class="changes" id="continue" onclick="start_game(2);" >Kontynuacja</div>
-                    	</br>	</br>	</br>	</br>
-				<!--<button  class="btn-default"id="buttonXb" onclick="changes_show();" ></button> -->
-				<div class="changes" id="zmiany" onclick="changes_show();" >
-					 Zmiany 2.0.7
-				</div>
-                    	</br>	</br>	</br>	</br>
-               <div class="changes" id="dotacje" ONCLICK="window.location.href='https://www.paypal.me/MarcinKrupinski'"  >
-					 Dotacje
-				</div></br></br></br></br>
-                <div class="changes"  id="support" ONCLICK="window.location.href='http://marcinkrupinski.pl/wolf'"  >
-					 Support
-				</div></br></br></br></br>
-                 <div class="changes" id="credits" onclick="credits_show();" >
-					 Credits
-				</div>
-                </div>
-                    
+
+
+
+							</head>
+							<body onload="nowagra();">
+							</br>
+							<div  class="container text-center">
+							<div id="strona">
+								<div id="sql">
+								<spam style="color:red;" id="ajax">Brak poąłączenia z internetem...</spam> </br>
+								<br>
+								<button class="btn-primary btn-sm" onclick="close_sql();">Zamknij</button>
+								</div>
+												<div  class="menu">
+												<div  class="changes" id="nowa" font-family: own; onclick="start_game(1);" >Nowa gra</div>
+												</br>	</br>	</br>	</br>
+												<div  class="changes" id="continue" onclick="start_game(2);" >Kontynuacja</div>
+												</br>	</br>	</br>	</br>
+												<!--<button  class="btn-default"id="buttonXb" onclick="changes_show();" ></button> -->
+												<div class="changes" id="zmiany" onclick="changes_show();" >
+												Zmiany 2.1.5
+												</div>
+												</br>	</br>	</br>	</br>
+												<div class="changes" id="dotacje" onclick="window.location.href='https://www.paypal.me/MarcinKrupinski'"  >
+												Dotacje
+												</div></br></br></br></br>
+												<div class="changes"  id="support" onclick="window.location.href='http://marcinkrupinski.pl/wolf'"  >
+												Strona www
+												</div></br></br></br></br>
+												<div class="changes" id="credits" onclick="credits_show();" >
+												Credits
+												</div></br></br></br></br>
+												</div>
 				<div id="autorzy">
-				</br>            
+				</br>
 				<div id="autor" >
-                    <p  >&copy MK games 2017 </br> Wersja 2.0.7</p>
+				<p  >&copy MK games 2017 </br> Wersja 2.1.5</p>
 				</div>
-			
-		
 				</div>
+											<div id="changes_list" > <spam style="color:cadetblue;">Lista poprawek 2.1.5 [26.08.2017]</spam>
 
-				<div id="changes_list" > <spam style="color:cadetblue;">Lista poprawek 2.0.7 [02.08.2017]</spam>
-
-</br></br>
+							</br></br>
 
 
+							<spam style="color:green;">Wersja 2.1.5</spam></br>
+								- Dodano czasowy event - Silny przeciwnik po pokonaniu którego otrzymyjemy skarb. Wymagany jest dostęp do internetu.</br>
+
+
+							 ---------------------------------------------------------------</br>
+
+<spam style="color:green;">Wersja 2.1.4</spam></br>
+	- Istnieje 8% szansy ,że znak chybi</br>
+	- Naprawiono wyświetlanie informacji podczas chybienia znakiem</br>
+	- Naprawiono bąd podwójnego klikania w kilku miejscach</br>
+	- Zmieniono system wyświetlania wiadomości. Zamiast w grze dodano do menu gównego</br>
+
+
+ ---------------------------------------------------------------</br>
+<spam style="color:green;">Wersja 2.1.0</spam></br>
+	- Naprawiono bąd z rzucaniem znaku</br>
+	- Dodano latwiejsze wyjście z gry z ekranu startowego</br>
+	- Misja "Trójca" dostepna jest w mieście po rozmowie z Matheą</br>
+
+ ---------------------------------------------------------------</br>
+<spam style="color:green;">Wersja 2.0.8</spam></br>
+	- Naprawiono szereg napotkanych mniejszych błędów</br>
+	- Kilka zmian w balansie</br>
+	- Dodano okno z informacją umieszczaną na zywo prosto z serwera przed rozpoczęciem gry</br>
+
+ ---------------------------------------------------------------</br>
 <spam style="color:green;">Wersja 2.0.7</spam></br>
-	- Gdy podczas ucieczki udzerzy potwór to traci się życie odpowiadające poziomowi postaci</br> 
-	- Ulepszona Jaskółka daje +2 zamiast +3</br> 
-	- Zwiększona składnik potrzebny do zrobienia jaskółki o 1 i obniżono zioło potrzebne do gromu o 2</br> 
+	- Gdy podczas ucieczki udzerzy potwór to traci się życie odpowiadające poziomowi postaci</br>
+	- Ulepszona Jaskółka daje +2 zamiast +3</br>
+	- Zwiększona składnik potrzebny do zrobienia jaskółki o 1 i obniżono zioło potrzebne do gromu o 2</br>
 	- Efekty pozytywne z Zamtuzy trwają 1 walke dłużej i obnizono koszt usługi o 2 złota</br>
 	- Gdy walczymy z więcej niż 1 potworem to koncentracja między tymi walkami nie spada</br>
 	- Przywrócono pierścien Furii ponownie do kupienia</br>
@@ -313,36 +308,36 @@ function onDeviceReady()
 	- Atak Upadłego Rycerza został zwiekszony</br>
 	- Naprawiono błąd z Upadłą Trójcą i jaskinią po pokonaniu skorpiona</br>
 
-                    
 
 
+ ---------------------------------------------------------------</br>
 <spam style="color:green;">Wersja 2.0.4</spam></br>
- - Dodano 4 szkoły cechu Wilka,Kota,Gryfa i Niedźwiedzia podczas wyboru postaci. Każda szkoła zapewnia inne bonusy.</br> 
- - Zwiększona ilość złota na wyższych poziomach postaci</br> 
-  - Mikstura leczenia +10 kosztuje 10 złota zaś ulepszona +15 kosztuje 15 złota. </br> 
+ - Dodano 4 szkoły cechu Wilka,Kota,Gryfa i Niedźwiedzia podczas wyboru postaci. Każda szkoła zapewnia inne bonusy.</br>
+ - Zwiększona ilość złota na wyższych poziomach postaci</br>
+  - Mikstura leczenia +10 kosztuje 10 złota zaś ulepszona +15 kosztuje 15 złota. </br>
   - Dodano Endgame - po zdobyciu 5 artefaktów</br>
      - Szereg innych usprawnień</br>
    ---------------------------------------------------------------</br>
 <spam style="color:green;">Wersja 2.0</spam></br>
- - Zmniejszenie czcionki względem jej przypadkowego zwiększenia w poprzedniej aktualizacji</br> 
- - Szereg poprawek i zmian w balansie</br> 
-  - Nadanie broni lub zbroi cech specjalnych podnosci wartość sprzedaży o 15</br> 
-  - Wyeliminowanio w pełni zawieszanie aplikacji powstałe kilka aktualizacji wstecz</br> 
+ - Zmniejszenie czcionki względem jej przypadkowego zwiększenia w poprzedniej aktualizacji</br>
+ - Szereg poprawek i zmian w balansie</br>
+  - Nadanie broni lub zbroi cech specjalnych podnosci wartość sprzedaży o 15</br>
+  - Wyeliminowanio w pełni zawieszanie aplikacji powstałe kilka aktualizacji wstecz</br>
    ---------------------------------------------------------------</br>
 
 <spam style="color:green;">Wersja 1.9.2</spam></br>
-  - Szereg mniejszych lub większych poprawek</br> 
-  - Od teraz po ulepszeniu broni na maksimum można nadac specjalna właściwośc taka jak: Krwawienie, Ogłuszenie lub Wampiryzm.</br> 
+  - Szereg mniejszych lub większych poprawek</br>
+  - Od teraz po ulepszeniu broni na maksimum można nadac specjalna właściwośc taka jak: Krwawienie, Ogłuszenie lub Wampiryzm.</br>
    ---------------------------------------------------------------</br>
 
 <spam style="color:green;">Wersja 1.9.1</spam></br>
-- Dodano zapis z poziomu Medytacji</br> 
+- Dodano zapis z poziomu Medytacji</br>
    ---------------------------------------------------------------</br>
 <spam style="color:green;">Wersja 1.8</spam></br>
-- Kilka innych poprawek</br> 
+- Kilka innych poprawek</br>
    ---------------------------------------------------------------</br>
 <spam style="color:green;">Wersja 1.7.8</spam></br>
-- Kilka innych poprawek</br> 
+- Kilka innych poprawek</br>
 - Dodano sklep alchemiczny u Mathei z receptami na mocniejsze eliksiry</br>
 - Dodano nową misję, zmieniono misję z bandytami, dodano zdarzenia losowe na drugiej części mapy</br>
 - Naprawiono problem niemozżności otworzenia panelu postaci zanim wejdzie się do miasta po wczytaniu gry</br></br></br>
@@ -351,10 +346,10 @@ function onDeviceReady()
 
 
 <spam style="color:green;">Wersja 1.7.4</spam></br>
-- Od teraz mozna uzyskać 3 miksturę leczenia oraz ją wzmocnić u Mathei</br>  
-- Od teraz są dwa poziomy wiedźmińskich eliksirów</br>  
-- Dodano informację w trakcie walkiile życia uzupełnia Jaskółka</br>  
-- Zmodyfikowano trochę pierwszy dialog z Druidem</br> 
+- Od teraz mozna uzyskać 3 miksturę leczenia oraz ją wzmocnić u Mathei</br>
+- Od teraz są dwa poziomy wiedźmińskich eliksirów</br>
+- Dodano informację w trakcie walkiile życia uzupełnia Jaskółka</br>
+- Zmodyfikowano trochę pierwszy dialog z Druidem</br>
 - Dodano sklep alchemiczny u Mathei z receptami na mocniejsze eliksiry</br>
 - Zbalansowano bardziej rozgrywkę</br>
 - Naparwiono sporo błędów wizualnych jak i technicznych</br></br></br>
@@ -371,36 +366,36 @@ function onDeviceReady()
 - Dodano misje po dostaniu się do Wyzimy</br></br></br>
    ---------------------------------------------------------------</br>
 <spam style="color:green;">Wersja 1.6.9</spam></br>
-- potwory ze Zlecenia mają teraz zawsze jakąś odporność</br>  
-- dodano na mapie limit zabić na cmentarzu</br>  
-- Naprawiono błędy wynikające z poprzedniej aktualizacji: niemożnośc ruchu na tablecie, sła mapa ze skrótem po pokonaniu bandytów i kilka innych</br> 
+- potwory ze Zlecenia mają teraz zawsze jakąś odporność</br>
+- dodano na mapie limit zabić na cmentarzu</br>
+- Naprawiono błędy wynikające z poprzedniej aktualizacji: niemożnośc ruchu na tablecie, sła mapa ze skrótem po pokonaniu bandytów i kilka innych</br>
 - Zwiększono atak Upiora w krypcie i Magicznego Straznika w wieży</br>
 - Po stworzeiu lub wypiciu mikstury okno zostaje automatycznie zamknięte</br>
-- Dialog z Mathe'ą został naprawiony</br> 
-- Poziom Wieży na mapie został przywrócony po wczytaniu gry</br> 
-- Pierścień Szkolenia został usunięty</br> 
-- Walka z nietoperzem przed piramidą naprawiona</br> 
-- Potwory z Legowiska mają pomniejszony atak maksymalny</br> 
-- Okno tworzenia zbroi ze schematu otwiera się już normalnie</br> 
-- Pancerze nowe nie pojawiają się tylko wtedy gdy kupimy dostępny. Teraz odbywa się to czasowo</br> 
-- Przywrócono walke w Jaskini z trolem. Po ostatniej aktualizacji jej nie było</br> 
-- Po wygraniu w kości z kupcem napis na innych oknach juz nie świeci</br> 
-- Dodano chmurki :) </br> 
-- Pierścien bogactwa daje teraz 20%, 30% lub 40% na wyższych poziomach</br> 
+- Dialog z Mathe'ą został naprawiony</br>
+- Poziom Wieży na mapie został przywrócony po wczytaniu gry</br>
+- Pierścień Szkolenia został usunięty</br>
+- Walka z nietoperzem przed piramidą naprawiona</br>
+- Potwory z Legowiska mają pomniejszony atak maksymalny</br>
+- Okno tworzenia zbroi ze schematu otwiera się już normalnie</br>
+- Pancerze nowe nie pojawiają się tylko wtedy gdy kupimy dostępny. Teraz odbywa się to czasowo</br>
+- Przywrócono walke w Jaskini z trolem. Po ostatniej aktualizacji jej nie było</br>
+- Po wygraniu w kości z kupcem napis na innych oknach juz nie świeci</br>
+- Dodano chmurki :) </br>
+- Pierścien bogactwa daje teraz 20%, 30% lub 40% na wyższych poziomach</br>
 - Mając maksymalny poziom koncentracji ni spada juz do 0 podczas ucieczki</br>
 - Okno rozdzielania punktów zostało powiększone oraz zmieniona czcionka </br>
 - Koncentracja po wypiciu Puszczyka rgeneruje 2 zamiast błędnych 3</br>
 - Legowisko i Grota potworów maja teraz min poziom/ilość "poziom gracza+1"</br></br></br>
    ---------------------------------------------------------------</br>
 <spam style="color:green;">Wersja 1.6.6</spam></br></br>
-- Zmieniono chatkę maga. Teraz jest to zielarka Mathea i ma związek z fabułą </br> 
+- Zmieniono chatkę maga. Teraz jest to zielarka Mathea i ma związek z fabułą </br>
 - Zwiększono wymagania XP na wyższych poziomach </br>
 - Zmieniono misje z Upadłym Rycerzem by współgrała z fabułą </br>
 - Dodano fabułę!</br>
 - Pierścień Siły teraz dodaje +2 siły a powyżej 3 lvl +3 </br></br></br></br>
 <spam style="color:green;">Wersja 1.6.5</spam></br>
-- Modyfikacje wielkości poszczególnych okien </br> 
-- Zmieniono chatkę maga. Teraz jest to zielarka Mathea i ma związek z fabułą </br> 
+- Modyfikacje wielkości poszczególnych okien </br>
+- Zmieniono chatkę maga. Teraz jest to zielarka Mathea i ma związek z fabułą </br>
 - Zwiększono wymagania XP na wyższych poziomach </br>
 - Zmieniono misje z Upadłym Rycerzem by współgrała z fabułą </br>
 - Dodano fabułę!</br>
@@ -432,41 +427,41 @@ function onDeviceReady()
 - Kilka innych poprawek wizualnych jak i w balansie</br></br></br></br>
    ---------------------------------------------------------------</br>
 - Masa wszelakich usprawnień </br>
-- Zmieniono czcionkę</br> 
-- Dodano mozliwośc save'a podczas wyjścia z gry</br> 
+- Zmieniono czcionkę</br>
+- Dodano mozliwośc save'a podczas wyjścia z gry</br>
 - Dodano nazwy miast</br> </br></br></br>
   ---------------------------------------------------------------</br>
 - Dodano silniejszego potwora przed skarbem w jaskini, Piramidzie i Piramidzie</br>
-- Szereg poprawek w balansie</br> 
-- Naprawiono kilka mniejszych błędów</br> 
-- Szereg wizualnych poprawek</br> 
+- Szereg poprawek w balansie</br>
+- Naprawiono kilka mniejszych błędów</br>
+- Szereg wizualnych poprawek</br>
 - Zmieniono sposób naliczania ataku broni oraz ich wariacje dostępne u kowala</br>
 - Dodano skrót do obozu bandytów w chwili ich pokonania</br>
   ---------------------------------------------------------------</br>
-- Zwiększono życie bandytów i dodano lepszą nagrodę za ich eliminację</br> 
-- Naprawiono błąd znikania szczura po zabiciu jednego z bandytów</br> 
-- Naprawiono błąd z tworzeniem zbroi ze schematu</br> 
-- Zmieniono parametry i dostępność broni w ukowala</br> 
+- Zwiększono życie bandytów i dodano lepszą nagrodę za ich eliminację</br>
+- Naprawiono błąd znikania szczura po zabiciu jednego z bandytów</br>
+- Naprawiono błąd z tworzeniem zbroi ze schematu</br>
+- Zmieniono parametry i dostępność broni w ukowala</br>
 - Wibracje juz nie działają gdy przeciwnik chybi</br>
 - Naprawiono błąd z brakiem menu po wyjściu z gry w kości</br>
   ---------------------------------------------------------------</br>
 - I wiele innych usprawnień....</br>
-- Poprawiono wygląd okien</br> 
-- Dodano obóz bandytów i chatę maga</br> 
-- Naprawiono brak menu w zamtuzie</br> 
-- Zbalansowana ilość XP potrzebną do awansu</br> 
+- Poprawiono wygląd okien</br>
+- Dodano obóz bandytów i chatę maga</br>
+- Naprawiono brak menu w zamtuzie</br>
+- Zbalansowana ilość XP potrzebną do awansu</br>
 - Zmieniono system pojawiania się broni u kowala</br>
 - Naprawiono błąd z odczytywaniem gry</br>
   ---------------------------------------------------------------</br>
 - Dodano link do strony gdzie mozna zgłaszać błędy lub uwagi dotyczące gry</br>
-- Naprawiono błąd który powodował otrzymanie dodatkowej 3-ciej mikstury leczenia</br> 
-- Kilka mniejszych usprawnień wizualnych</br> 
-- Zbalansowano ilośc złota otrzymywana z potworów oraz wymagania XP co do leveli</br> 
-- Naprawiono błąd związany z brakiemj wyboru rozmiaru ekranu podczas kontynuowania gry</br> 
+- Naprawiono błąd który powodował otrzymanie dodatkowej 3-ciej mikstury leczenia</br>
+- Kilka mniejszych usprawnień wizualnych</br>
+- Zbalansowano ilośc złota otrzymywana z potworów oraz wymagania XP co do leveli</br>
+- Naprawiono błąd związany z brakiemj wyboru rozmiaru ekranu podczas kontynuowania gry</br>
 - Naprawiono błąd związany z piramidą podczas wczytywania gry</br>
 - Poprawiono animację okien w mieście</br>
   ---------------------------------------------------------------</br>
-- Naprawiono błąd z brakiem musyki podczas walki w wieży</br> 
+- Naprawiono błąd z brakiem musyki podczas walki w wieży</br>
 - Naprawiono błąd z dośiadczeniem po uzyskaniu poziomu w mieście</br>
 - Naprawiono blokowanie gracza grania po pokonaniu szczura</br>
 - Zmniejszono długość vibracji</br>
@@ -567,7 +562,7 @@ function onDeviceReady()
 
 
 				</div>
-				
+
 				<div id="osoby">
               <spam style="color:red;">Osoby, którym jestem wdzięczny:</spam> </br>
              </br>   DiabloManiak </br>
@@ -575,11 +570,11 @@ function onDeviceReady()
                 CzareQ</br>
                 Marek</br>
                 Robson </br>
-                
-                
-     
+
+
+
             </div>
-            
+
 <div id="device">
     </br></br></br>
     <spam style="color:white; font-size:46px;font-family: 'morph';">Wybierz rozmiar ekranu</spam>
@@ -587,9 +582,9 @@ function onDeviceReady()
 <button class="btn-default" style="height:50px; width:150px; font-size:32px; color:red; font-family:'morph';" onclick="mobile();"> Telefon</button> &copy&copy&copy
 <button class="btn-default"  style="height:50px; width:150px; font-size:32px; color:red; font-family:'morph';" onclick="tablet();"> Tablet</button>
 </div>
-          
-            
-            
+
+
+
 				</div>
 
 				</body>

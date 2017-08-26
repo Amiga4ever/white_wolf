@@ -1,6 +1,6 @@
 function nowa_gra()
 {
-     
+
             level_amount =1;
             xp_amount = 0;
             xp_req = 45;
@@ -15,10 +15,21 @@ function nowa_gra()
             skladniki_amount = 0;
             herbs_amount = 0;
             skory_amount = 0;
-            runy_amount = 0;  
-  
-  
+            runy_amount = 0;
+
+
+
+
+
+
+
+
+
+
 }
+
+
+
 
 
 function zanik_obiektow()
@@ -38,12 +49,12 @@ $("#arrow2").fadeOut(0);
 
 if((blob_completed==1)&&(gif_zoom_out==0))
 {
-$("#blob").fadeOut(0);      
+$("#blob").fadeOut(0);
 }
-if(quest_wykonany_nr==3)        
+if(quest_wykonany_nr==3)
 $("#arrow3").fadeOut(0);
 
-if((quest_wykonany_nr==4) &&(misja!=5))       
+if((quest_wykonany_nr==4) &&(misja!=5))
 $("#arrow4").fadeOut(0);
 
 
@@ -57,7 +68,7 @@ $("#spider").fadeOut(0);
 
 if((golem_pokonany==1)&&(gif_zoom_out==0))
 {
-$("#golem").fadeOut(0); 
+$("#golem").fadeOut(0);
 }
 
 if(grobowiec_completed==1)
@@ -71,11 +82,11 @@ $("#nagrobek").fadeOut(0);
 
     if(piramida_poziom>1)
     $("#piramida_level").fadeIn(0);
-    
-    
-    
-    
-    
+
+
+
+
+
 if(piramida_nagroda==1)
 $("#piramida_level").fadeOut(0);
 
@@ -85,45 +96,45 @@ $("#soldier").fadeOut(0);
 
 
 if(cave_completed==1)
-$("#jaskinia_level").fadeIn(0);      
+$("#jaskinia_level").fadeIn(0);
 
 if(cave_skarb==1)
-$("#jaskinia_level").fadeOut(0);  
+$("#jaskinia_level").fadeOut(0);
 
 
 if(misja==6)
 {
 $("#arrow5").fadeOut(0);
-$("#arrow_city").fadeOut(0); 
+$("#arrow_city").fadeOut(0);
 }
 if(rat_pokonany==1)
-  $("#rat").fadeOut(0);   
+  $("#rat").fadeOut(0);
 
 
-    
+
 if(misja_mag==1)
-$("#mag").fadeIn(0);  
+$("#mag").fadeIn(0);
 
 if(misja_mag>1)
-$("#mag").fadeOut(0); 
+$("#mag").fadeOut(0);
 
 if(ognista_kula==2)
-$("#goblin").fadeOut(0);   
+$("#goblin").fadeOut(0);
 
 if(sand_cave_poziom>0)
-$("#sand_cave_level").fadeIn(0);  
-    
+$("#sand_cave_level").fadeIn(0);
 
-       
+
+
 if(skorpion_pokonany==1)
-$("#skorpion").fadeOut(0);   
-    
-          
+$("#skorpion").fadeOut(0);
+
+
 if(bat_pokonany==1)
-$("#rycerz").fadeOut(0);   
+$("#rycerz").fadeOut(0);
 
 if(tower_poziom>0)
-$("#tower_poziom_info").fadeIn(0); 
+$("#tower_poziom_info").fadeIn(0);
 
 if(tower_nagroda==1)
 $("#tower_poziom_info").fadeOut(0);
@@ -133,12 +144,12 @@ if(gargulec_pokonany==1)
 $("#gorgol").fadeOut(0);
 
 if(explosion_21==1)
-document.getElementById("gif21").style.backgroundImage = "url('')";  
+document.getElementById("gif21").style.backgroundImage = "url('')";
 
 if(ognista_kula==2)
-document.getElementById("gif13").style.backgroundImage = "url('')";  
-    
-    
+document.getElementById("gif13").style.backgroundImage = "url('')";
+
+
 if(sand_cave_completed==1)
 $("#sand_cave_level").fadeOut(0);
 
@@ -146,24 +157,24 @@ $("#sand_cave_level").fadeOut(0);
 if((quest_wykonany_nr==3)&&(misja==4))
 {
 $("#arrow4").fadeIn(0);
-$("#bandit").fadeIn(0);           
-$("#arrow4").transition({y:80, x: 400},3000,'ease') 
+$("#bandit").fadeIn(0);
+$("#arrow4").transition({y:80, x: 400},3000,'ease')
 
 }
 
 if(bandyci_pokonani==1)
 {
 document.getElementById('cala_mapa').style.backgroundImage = "url('mapa_new_skrot.jpg')";
-$("#bandit").fadeOut(0);  
-$("#dym").fadeIn(0); 
-$("#mag_out").fadeOut(0); 
+$("#bandit").fadeOut(0);
+$("#dym").fadeIn(0);
+$("#mag_out").fadeOut(0);
 }
 
 
 if(misja==7)
 {
 $("#arrow4").fadeIn(0);
-$("#arrow4").transition({ y: 160, x: 430},0,'ease'); 
+$("#arrow4").transition({ y: 160, x: 430},0,'ease');
 }
 
 if(nawiedzony_dom_wykonany==1)
@@ -173,27 +184,27 @@ $("#arrow4").fadeOut(0);
 if(misja==6)
 {
 $("#arrow4").fadeIn(0);
-$("#gorgol").fadeIn(0);           
+$("#gorgol").fadeIn(0);
 $("#arrow4").transition({ y: 50, x: 453},0,'ease')
 
 }
     if(gargulec_pokonany==1)
-    $("#gorgol").fadeOut(0);   
-    
-    
+    $("#gorgol").fadeOut(0);
+
+
   if(mag_pokonany==1)
       $("#mag").fadeOut(0);
-    
-    
+
+
     if(mag_pokonany2==1)
       $("#mag2").fadeOut(0);
-    
-    
+
+
      if(mag_pokonany3==1)
       $("#mag3").fadeOut(0);
-    
-    
-    
+
+
+
 
 }
 
@@ -205,14 +216,14 @@ function pole_gracza(nazwa="player",wartosc="nic")
 {
 nazwa = nazwa;
 if(wartosc=="pytanie")
-   document.getElementById(nazwa).style.backgroundImage = "url('pytanie.gif')"; 
+   document.getElementById(nazwa).style.backgroundImage = "url('pytanie.gif')";
 if(wartosc=="nic")
-   document.getElementById(nazwa).style.backgroundImage = "url('gif.gif')";  
+   document.getElementById(nazwa).style.backgroundImage = "url('gif.gif')";
 }
 
 function aktywne(nazwa,status)
 {
-document.getElementById(nazwa).style.pointerEvents = status; 
+document.getElementById(nazwa).style.pointerEvents = status;
 }
 
 function ppl()
@@ -231,16 +242,50 @@ function extra()
 {
 
 
- 
-    
-    
-  
+  $.ajax({
+  dataType: 'json',
+  type: "get",
+  contentType: "charset=utf-8",
+  url: "http://marcinkrupinski.pl/wiedzmin/mob.json",
+
+
+  success: function(data) {
+
+
+
+
+console.log(data[0].event_nr);
+
+
+if((moj_event!=data[0].event_nr)||(event_mob_aktywny==1))
+{
+moj_event=data[0].event_nr;
+  if((data[0].aktywny==1))
+  {
+  $('#event_mob').fadeIn(500);
+
+event_mob_aktywny=1;
+  }
+else {
+    $('#event_mob').fadeOut(0);
+}
+}
+else {
+      $('#event_mob').fadeOut(0);
+}
+  }
+  })
+
+
+
+
+
 if((rycerz_pokonany==1)&&(quest_wykonany_nr<5))
     {
     quest_wykonany_nr=5;
     misja_zadanie_wykonane=1;
     }
-    
+
 var check =  isNaN(skorpion_pokonany);
 if(check==true)
 skorpion_pokonany=0;
@@ -329,14 +374,14 @@ var check =  isNaN(nawiedzony_dom_wykonany);
 if(check==true)
 nawiedzony_dom_wykonany=0;
 
-    
+
 var check =  isNaN(kiedy_nowy_towar4);
 if(check==true)
 kiedy_nowy_towar4=15;
 
-    
-    
-       
+
+
+
 var check =  isNaN(cecha_broni_nadana);
 if(check==true)
 cecha_broni_nadana=0;
@@ -345,13 +390,13 @@ cecha_broni_nadana=0;
 if(check==true)
 atk_tower=1;
 
-    
-    
+
+
     var check =  isNaN(hp_tower);
 if(check==true)
 hp_tower=5;
 
-       
+
      var check =  isNaN(mag_pokonany);
 if(check==true)
 mag_pokonany=0;
@@ -367,51 +412,63 @@ mag_pokonany3=0;
                   var check =  isNaN(mathea_end);
 if(check==true)
 mathea_end=0;
-    
-    
-    
+
+
+
  var check =  isNaN(alzur_pokonany);
 if(check==true)
 alzur_pokonany=0;
 
-          
+
  var check =  isNaN(mana_zamtuz);
 if(check==true)
-mana_zamtuz=0; 
+mana_zamtuz=0;
 
 
        var check =  isNaN(graveyard_skonczony);
 if(check==true)
-graveyard_skonczony=0; 
+graveyard_skonczony=0;
 
 
-       
+       var check =  isNaN(event_mob_aktywny);
+if(check==true)
+event_mob_aktywny=0;
 
 
-       
+       var check =  isNaN(moj_event);
+if(check==true)
+moj_event=0;
+
+
+
+
+
+
+
+
     if(nazwa_szkoly==undefined)
         nazwa_szkoly="Brak szkoły";
-    
-    
-    
-    
-    
+
+
+
+
+
 if(cecha_broni_nazwa==undefined)
 cecha_broni_nazwa=" ";
 
-let kolor = cecha_broni_nazwa.fontcolor("yellow"); 
-            
+let kolor = cecha_broni_nazwa.fontcolor("yellow");
+
 document.getElementById("weapon_info").innerHTML = nazwa_posiadanej_broni + ", "+ kolor;
-    
+
  dane_zbroi_do_kupna();
-    
+
 $("#info_pop").transition({ scale:0,opacity:0}, 0, 'ease');
 
-    
 
 
 
-    
+
+
 }
 
 
@@ -480,7 +537,7 @@ function zdarzenie_hide()
 
 
 
-        
+
 function t1()
 {
 
@@ -499,31 +556,106 @@ developer_pokaz();
         secret_unlock=0;
 
         }
-    
-    
-    
+
+
+
 }
 
 
 function t2()
 
 {
-	$('#developer_okno').fadeOut(0);
 
-bandyci_pokonani=1;
-	bariera_odkryta=1;
-	runy_amount=10;
-	artefacts++;
-	sell.play();
-	
-	
-	
+
+
+
+$.ajax({
+dataType: 'json',
+type: "get",
+contentType: "charset=utf-8",
+url: "http://marcinkrupinski.pl/wiedzmin/mob.json",
+
+
+success: function(data) {
+console.log(data);
+if((data[0].aktywny==1))
+{
+$('#event_mob').fadeIn(500);
+let nazwa = (data[0].nazwa);
+let hp = (data[0].hp);
+let min = (data[0].atak_min);
+let max = (data[0].atak_max);
+
+//losuj_potwora(hp, nazwa, "magic");
+//zakres_ataku_potwora(min, max);
+
+typ_tla=27;
+let poziom = data[0].level;
+console.log(nazwa);
+losuj_potwora(null, nazwa, null, null, poziom);
+zakres_ataku_potwora(null, null, 5);
+
+  document.getElementById("event_mob").style.zIndex = 9200;
+boss.play();
+typ_tla=27;
+fight.play();
+battle_sfx.play();
+  document.getElementById('event_mob').className = "fight";
+setTimeout(walka2, 1000);
 }
+
+}
+})
+
+
+
+
+
+
+}
+
+function event_chest()
+{
+
+  $.ajax({
+  dataType: 'json',
+  type: "get",
+  contentType: "charset=utf-8",
+  url: "http://marcinkrupinski.pl/wiedzmin/mob.json",
+
+
+  success: function(data) {
+
+    let typ = data[0].typ;
+    let min = data[0].typ_min;
+    let max = data[0].typ_max;
+    zdarzenie_hide();
+    zdarzenie_pokaz();
+      skarb_check(typ, min, max);
+      document.getElementById('zdarzenie').style.backgroundImage = "url('event_skarb.jpg')";
+      document.getElementById("zdarzenie_info").style.color = "yellow";
+      document.getElementById("zdarzenie_info2").innerHTML = " ";
+      document.getElementById("zdarzenie_open").style.color = "dimgrey";
+      document.getElementById("zdarzenie_open").innerHTML = "--";
+
+
+
+
+}
+});
+
+
+
+
+
+}
+
+
+
 
 function t3()
 {
-$('#developer_okno').fadeOut(0);
-graveyard_skonczony=1;
+cave();
 }
 function t4()
 {
@@ -552,7 +684,7 @@ setTimeout(rozmowa_start,7000);
 }
 else
 {
-$("#player").transition({scale:1, opacity:1},2500,'ease');   
+$("#player").transition({scale:1, opacity:1},2500,'ease');
 
 //kierunek=5;
 sprawdz_kierunki_aktywne();
@@ -563,38 +695,38 @@ sprawdz_kierunki_aktywne();
 
 function xp_check()
 {
-    
+
        if((level_amount==4)&&(xp_amount<395) )
     {
 
             xp_amount=250;
-    
+
     }
-    
-    
+
+
    if((level_amount==5)&&(xp_amount<395) )
     {
 
             xp_amount=600;
-    
+
     }
-    
+
        if((level_amount==6)&&(xp_req==1195) )
     {
-        
+
              xp_amount = xp_copy;
         if(xp_amount<895)
             xp_amount=900;
-    
+
     }
-    
-           if((level_amount==7)&&(xp_req==1525)) 
+
+           if((level_amount==7)&&(xp_req==1525))
     {
-        
+
              xp_amount = xp_copy;
         if(xp_amount<1195)
             xp_amount=1000;
-    
+
     }
       document.getElementById('xp').innerHTML = "XP:" + " " + xp_amount + "/" + xp_req;
 }
@@ -603,22 +735,22 @@ function xp_check()
 
 function zbroja_z_cechami()
 {
-     
-    
+
+
      var wartosc = cecha_wartosc + " ";
         var kolor = wartosc.fontcolor("yellow");
-    
-    
+
+
 if(nazwa_cechy =="sila")
 {
 document.getElementById("armour_info").innerHTML = nazwa_posiadanej_zbroi + ", " + "<spam style='color:yellow';>Siła +1</spam>";
 }
-    
+
 if(nazwa_cechy =="zycie")
 {
 document.getElementById("armour_info").innerHTML = nazwa_posiadanej_zbroi + ", " + "<spam style='color:yellow';>Życie +</spam>"  + kolor;
 }
-    
+
 if(nazwa_cechy =="mana")
 {
 document.getElementById("armour_info").innerHTML = nazwa_posiadanej_zbroi + ", " + "<spam style='color:yellow';>Koncentracja +</spam>"+  kolor;
@@ -633,22 +765,11 @@ document.getElementById("armour_info").innerHTML = nazwa_posiadanej_zbroi + ", "
 
 }
 
-   
+
 function enable_inventory()
 {
 document.getElementById("medytacja_menu").style.pointerEvents="auto";
-document.getElementById("medytacja_menu").onclick = function() {medytacja_pokaz()};  
+document.getElementById("medytacja_menu").onclick = function() {medytacja_pokaz()};
 document.getElementById("info").style.pointerEvents="auto";
-document.getElementById("info").onclick = function() {inventory_pokaz()}; 
+document.getElementById("info").onclick = function() {inventory_pokaz()};
 }
-
-    
-             
-
-
-
-
-
-
-
-

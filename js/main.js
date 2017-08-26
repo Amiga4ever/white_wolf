@@ -17,6 +17,10 @@ $("#arrow_city").fadeOut(0);
 
 function changes_show() {
 
+$("#demo").toggle();
+$("#sql").toggle();
+
+
 if(klik_zmiany==0)
 {
 $("#osoby").fadeOut(0);
@@ -26,9 +30,9 @@ klik_zmiany=1;
 }
 else
 {
-$("#osoby").fadeOut(0);    
+$("#osoby").fadeOut(0);
 document.getElementById('play4').play();
-$("#changes_list").fadeOut(400);          
+$("#changes_list").fadeOut(400);
 klik_zmiany=0;
 }
 }
@@ -43,7 +47,7 @@ function credits_show() {
 
 
 
-
+$("#sql").toggle();
 if(klik==0){
 $("#osoby").fadeIn(500);
 document.getElementById('play4').play();
@@ -295,13 +299,13 @@ document.getElementById("skory_do_sprzedania_ilosc").style.color = "orange";
 if(mikstura_upgrade==0)
 {
 var cena_potiona=10;
-document.getElementById("potion_do_kupienia_cena").innerHTML = "Cena: 10";  
+document.getElementById("potion_do_kupienia_cena").innerHTML = "Cena: 10";
 }
 
 else
 {
-var cena_potiona=15; 
-document.getElementById("potion_do_kupienia_cena").innerHTML = "Cena: 15";    
+var cena_potiona=15;
+document.getElementById("potion_do_kupienia_cena").innerHTML = "Cena: 15";
 }
 
 
@@ -334,7 +338,7 @@ potion2++;
 if(mikstura_upgrade==0)
 gold_amount = gold_amount - 10;
 else
-gold_amount = gold_amount - 15;   
+gold_amount = gold_amount - 15;
 
 
 
@@ -402,7 +406,7 @@ document.getElementById("skory_do_sprzedania_ilosc").style.color = "red";
 
 function leczenie_cena() {
 
-if (life_amount < life_max) 
+if (life_amount < life_max)
 {
 ileleczyc = life_max - life_amount;
 cenaleczenia = ileleczyc;
@@ -731,7 +735,7 @@ else if ((quest_wykonany_nr == 6) && (misja == 6))
 document.getElementById("lokacja").innerHTML = '<i style="color:yellow;"class="icon-lightbulb"></i>' + " Nawiedzony dom";
 
 
-else if ((quest_wykonany_nr == 7) && (misja == 7)&&(mathea_end==1))
+else if ((quest_wykonany_nr == 7) && (misja == 7)&&(mathea_end==1)&&(mathea_end==1))
 document.getElementById("lokacja").innerHTML = '<i style="color:yellow;"class="icon-lightbulb"></i>' + " Nieumarła trójca";
 
 
@@ -801,7 +805,7 @@ not_allowed()
 }
 if(nr_zlecenia>5)
 {
-document.getElementById("medytacja").innerHTML = '<i style="color:red;"class="icon-flash"></i>' + "Brak więcej zleceń"; 
+document.getElementById("medytacja").innerHTML = '<i style="color:red;"class="icon-flash"></i>' + "Brak więcej zleceń";
 document.getElementById("medytacja").style.color = "dimgrey";
 document.getElementById("medytacja").onclick = function () {
 not_allowed();
@@ -814,7 +818,7 @@ not_allowed();
 
 if(zlecenie_completed==1)
 {
-$('#arrow_city_zlecenie').fadeIn(0); 
+$('#arrow_city_zlecenie').fadeIn(0);
 
 }
 
@@ -901,7 +905,7 @@ document.getElementById("okno_zlecenie_info").innerHTML = "Zlecenie Wiedźmińsk
 
 
 function zaplata_za_zlecenie() {
-$('#arrow_city_zlecenie').fadeOut(0); 
+$('#arrow_city_zlecenie').fadeOut(0);
 nr_zlecenia++;
 
 zlecenie_typ = "BRAK";
@@ -921,7 +925,7 @@ zlecenie_completed = 0;
 
 if(nr_zlecenia>5)
 {
-document.getElementById("medytacja").innerHTML = '<i style="color:red;"class="icon-flash"></i>' + "Brak więcej zleceń"; 
+document.getElementById("medytacja").innerHTML = '<i style="color:red;"class="icon-flash"></i>' + "Brak więcej zleceń";
 document.getElementById("medytacja").style.color = "dimgrey";
 document.getElementById("medytacja").onclick = function () {
 not_allowed();
@@ -1031,7 +1035,7 @@ mob_hp = 50 + mob_hp_extra;
 mob_hp_extra = mob_hp_extra + 15;
 
 
-if(nr_zlecenia==1)  
+if(nr_zlecenia==1)
 {
 atak_moba_min = 4;
 atak_moba_max = 8;
@@ -1186,19 +1190,19 @@ monster6.play();
 }
 
 
-function zakres_ataku_potwora(min, max) {
+function zakres_ataku_potwora(min, max, level) {
 
 
 
 
 if (zlecenie_aktywne == 0) {
 
-if (min == undefined) {
+if ((min == undefined)||(min ==null )) {
 atak_moba_min = Math.floor(Math.random() * level_amount) + 2;
 min = atak_moba_min;
 }
 
-if (max == undefined) {
+if ((max == undefined)||(max ==null )) {
 atak_moba_max = level_amount + 2;
 max = Math.floor(Math.random() * atak_moba_max) + 3;
 }
@@ -1227,6 +1231,15 @@ max_2 = 3;
 walka_nr4 =0;
 }
 */
+
+if(typ_tla==27)
+{
+min_1 = min_1+level;
+max_2 = max_2+level;
+
+}
+
+
 
 
 document.getElementById("enemy_atk").innerHTML = "Atak:" + " " + min_1 + " " + "-" + " " + max_2;
@@ -1260,6 +1273,7 @@ oblicz_obrona_w_walce();
 monster_hit = monster_hit - redukcja_obrazen;
 if (monster_hit < 1)
 monster_hit = 1;
+
 
 
 
@@ -1393,14 +1407,14 @@ function zgon_potwora() {
 
 pudlo = 0;
 
-if (mob_hp > 0) 
+if (mob_hp > 0)
 {
 if ((grom == 0) && (atak_znakiem_check == 0) &&(mana_amount<manal_max))
 mana_amount++;
 else if (grom==1)
 half_mana = half_mana+0.5;
 
-if ((puszczyk == 1)&&(atak_znakiem_check==0)&&(mana_amount<manal_max)) 
+if ((puszczyk == 1)&&(atak_znakiem_check==0)&&(mana_amount<manal_max))
 {
 mana_amount++;
 if ((mana_amount > manal_max)&&(mana_zamtuz==0))
@@ -1512,17 +1526,17 @@ nazwa_gifa = "mag";
 document.getElementById(nazwa_gifa).className = "fight_over";
 }
 else if (typ_tla == 18) {
-skorpion_pokonany=1;  
+skorpion_pokonany=1;
 gif_zoom_out = 1;
 nazwa_gifa = "skorpion";
 document.getElementById(nazwa_gifa).className = "fight_over";
-document.getElementById('player').style.backgroundImage = "url('pytanie.gif')";     
-document.getElementById("player").style.pointerEvents = 'auto';  
-document.getElementById("player").onclick = function() {sand_cave()}; 
+document.getElementById('player').style.backgroundImage = "url('pytanie.gif')";
+document.getElementById("player").style.pointerEvents = 'auto';
+document.getElementById("player").onclick = function() {sand_cave()};
 }
 
 else if (typ_tla == 20) {
-bat_pokonany=1; 
+bat_pokonany=1;
 gif_zoom_out = 1;
 nazwa_gifa = "rycerz";
 document.getElementById(nazwa_gifa).className = "fight_over";
@@ -1547,7 +1561,7 @@ gif_zoom_out = 1;
 nazwa_gifa = "mag";
 document.getElementById(nazwa_gifa).className = "fight_over";
 mag_pokonany=1;
-extra_skarb=1;    
+extra_skarb=1;
 max_wartosc=3;
 min_wartosc=2;
 rodzaj_skarbu="runy";
@@ -1561,7 +1575,7 @@ gif_zoom_out = 1;
 nazwa_gifa = "mag2";
 document.getElementById(nazwa_gifa).className = "fight_over";
 mag_pokonany2=1;
-extra_skarb=1; 
+extra_skarb=1;
 max_wartosc=10;
 min_wartosc=15;
 rodzaj_skarbu="zloto";
@@ -1575,10 +1589,10 @@ gif_zoom_out = 1;
 nazwa_gifa = "mag3";
 document.getElementById(nazwa_gifa).className = "fight_over";
 mag_pokonany3=1;
-extra_skarb=1;    
+extra_skarb=1;
 max_wartosc=10;
 min_wartosc=15;
-rodzaj_skarbu="zloto"; 
+rodzaj_skarbu="zloto";
 document.getElementById('zdarzenie').style.backgroundImage = "url('sand_skarb.jpg')";
 typ_tla=0;
 }
@@ -1592,6 +1606,16 @@ document.getElementById(nazwa_gifa).className = "fight_over";
 alzur_pokonany=1;
 
 typ_tla=0;
+}
+
+
+
+else if (typ_tla == 27) {
+gif_zoom_out = 1;
+	event_mob_aktywny=2;
+nazwa_gifa = "event_mob";
+document.getElementById(nazwa_gifa).className = "fight_over";
+
 }
 
 
@@ -1694,7 +1718,7 @@ losuj_pierscien = 1;
 kiedy_nowy_towar4--;
 if(kiedy_nowy_towar4==0)
 {
-kiedy_nowy_towar4=15; 
+kiedy_nowy_towar4=15;
 kupiec_start = 0;
 }
 
@@ -2308,8 +2332,8 @@ if (ilosc3b > gold_amount) {
 document.getElementById("towar3_cena").style.color = "red";
 
 document.getElementById("towar3").style.pointerEvents = 'none';
-} 
-else 
+}
+else
 
 {
 document.getElementById("towar3_cena").style.color = "orange";
@@ -2317,13 +2341,13 @@ document.getElementById("towar3_cena").style.color = "orange";
 document.getElementById("towar3").style.pointerEvents = 'auto';
 }
 
-if (ilosc3a == 0) 
+if (ilosc3a == 0)
 {
 document.getElementById("towar3_ilosc").style.color = "red";
 document.getElementById("towar3").style.color = "dimgrey";
 document.getElementById("towar3").style.pointerEvents = 'none';
 
-} else 
+} else
 {
 document.getElementById("towar3_ilosc").style.color = "orange";
 document.getElementById("towar3").style.color = "orange";
@@ -2485,7 +2509,7 @@ buy.play();
 
 document.getElementById("loot2").innerHTML = "Zdobyto" + " " + gold_received + " " + "złota";
 if ((jaki_pierscien1 == "Bogactwa") || (jaki_pierscien2 == "Bogactwa"))
-document.getElementById("loot2").innerHTML = "Zdobyto " + gold_temp +" złota + "+ zaokraglone3 + "  za pierścień"; 
+document.getElementById("loot2").innerHTML = "Zdobyto " + gold_temp +" złota + "+ zaokraglone3 + "  za pierścień";
 
 
 $("#loot2").fadeIn(200);
@@ -2512,7 +2536,7 @@ szansa=1;
 
 
 
-if (szansa < 2) 
+if (szansa < 2)
 {
 
 
@@ -2857,8 +2881,8 @@ if (xp_amount >= xp_req) {
 $("#loot4").fadeIn(200);
 
 
-if(level_amount==1)      
-var ile = 30*level_amount + 130;   
+if(level_amount==1)
+var ile = 30*level_amount + 130;
 else
 var ile = 30*level_amount + 180;
 
@@ -2902,8 +2926,8 @@ function nowy_poziom_miasto() {
 
 if (xp_amount >= xp_req) {
 
-if(level_amount==1)      
-var ile = 30*level_amount + 130;   
+if(level_amount==1)
+var ile = 30*level_amount + 130;
 else
 var ile = 30*level_amount + 170;
 
@@ -2949,55 +2973,63 @@ tower();
 }
 */
 
-function losuj_potwora(hp, name, immune, xp) {
+function losuj_potwora(hp, name, immune, xp, level) {
 
 mob_hp = hp;
-
+console.log(hp);
+console.log(name);
 enemy_resistant = immune;
 
-if ((name == undefined) || (name == "none")) {
+
+
+if ((name == undefined) || (name == "none")|| (name == null))
+{
 mob_name = Math.floor(Math.random() * 37);
 name = mob[mob_name];
 }
 
 if ((hp == undefined) || (hp == "none")) {
 mob_hp = Math.floor(Math.random() * 6) + 3;
-mob_hp = mob_hp + (level_amount * 3);   
+mob_hp = mob_hp + (level_amount * 3);
+
+
+
 
 if(level_amount>2)
 {
 mob_hp = Math.floor(Math.random() * 5) + 5;
-mob_hp = mob_hp + (level_amount * 4);   
+mob_hp = mob_hp + (level_amount * 4);
 
 
 }
 if(level_amount>4)
 {
 mob_hp = Math.floor(Math.random() * 5) + 5;
-mob_hp = mob_hp + (level_amount * 5);   
+mob_hp = mob_hp + (level_amount * 5);
 
 
 }
 
-
+console.log(name);
 
 }
 
+enemy_level_amount = level_amount + level;
+
+if(level==undefined)
+enemy_level_amount=1;
+
+
+console.log(name);
 
 
 
-
-
-
-
-
-document.getElementById("enemy_name").innerHTML = name;
 
 if (energia_bosa == 1)
 mob_hp = energia_zlecenie;
 
 
-
+console.log(name);
 
 
 
@@ -3011,10 +3043,11 @@ enemy_resistant = "sword";
 if (liczba == 5)
 enemy_resistant = "magic";
 
-
+console.log(name);
 }
 
-if (hp == undefined) {
+if ((hp == undefined) ||(hp == null))
+{
 if ((walka_nr == 1) && (kierunek != 8) && (kierunek != 20)) {
 mob_hp = 2;
 walka_nr = 2;
@@ -3038,7 +3071,7 @@ mob_hp_xp = mob_hp;
 else
 mob_hp_xp = xp;
 
-
+console.log(name);
 /*
 if (tower_temp_lvl != tower_poziom) {
 temp_mob_name = name;
@@ -3061,15 +3094,26 @@ sand_immune = enemy_resistant;
 if(temp_poziom!=aktualny_poziom)
 {
 temp_mob_name = name;
-monster_immune = enemy_resistant;  
+monster_immune = enemy_resistant;
+
+}
+console.log(name);
+
+if(typ_tla==27)
+{
+      console.log('hp normalne');
+  console.log(mob_hp);
+    console.log('a teraz po pomnożeniu');
+mob_hp = mob_hp *level;
+  console.log(mob_hp);
+
+
 
 }
 
 
 
-
-
-document.getElementById("enemy_level").innerHTML = "Poziom:" + " " + level_amount;
+document.getElementById("enemy_level").innerHTML = "Poziom:" + " " + level;
 if (enemy_resistant == "none")
 document.getElementById("enemy_name").innerHTML = name;
 if (enemy_resistant == "magic")
@@ -3586,7 +3630,7 @@ eliksir_walki_amount = 3;
 if(jaskolka_upgrade==0)
 document.getElementById("eliksir_info").innerHTML = "Regeneruje  życie (1 + poziom postaci)";
 else
-document.getElementById("eliksir_info").innerHTML = "Regeneruje  życie (2 + poziom postaci)";   
+document.getElementById("eliksir_info").innerHTML = "Regeneruje  życie (2 + poziom postaci)";
 document.getElementById("eliksir_walki").innerHTML = "Ilość walk:" + " " + eliksir_walki_amount;
 jaskolka = 1;
 puszczyk = 0;
@@ -3626,7 +3670,7 @@ eliksir_walki_amount = 3;
 if(wilga_upgrade==0)
 document.getElementById("eliksir_info").innerHTML = "Obrona + 5 i redukcja obrażenia o 30%";
 else
-document.getElementById("eliksir_info").innerHTML = "Obrona + 10 i redukcja obrażenia o 30%";    
+document.getElementById("eliksir_info").innerHTML = "Obrona + 10 i redukcja obrażenia o 30%";
 document.getElementById("eliksir_walki").innerHTML = "Ilość walk:" + " " + eliksir_walki_amount;
 jaskolka = 0;
 puszczyk = 0;
@@ -3663,20 +3707,20 @@ document.getElementById("eliksir").innerHTML = "Eliksir: Grom";
 
 eliksir_walki_amount = 3;
 if(grom_upgrade==0)
-{   
-var nowy_atak_min   =  miecz_od +1;  
+{
+var nowy_atak_min   =  miecz_od +1;
 var nowy_atak = miecz_do + 1 + level_amount;
 
 nowy_atak2=nowy_atak;
-nowy_atak_min2=nowy_atak_min;   
+nowy_atak_min2=nowy_atak_min;
 }
 else
-{    
-var nowy_atak = miecz_do + 2 + level_amount;  
-var nowy_atak_min = miecz_od + 2;  
+{
+var nowy_atak = miecz_do + 2 + level_amount;
+var nowy_atak_min = miecz_od + 2;
 
 nowy_atak2=nowy_atak;
-nowy_atak_min2=nowy_atak_min;   
+nowy_atak_min2=nowy_atak_min;
 }
 
 
@@ -3699,14 +3743,14 @@ if (eliksir_walki_amount > 0) {
 
 if (jaskolka == 1) {
 
-var ile=0;    
+var ile=0;
 if(jaskolka_upgrade==0)
-{    
+{
 life_amount = life_amount + 1 + level_amount;
 ile =    1 +level_amount;
 }
 else
-{   
+{
 ile = 2 + level_amount;
 life_amount = life_amount + 3 + level_amount;
 }
@@ -3727,15 +3771,15 @@ document.getElementById("zycie_restore").innerHTML ="+"+'<i style="color:red" ; 
 if (grom == 1) {
 if(grom_upgrade==0)
 {
-grom_plus = level_amount+1; 
-grom_plus_min = 1;    
+grom_plus = level_amount+1;
+grom_plus_min = 1;
 }
 else
 {
-grom_plus = level_amount+2; 
-grom_plus_min = 2;       
+grom_plus = level_amount+2;
+grom_plus_min = 2;
 
-}   
+}
 }
 
 document.getElementById("life").innerHTML = '<i style="color:red";" class="icon-heart"></i>' + " " + life_amount + "/" + life_max;
@@ -3749,20 +3793,20 @@ mana_amount = manal_max;
 if (eliksir_walki_amount <= 0)
 {
 grom_plus = 0;
-grom_plus_minus=0;    
+grom_plus_minus=0;
 
 }
 }
 
 
-function dane_miecza_do_kupna() 
+function dane_miecza_do_kupna()
 
 {
 if(miecz_wylosowany==0)
 {
 min_atak_new = level_amount;
 
-max_atak_new = Math.floor(Math.random() * 2) + level_amount+1;              
+max_atak_new = Math.floor(Math.random() * 2) + level_amount+1;
 
 
 if(min_atak_new==max_atak_new)
@@ -3773,12 +3817,12 @@ max_atak_new++;
 if((min_atak==1)&&(max_atak==2))
 {
 min_atak_new = 1;
-max_atak_new =3;                   
+max_atak_new =3;
 }
 
 
 
-miecz_do_kupienia =  Math.floor(Math.random() * 23) ;   
+miecz_do_kupienia =  Math.floor(Math.random() * 23) ;
 miecz_wylosowany=1;
 }
 
@@ -3957,7 +4001,7 @@ $("#miasto").fadeOut(0);
 
 
 
-if (ulepszenie_obecne == ulepszenie_max) 
+if (ulepszenie_obecne == ulepszenie_max)
 {
 document.getElementById("kowal_ulepsz").innerHTML ="Nadaj specjalną cech3ę";
 document.getElementById("kowal_ulepsz").className = "flash2a";
@@ -4066,7 +4110,7 @@ ulepszenie()
 
 }
 
-if (ulepszenie_obecne == ulepszenie_max) 
+if (ulepszenie_obecne == ulepszenie_max)
 {
 document.getElementById("ulepsz_button").style.color = "dimgrey";
 document.getElementById("okno_ulepszenie_nr").style.color = "deeppink";
@@ -4082,7 +4126,7 @@ document.getElementById("kowal_ulepsz").className = "flash2a";
 document.getElementById("kowal_ulepsz").style.color ="deeppink";
 document.getElementById("kowal_ulepsz").onclick = function () {
 miecz_specjalny()
-};        
+};
 }
 else
 {
@@ -4148,7 +4192,7 @@ document.getElementById("okno_ulepszenie_nr").innerHTML = "Krwawienie - 12% szan
 
 if(cecha==2)
 {
-cecha_broni_nazwa ="Wampiryzm";  
+cecha_broni_nazwa ="Wampiryzm";
 document.getElementById("okno_ulepszenie_nr").innerHTML = "Wampiryzm - 12% szansy na odzyskanie 10% życia";
 }
 
@@ -4157,15 +4201,15 @@ document.getElementById("okno_ulepszenie_nr").innerHTML = "Wampiryzm - 12% szans
 
 if(cecha==3)
 {
-cecha_broni_nazwa ="Ogłuszenie"; 
+cecha_broni_nazwa ="Ogłuszenie";
 document.getElementById("okno_ulepszenie_nr").innerHTML = "Ogłuszenie - 12% szansy na ogłuszenie przeciwnika na 1 ture";
 }
 
 if(cecha==4)
 {
-cecha_broni_nazwa ="Precyzja";  
+cecha_broni_nazwa ="Precyzja";
 document.getElementById("okno_ulepszenie_nr").innerHTML = "Precyzja - szansa na trafienie wzrasta z 84% do 91%";
-}  
+}
 
 
 
@@ -4195,7 +4239,7 @@ document.getElementById("runes").innerHTML = "Runy:" + " " + runy_amount;
 
 
 
-let kolor = cecha_broni_nazwa.fontcolor("yellow"); 
+let kolor = cecha_broni_nazwa.fontcolor("yellow");
 
 document.getElementById("weapon_info").innerHTML = nazwa_posiadanej_broni + ", "+ kolor;
 
@@ -4343,7 +4387,7 @@ klik.play();
 
 if(music!=undefined)
 {
-tawerna_sfx.stop();    
+tawerna_sfx.stop();
 tawerna_sfx.play();
 }
 
@@ -4674,7 +4718,7 @@ document.getElementById("medytacja").style.borderStyle = "none";
 if(plec_typ==1)
 document.getElementById("medytacja").innerHTML = "Wyrzuciłeś:" + " " + gracz_nr1;
 else
-document.getElementById("medytacja").innerHTML = "Wyrzuciłaś:" + " " + gracz_nr1;  
+document.getElementById("medytacja").innerHTML = "Wyrzuciłaś:" + " " + gracz_nr1;
 
 $("#okno_teren").fadeIn(500);
 $("#tekst").fadeIn(500);
@@ -4748,14 +4792,14 @@ if(specjalne_kosci==1)
 nagroda_specjalna = 1;
 nagroda_specjalna2 = 1;
 }
-} 
-else 
+}
+else
 {
 lost.play();
 if(plec_typ==1)
 document.getElementById("tekst").innerHTML = "Przegrałeś grę!";
 else
-document.getElementById("tekst").innerHTML = "Przegrałaś grę!"; 
+document.getElementById("tekst").innerHTML = "Przegrałaś grę!";
 specjalne_kosci=0;
 nagroda_specjalna = 0;
 kosci_rzucone = 1;
@@ -4834,13 +4878,13 @@ if(level_amount==1)
 nowa_zbroja_def=3;
 
 if(level_amount==2)
-nowa_zbroja_def = Math.floor(Math.random() * 4) + level_amount+3;   
+nowa_zbroja_def = Math.floor(Math.random() * 4) + level_amount+3;
 
 if(level_amount==3)
-nowa_zbroja_def = Math.floor(Math.random() * 5) + level_amount+4;  
+nowa_zbroja_def = Math.floor(Math.random() * 5) + level_amount+4;
 
 if(level_amount>3)
-nowa_zbroja_def = Math.floor(Math.random() * 6) + level_amount+5;  
+nowa_zbroja_def = Math.floor(Math.random() * 6) + level_amount+5;
 
 }
 
@@ -4988,7 +5032,7 @@ document.getElementById("medytacja").style.color = "dimgrey";
 document.getElementById("medytacja").className = "flash0";
 document.getElementById("medytacja").className = "press";
 document.getElementById("medytacja").onclick = function () {
-not_allowed()  
+not_allowed()
 
 };
 }
@@ -5005,12 +5049,12 @@ not_allowed()
 
 
 
-function zbroja_extra_bonus() 
+function zbroja_extra_bonus()
 {
 
 
 
-upgrade_zbroja_gold = 10;    
+upgrade_zbroja_gold = 10;
 wymagane_runy_do_zbroi=2;
 
 document.getElementById("ulepsz_zbroje_button").innerHTML = "Nadaj cechę";
@@ -5039,7 +5083,7 @@ if(cecha_na_zbroi==1)
 {
 document.getElementById("ulepsz_zbroje_button").style.color = "dimgrey";
 document.getElementById("ulepsz_zbroje_button").onclick = function () {
-not_allowed()  
+not_allowed()
 };
 }
 else
@@ -5054,15 +5098,15 @@ nadaj_ceche()
 
 
 
-if((upgrade_zbroja_gold > gold_amount) || (wymagane_runy_do_zbroi > runy_amount)) 
+if((upgrade_zbroja_gold > gold_amount) || (wymagane_runy_do_zbroi > runy_amount))
 {
 document.getElementById("ulepsz_zbroje_button").style.color = "dimgrey";
 document.getElementById("ulepsz_zbroje_button").onclick = function () {
 brak_run_lub_zlota2()
 };
 
-} 
-else 
+}
+else
 {
 document.getElementById("ulepsz_zbroje_button").style.color = "green";
 document.getElementById("ulepsz_zbroje_button").onclick = function () {
@@ -5073,7 +5117,7 @@ if(cecha_na_zbroi==1)
 {
 document.getElementById("ulepsz_zbroje_button").style.color = "dimgrey";
 document.getElementById("ulepsz_zbroje_button").onclick = function () {
-not_allowed()  
+not_allowed()
 };
 }
 
@@ -5101,12 +5145,12 @@ document.getElementById("gold").innerHTML = "Złoto:" + " " + gold_amount;
 armour_sell_value = armour_sell_value+15;
 document.getElementById("okno_wartosc_obecnej_zbroi").innerHTML = "Wartośc obecnej zbroi: " + armour_sell_value + " złota";
 
-// Math.floor(Math.random() * 3) + level_amount+1;   
+// Math.floor(Math.random() * 3) + level_amount+1;
 
-var cecha =   Math.floor(Math.random() * 5) + 1;   
-var zycie =  Math.floor(Math.random() * 5) + 5;   
-var obrona = Math.floor(Math.random() * 3) + 4;   
-var mana =  Math.floor(Math.random() * 2) + 2;   
+var cecha =   Math.floor(Math.random() * 5) + 1;
+var zycie =  Math.floor(Math.random() * 5) + 5;
+var obrona = Math.floor(Math.random() * 3) + 4;
+var mana =  Math.floor(Math.random() * 2) + 2;
 
 
 
@@ -5121,8 +5165,8 @@ document.getElementById("strenght").innerHTML = "Siła:" + " " + strenght_amount
 
 
 if(cecha==2)
-{  
-document.getElementById("okno_ulepszenie_zbroi_nr").innerHTML = "Magia +1";   
+{
+document.getElementById("okno_ulepszenie_zbroi_nr").innerHTML = "Magia +1";
 nazwa_cechy ="magia";
 magic_amount++;
 document.getElementById("magic").innerHTML = "Magia:" + " " + magic_amount;
@@ -5130,14 +5174,14 @@ document.getElementById("magic").innerHTML = "Magia:" + " " + magic_amount;
 
 if(cecha==3)
 {
-document.getElementById("okno_ulepszenie_zbroi_nr").innerHTML = "Dodatkowa Obrona +" + obrona;   
+document.getElementById("okno_ulepszenie_zbroi_nr").innerHTML = "Dodatkowa Obrona +" + obrona;
 nazwa_cechy ="obrona";
 obrona_temp = obrona_temp +obrona;
 }
 
 if(cecha==4)
 {
-document.getElementById("okno_ulepszenie_zbroi_nr").innerHTML = "Wielkość koncentracji +" +mana;   
+document.getElementById("okno_ulepszenie_zbroi_nr").innerHTML = "Wielkość koncentracji +" +mana;
 nazwa_cechy ="mana";
 cecha_wartosc   = mana;
 manal_max = manal_max + mana;
@@ -5147,7 +5191,7 @@ document.getElementById("mana").innerHTML = '<i style="color:deepskyblue;" class
 
 if(cecha==5)
 {
-document.getElementById("okno_ulepszenie_zbroi_nr").innerHTML = "Wielkość życia +" +zycie;  
+document.getElementById("okno_ulepszenie_zbroi_nr").innerHTML = "Wielkość życia +" +zycie;
 nazwa_cechy ="zycie";
 cecha_wartosc = zycie;
 life_max = life_max + zycie;
@@ -5156,7 +5200,7 @@ document.getElementById("life").innerHTML = '<i style="color:red";" class="icon-
 
 magic_runes.play();
 cecha_na_zbroi=1;
-zbroja_extra_bonus(); 
+zbroja_extra_bonus();
 
 
 
@@ -5178,7 +5222,7 @@ function odejmij_ceche()
 if(nazwa_cechy =="sila")
 {
 strenght_amount--;
-document.getElementById("strenght").innerHTML = "Siła:" + " " + strenght_amount; 
+document.getElementById("strenght").innerHTML = "Siła:" + " " + strenght_amount;
 }
 if(nazwa_cechy =="zycie")
 {
@@ -5193,12 +5237,12 @@ if(nazwa_cechy =="mana")
 {
 
 manal_max = manal_max - cecha_wartosc;
-document.getElementById("mana").innerHTML = '<i style="color:deepskyblue;" class="icon-spin6 animate-spin"></i>' + " " + mana_amount + "/" + manal_max; 
+document.getElementById("mana").innerHTML = '<i style="color:deepskyblue;" class="icon-spin6 animate-spin"></i>' + " " + mana_amount + "/" + manal_max;
 }
 if(nazwa_cechy =="magia")
-{  
+{
 magic_amount--;
-document.getElementById("magic").innerHTML = "Magia:" + " " + magic_amount;  
+document.getElementById("magic").innerHTML = "Magia:" + " " + magic_amount;
 }
 
 nazwa_cechy="none";
@@ -5561,21 +5605,21 @@ wymagane_runy_do_zbroi = 1;
 
 
 
-if (ulepszenie_obecne2 == 0) 
-{    
+if (ulepszenie_obecne2 == 0)
+{
 document.getElementById("ulepsz_zbroje_button").innerHTML = "Ulepsz +1";
 }
 
-if (ulepszenie_obecne2 == 1) 
+if (ulepszenie_obecne2 == 1)
 {
 if (zbroja_magiczna_aktywna == 1)
 document.getElementById("ulepsz_zbroje_button").innerHTML = "Ulepsz +2";
-else 
-document.getElementById("ulepsz_zbroje_button").innerHTML = "Ulepsz +1";     
+else
+document.getElementById("ulepsz_zbroje_button").innerHTML = "Ulepsz +1";
 
 }
 
-if(ulepszenie_obecne2 == 2) 
+if(ulepszenie_obecne2 == 2)
 document.getElementById("ulepsz_zbroje_button").innerHTML = "Ulepsz +2";
 
 
@@ -5663,35 +5707,35 @@ upgrade_zbroja_gold = upgrade_zbroja_gold + 4;
 zbroja_obrona = obrona_temp;
 
 
-if (ulepszenie_obecne2 == 0) 
-{    
+if (ulepszenie_obecne2 == 0)
+{
 if (zbroja_magiczna_aktywna == 1)
 zbroja_magiczna_obrona++;
-else 
+else
 zbroja_obrona++;
 }
 
-if (ulepszenie_obecne2 == 1) 
+if (ulepszenie_obecne2 == 1)
 {
 if (zbroja_magiczna_aktywna == 1)
 {
-zbroja_magiczna_obrona++;        
+zbroja_magiczna_obrona++;
 zbroja_magiczna_obrona++;
 }
-else 
+else
 zbroja_obrona++;
 }
 
-if(ulepszenie_obecne2 == 2) 
+if(ulepszenie_obecne2 == 2)
 {
 if (zbroja_magiczna_aktywna == 1)
 {
-zbroja_magiczna_obrona++;        
+zbroja_magiczna_obrona++;
 zbroja_magiczna_obrona++;
 }
-else 
+else
 {
-zbroja_obrona++;        
+zbroja_obrona++;
 zbroja_obrona++;
 }
 }
@@ -6170,7 +6214,7 @@ sprzedaj_i_kup = 0;
 
 function kup_pierscien() {
 
-if (losuj_pierscien == 1) 
+if (losuj_pierscien == 1)
 {
 losuj_pierscien = 0;
 
@@ -6937,7 +6981,7 @@ if (obecny1 == "Życia") {
 life_max = life_max - extra_life;
 bonus1_dodany = 0;
 life_amount = life_max;
-document.getElementById("life").innerHTML = '<i style="color:red";" class="icon-heart"></i>' + " " + life_amount + "/" + life_max; 
+document.getElementById("life").innerHTML = '<i style="color:red";" class="icon-heart"></i>' + " " + life_amount + "/" + life_max;
 
 }
 
@@ -7656,7 +7700,7 @@ document.getElementById("player").style.backgroundImage = "url('pytanie.gif')";
 tower();
 
 
-} 
+}
 
 
 }
@@ -7877,7 +7921,7 @@ document.getElementById('player').style.backgroundImage = "url('gif_event.gif')"
 document.getElementById("mag").style.zIndex = 4700;
 document.getElementById('mag').className = "fight";
 document.getElementById("enemy_name").className = "flash2a";
-xp_value = 10; 
+xp_value = 10;
 typ_tla = 23;
 losuj_potwora(100, "~Nieumarły Czarodziej~", "magic");
 zakres_ataku_potwora(5, 12);
@@ -7895,7 +7939,7 @@ document.getElementById('player').style.backgroundImage = "url('gif_event.gif')"
 document.getElementById("mag2").style.zIndex = 4700;
 document.getElementById('mag2').className = "fight";
 document.getElementById("enemy_name").className = "flash2a";
-xp_value = 10; 
+xp_value = 10;
 typ_tla = 24;
 losuj_potwora(110, "~Nieumarły nekromanta~", "magic");
 zakres_ataku_potwora(3, 12);
@@ -7914,7 +7958,7 @@ document.getElementById('player').style.backgroundImage = "url('gif_event.gif')"
 document.getElementById("mag3").style.zIndex = 4700;
 document.getElementById('mag3').className = "fight";
 document.getElementById("enemy_name").className = "flash2a";
-xp_value = 10; 
+xp_value = 10;
 typ_tla = 25;
 losuj_potwora(130, "~Nieumarły kapłan~", "magic");
 zakres_ataku_potwora(4, 10);
@@ -7933,7 +7977,7 @@ document.getElementById('player').style.backgroundImage = "url('gif_event.gif')"
 document.getElementById("alzur").style.zIndex = 4700;
 document.getElementById('alzur').className = "fight";
 document.getElementById("enemy_name").className = "flash2a";
-xp_value = 10; 
+xp_value = 10;
 typ_tla = 26;
 losuj_potwora(170, "~ALZUR~", "magic");
 zakres_ataku_potwora(5, 15);
@@ -7948,7 +7992,7 @@ setTimeout(walka2, 1000);
 
 
 
-function walka_na_15() 
+function walka_na_15()
 {
 
 document.getElementById("skorpion").style.zIndex = 700;
@@ -7964,7 +8008,7 @@ setTimeout(walka2, 1000);
 
 }
 
-function walka_na_18() 
+function walka_na_18()
 {
 document.getElementById("gorgol").style.zIndex = 1700;
 
@@ -8023,7 +8067,7 @@ document.getElementById("player").style.pointerEvents = 'none';
 
 function waklka_na_22() {
 
-if ((kierunek == 22) && (bat_pokonany == 0)) 
+if ((kierunek == 22) && (bat_pokonany == 0))
 {
 document.getElementById("player").style.pointerEvents = 'none';
 document.getElementById("gif22").style.pointerEvents = 'none';
@@ -8037,10 +8081,10 @@ losuj_potwora(70, "Zmutowany nietoperz", "magic");
 zakres_ataku_potwora(5, 10);
 boss.play();
 xp_value=10;
-typ_tla=20;    
+typ_tla=20;
 document.getElementById('strona_novigard').style.backgroundImage = "url('bat.jpg')";
 setTimeout(walka2, 1000);
-} else 
+} else
 {
 document.getElementById("player").style.backgroundImage = "url('gif.gif')";
 document.getElementById("player").style.pointerEvents = 'none';
@@ -8157,7 +8201,7 @@ mob_hp = 0;
 min_1 = 0;
 max_2 = 0;
 
-if (grobowiec_poziom == 0) 
+if (grobowiec_poziom == 0)
 {
 atak_grobowiec = 1;
 hp_grobowiec = 1;
@@ -8260,7 +8304,7 @@ max_2 = miecz_do;
 if(mroczne_resist!=undefined)
 enemy_resistant=mroczne_resist;
 else
-enemy_resistant=undefined;  
+enemy_resistant=undefined;
 
 zakres_ataku_potwora(min_1, max_2);
 document.getElementById("enemy_name").className = "flash7";
@@ -8433,7 +8477,7 @@ klik.play();
 
 }
 
-function pokaz_informacje() 
+function pokaz_informacje()
 
 {
 klik.play();
@@ -8562,6 +8606,16 @@ if (plec_typ == 1)
 document.getElementById("info_pop_text").innerHTML = "Naciśnij górną częśc ekranu by otworzyć panel postaci.</br></br>  Stan gry natomiast możesz zapisać z poziomu Medytacji.";
 if (plec_typ == 2)
 document.getElementById("info_pop_text").innerHTML = "Naciśnij górną częśc ekranu by otworzyć panel postaci. </br> </br> <spam style='color:yellow';>Stan gry </spam> natomiast możesz zapisać z poziomu Medytacji.";
+
+
+
+
+
+
+
+
+
+
 
 $("#info_pop").transition({ scale:1,opacity:1}, 1000, 'ease');
 $("#info_pop_close").transition({ scale:1,opacity:1}, 1000, 'ease');
@@ -8697,7 +8751,7 @@ mapa();
 function zdarzenie_zanik_x() {
 
 $("#zdarzenie").transition({ scale:0,opacity:0}, 800, 'ease');
-$("#buttony_do_zdarzenia").transition({ scale:0,opacity:0}, 500, 'ease'); 
+$("#buttony_do_zdarzenia").transition({ scale:0,opacity:0}, 500, 'ease');
 }
 
 
@@ -9380,6 +9434,7 @@ $("#szkoly").transition({ scale:1,opacity:1}, 1000, 'ease');
 
 
 function cave() {
+
 po_walce=2;
 document.getElementById("okno_teren").className = "fight_over";
 
@@ -9422,13 +9477,13 @@ document.getElementById("enemy_atk").innerHTML = "Atak:" + " " + min_1 + " " + "
 if(temp_poziom==aktualny_poziom)
 {
 losuj_potwora(mob_hp,temp_mob_name,monster_immune);
-zakres_ataku_potwora(min_1, max_2);    
+zakres_ataku_potwora(min_1, max_2);
 }
 else
 {
 losuj_potwora(mob_hp);
 zakres_ataku_potwora(min_1, max_2);
-} 
+}
 
 temp_poziom = jaskinia_poziom;
 
@@ -9452,6 +9507,7 @@ cave_sfx.stop();
 cave_sfx.play();
 $("#kosci1").fadeOut(0);
 $("#kosci2").fadeOut(0);
+document.getElementById("lokacja").style.pointerEvents = "auto";
 document.getElementById("miasto").style.pointerEvents = "auto";
 
 $("#tekst").fadeOut(0);
@@ -9526,9 +9582,9 @@ specjalne_kosci=1;
 gra_w_kosci()
 };
 document.getElementById("medytacja").style.color = "green";
-} 
+}
 
-if((jaskinia_kosci == 1) && (nagroda_specjalna2 == 1)) 
+if((jaskinia_kosci == 1) && (nagroda_specjalna2 == 1))
 {
 $("#medytacja").fadeIn(0);
 nagroda_specjalna_loot();
@@ -9541,7 +9597,7 @@ mapa()
 document.getElementById("miasto").style.pointerEvents = 'auto';
 $("#kosci1").fadeOut(0);
 $("#kosci2").fadeOut(0);
-} else if 
+} else if
 (jaskinia_kosci == 1) {
 $("#medytacja").fadeOut(0);
 document.getElementById("miasto").onclick = function () {
@@ -9609,6 +9665,7 @@ document.getElementById("lokacja").style.borderStyle = "solid";
 
 
 function jaskinia_walka() {
+  document.getElementById("lokacja").style.pointerEvents = "none";
 document.getElementById("tlo_test").className = "fight";
 
 $("#tekst").fadeOut(1000);
@@ -9617,7 +9674,7 @@ $("#miasto").fadeOut(1000);
 
 document.getElementById("tekst").innerHTML = "Idziesz głębiej";
 walk1.play();
-boss.play();
+
 
 if (jaskinia_poziom == 11) {
 xp_value = 7;
@@ -9900,13 +9957,13 @@ min_1 = 1;
 if(temp_poziom==aktualny_poziom)
 {
 losuj_potwora(mob_hp,temp_mob_name,monster_immune);
-zakres_ataku_potwora(min_1, max_2);    
+zakres_ataku_potwora(min_1, max_2);
 }
 else
 {
 losuj_potwora(mob_hp);
 zakres_ataku_potwora(min_1, max_2);
-} 
+}
 
 temp_poziom = tower_poziom;
 
@@ -10077,7 +10134,7 @@ var boost_max=0;
 if((mana_amount>1)&&(boost==1))
 {
 znak_od = znak_od_copy;
-znak_do = znak_do_copy;    
+znak_do = znak_do_copy;
 boost_min = Math.round(znak_od*0.6);
 boost_max= Math.round(znak_do*0.6);
 znak_od = boost_min;
@@ -10092,7 +10149,7 @@ document.getElementById("atak_znakiem_info").innerHTML ='<i style="color:deepsky
 if((mana_amount>=3)&&(boost==2))
 {
 znak_od = znak_od_copy;
-znak_do = znak_do_copy;    
+znak_do = znak_do_copy;
 boost_min = Math.round(znak_od*0.6);
 boost_max= Math.round(znak_do*0.6);
 mana_koszt=3;
@@ -10107,9 +10164,9 @@ document.getElementById("atak_znakiem_info").innerHTML ='<i style="color:deepsky
 if((mana_amount>3)&&(boost==3))
 {
 znak_od = znak_od_copy;
-znak_do = znak_do_copy;    
-boost_min = Math.round(znak_od*1.2);  
-boost_max= Math.round(znak_do*1.2);   
+znak_do = znak_do_copy;
+boost_min = Math.round(znak_od*1.2);
+boost_max= Math.round(znak_do*1.2);
 znak_od = boost_min;
 znak_do = boost_max;
 mana_koszt=4;
@@ -10121,7 +10178,7 @@ document.getElementById("atak_znakiem_info").innerHTML ='<i style="color:deepsky
 if((mana_amount>4)&&(boost==4))
 {
 znak_od = znak_od_copy;
-znak_do = znak_do_copy;    
+znak_do = znak_do_copy;
 boost_min = Math.round(znak_od*1.4);
 boost_max= Math.round(znak_do*1.4);
 znak_od = boost_min;
@@ -10136,7 +10193,7 @@ document.getElementById("atak_znakiem_info").innerHTML ='<i style="color:deepsky
 if(mana_amount==0)
 {
 znak_od = znak_od_copy;
-znak_do = znak_do_copy;    
+znak_do = znak_do_copy;
 boost_min = Math.round(znak_od*0.6);
 boost_max= Math.round(znak_do*0.6);
 znak_od = boost_min;
@@ -10145,7 +10202,7 @@ mana_koszt=2;
 boost=2;
 document.getElementById("atak_znakiem_info").innerHTML ='<i style="color:deepskyblue;" class="icon-spin6 animate-spin"></i>' + "2" +'<spam style="color:green;"> Moc: 60% </spam>'+"&nbsp"+  znak_od + " " + "-" + " " + znak_do;
 
-} 
+}
 
 
 }
@@ -10168,7 +10225,7 @@ znak_boost2();
 function boost_minus()
 {
 klik.play();
-boost--; 
+boost--;
 
 if(boost<=1)
 boost=1;
@@ -10188,7 +10245,7 @@ var boost_max=0;
 if(boost==1)
 {
 znak_od = znak_od_copy;
-znak_do = znak_do_copy;    
+znak_do = znak_do_copy;
 boost_min = Math.round(znak_od*0.6);
 boost_max= Math.round(znak_do*0.6);
 znak_od = boost_min;
@@ -10203,7 +10260,7 @@ document.getElementById("atak_znakiem_info").innerHTML ='<i style="color:deepsky
 if(boost==2)
 {
 znak_od = znak_od_copy;
-znak_do = znak_do_copy;    
+znak_do = znak_do_copy;
 boost_min = Math.round(znak_od*0.6);
 boost_max= Math.round(znak_do*0.6);
 mana_koszt=3;
@@ -10218,9 +10275,9 @@ document.getElementById("atak_znakiem_info").innerHTML ='<i style="color:deepsky
 if(boost==3)
 {
 znak_od = znak_od_copy;
-znak_do = znak_do_copy;    
-boost_min = Math.round(znak_od*1.2);  
-boost_max= Math.round(znak_do*1.2);   
+znak_do = znak_do_copy;
+boost_min = Math.round(znak_od*1.2);
+boost_max= Math.round(znak_do*1.2);
 znak_od = boost_min;
 znak_do = boost_max;
 mana_koszt=4;
@@ -10232,7 +10289,7 @@ document.getElementById("atak_znakiem_info").innerHTML ='<i style="color:deepsky
 if(boost==4)
 {
 znak_od = znak_od_copy;
-znak_do = znak_do_copy;    
+znak_do = znak_do_copy;
 boost_min = Math.round(znak_od*1.4);
 boost_max= Math.round(znak_do*1.4);
 znak_od = boost_min;
@@ -10287,16 +10344,16 @@ function boom()
 $("#explosion").transition({ opacity:1},0, 'linear')
 $("#explosion").transition({ opacity:0},2000, 'linear');
 explosion.play();
-document.getElementById("gif13").style.backgroundImage = "url('')";  
-$("#explosion").fadeOut(1000); 
-$("#fireball").fadeOut(1000); 
-} 
+document.getElementById("gif13").style.backgroundImage = "url('')";
+$("#explosion").fadeOut(1000);
+$("#fireball").fadeOut(1000);
+}
 
 
 function wyzima_pole()
 {
 tekst_nr=12;
-pokaz_informacje();    
+pokaz_informacje();
 
 
 
@@ -10327,7 +10384,7 @@ document.getElementById("wilga_ziolax").innerHTML =" - zwiększa obronę o 10 or
 if(grom_upgrade==0)
 document.getElementById("grom_ziolaaa").innerHTML ="- atak minimalny +1 i maksymalny (1 + lvl) ,blokuje o 50% wzrost " + '<i style="color:deepskyblue;" class="icon-spin6 animate-spin"></i>';
 else
-document.getElementById("grom_ziolaaa").innerHTML ="- atak minimalny +2 i maksymalny (2 + lvl) ,blokuje o 50% wzrost "+ '<i style="color:deepskyblue;" class="icon-spin6 animate-spin"></i>';   
+document.getElementById("grom_ziolaaa").innerHTML ="- atak minimalny +2 i maksymalny (2 + lvl) ,blokuje o 50% wzrost "+ '<i style="color:deepskyblue;" class="icon-spin6 animate-spin"></i>';
 
 
 
@@ -10377,14 +10434,14 @@ if(gold_amount<100)
 {
 document.getElementById("zakup4").onclick = function() {
 document.getElementById("cena_sklepik_4").style.color="red";
-not_allowed()};      
+not_allowed()};
 document.getElementById("zakup4").style.color="dimgrey";
 }
 else{
-document.getElementById("cena_sklepik_4").style.color="yellow";    
+document.getElementById("cena_sklepik_4").style.color="yellow";
 document.getElementById("zakup4").onclick = function() {
 
-recepta_4()}; 
+recepta_4()};
 document.getElementById("zakup4").style.color="green";
 
 }
@@ -10393,14 +10450,14 @@ if(gold_amount<60)
 {
 document.getElementById("zakup5").onclick = function() {
 document.getElementById("cena_sklepik_5").style.color="red";
-not_allowed()};      
+not_allowed()};
 document.getElementById("zakup5").style.color="dimgrey";
 }
 else{
 document.getElementById("cena_sklepik_5").style.color="yellow";
 document.getElementById("zakup5").onclick = function() {
 
-recepta_5()}; 
+recepta_5()};
 document.getElementById("zakup5").style.color="green";
 
 }
@@ -10512,7 +10569,7 @@ ilosc_potworow=6;
 po_walce=10;
 nawiedzony_dom_aktywny=1;
 mob_hp = Math.floor(Math.random() * 10) + 10;
-mob_hp = mob_hp + (level_amount * 4); 
+mob_hp = mob_hp + (level_amount * 4);
 document.getElementById("enemy_amount").innerHTML = "Ilość potworów: " + ilosc_potworow;
 losuj_potwora(mob_hp, "Zjawa", "magic");
 zakres_ataku_potwora();
@@ -10524,32 +10581,45 @@ walka2();
 
 }
 
+function szkoly_off()
+{
+$('#szkola1').prop('disabled',true);
+$('#szkola2').prop('disabled',true);
+$('#szkola3').prop('disabled',true);
+$('#szkola4').prop('disabled',true);
+
+}
+
+
+
 function wilk()
 {
+szkoly_off();
 nazwa_szkoly ="Szkoła wilka";
-szkola_kolor = nazwa_szkoly.fontcolor("rebeccapurple");  
-document.getElementById("cech").innerHTML ="Wilk";   
+szkola_kolor = nazwa_szkoly.fontcolor("rebeccapurple");
+document.getElementById("cech").innerHTML ="Wilk";
 document.getElementById("cech").style.color= "rebeccapurple";
 strenght_amount++;
 document.getElementById("strenght").innerHTML = "Siła:" + " " + strenght_amount;
 manal_max--;
 document.getElementById("mana").innerHTML = '<i style="color:deepskyblue;" class="icon-spin6 animate-spin"></i>' + " " + mana_amount + "/" + manal_max;
-celnosc=1; 
-$("#szkoly").transition({ scale:0,opacity:0}, 1000, 'ease');  
-poziom.play();  
-if(odczyt==0)  
-{    
+celnosc=1;
+$("#szkoly").transition({ scale:0,opacity:0}, 1000, 'ease');
+poziom.play();
+if(odczyt==0)
+{
 $("#cala_mapa").fadeOut(0);
 document.getElementById("cala_mapa").style.opacity = "1";
-$("#cala_mapa").fadeIn(2000); 
+$("#cala_mapa").fadeIn(2000);
 setTimeout(plyn, 1500);
 }
 }
 function kot()
 {
-nazwa_szkoly ="Szkoła kota"; 
-szkola_kolor = nazwa_szkoly.fontcolor("dodgerblue");   
-document.getElementById("cech").innerHTML ="Kot";   
+szkoly_off();
+nazwa_szkoly ="Szkoła kota";
+szkola_kolor = nazwa_szkoly.fontcolor("dodgerblue");
+document.getElementById("cech").innerHTML ="Kot";
 document.getElementById("cech").style.color= "dodgerblue";
 unik=1;
 life_max= life_max-2;
@@ -10557,21 +10627,22 @@ life_amount = life_max;
 document.getElementById("life").innerHTML = '<i style="color:red";" class="icon-heart"></i>' + " " + life_amount + "/" + life_max;
 manal_max++;
 document.getElementById("mana").innerHTML = '<i style="color:deepskyblue;" class="icon-spin6 animate-spin"></i>' + " " + mana_amount + "/" + manal_max;
-$("#szkoly").transition({ scale:0,opacity:0}, 1000, 'ease');  
+$("#szkoly").transition({ scale:0,opacity:0}, 1000, 'ease');
 poziom.play();
-if(odczyt==0)   
-{    
+if(odczyt==0)
+{
 $("#cala_mapa").fadeOut(0);
 document.getElementById("cala_mapa").style.opacity = "1";
-$("#cala_mapa").fadeIn(2000);    
-setTimeout(plyn, 1500);   
+$("#cala_mapa").fadeIn(2000);
+setTimeout(plyn, 1500);
 }
 }
 function gryf()
 {
+  szkoly_off();
 nazwa_szkoly ="Szkoła gryfa";
-szkola_kolor = nazwa_szkoly.fontcolor("forestgreen");      
-document.getElementById("cech").innerHTML ="Gryf";   
+szkola_kolor = nazwa_szkoly.fontcolor("forestgreen");
+document.getElementById("cech").innerHTML ="Gryf";
 document.getElementById("cech").style.color= "forestgreen";
 magic_amount++;
 document.getElementById("magic").innerHTML = "Magia:" + " " + magic_amount;
@@ -10581,37 +10652,38 @@ document.getElementById("life").innerHTML = '<i style="color:red";" class="icon-
 obrona_extra = 1;
 obrona_temp = obrona_temp +obrona_extra;
 document.getElementById("armour_bonus").innerHTML = obrona_temp;
-$("#szkoly").transition({ scale:0,opacity:0}, 1000, 'ease');  
-poziom.play(); 
-if(odczyt==0)  
-{    
+$("#szkoly").transition({ scale:0,opacity:0}, 1000, 'ease');
+poziom.play();
+if(odczyt==0)
+{
 $("#cala_mapa").fadeOut(0);
 document.getElementById("cala_mapa").style.opacity = "1";
-$("#cala_mapa").fadeIn(2000);     
+$("#cala_mapa").fadeIn(2000);
 setTimeout(plyn, 1500);
 }
 }
 function niedzwiedz()
 {
+  szkoly_off();
 nazwa_szkoly ="Szkoła niedźwiedzia";
-szkola_kolor = nazwa_szkoly.fontcolor("deeppink");      
-document.getElementById("cech").innerHTML ="Niedźwiedź"; 
+szkola_kolor = nazwa_szkoly.fontcolor("deeppink");
+document.getElementById("cech").innerHTML ="Niedźwiedź";
 document.getElementById("cech").style.color= "deeppink";
 life_max= life_max+5;
 life_amount = life_max;
-document.getElementById("life").innerHTML = '<i style="color:red";" class="icon-heart"></i>' + " " + life_amount + "/" + life_max; 
+document.getElementById("life").innerHTML = '<i style="color:red";" class="icon-heart"></i>' + " " + life_amount + "/" + life_max;
 obrona_extra = 2;
 unik=2;
 obrona_temp = obrona_temp +obrona_extra;
 document.getElementById("armour_bonus").innerHTML = obrona_temp;
-$("#szkoly").transition({ scale:0,opacity:0}, 1000, 'ease');  
-poziom.play();    
-if(odczyt==0)  
+$("#szkoly").transition({ scale:0,opacity:0}, 1000, 'ease');
+poziom.play();
+if(odczyt==0)
 {
 $("#cala_mapa").fadeOut(0);
 document.getElementById("cala_mapa").style.opacity = "1";
-$("#cala_mapa").fadeIn(2000);     
-setTimeout(plyn, 1500);   
+$("#cala_mapa").fadeIn(2000);
+setTimeout(plyn, 1500);
 }
 }
 
@@ -10620,33 +10692,28 @@ function jaka_szkola()
 
 if(nazwa_szkoly =="Szkoła niedźwiedzia")
 {
-szkola_kolor = nazwa_szkoly.fontcolor("deeppink");      
-document.getElementById("cech").innerHTML ="Niedźwiedź"; 
+szkola_kolor = nazwa_szkoly.fontcolor("deeppink");
+document.getElementById("cech").innerHTML ="Niedźwiedź";
 document.getElementById("cech").style.color= "deeppink";
-}   
+}
 else if(nazwa_szkoly =="Szkoła gryfa")
 {
-szkola_kolor = nazwa_szkoly.fontcolor("forestgreen");      
-document.getElementById("cech").innerHTML ="Gryf";   
+szkola_kolor = nazwa_szkoly.fontcolor("forestgreen");
+document.getElementById("cech").innerHTML ="Gryf";
 document.getElementById("cech").style.color= "forestgreen";
 }
 else if(nazwa_szkoly =="Szkoła kota")
 {
-szkola_kolor = nazwa_szkoly.fontcolor("dodgerblue");   
-document.getElementById("cech").innerHTML ="Kot";   
+szkola_kolor = nazwa_szkoly.fontcolor("dodgerblue");
+document.getElementById("cech").innerHTML ="Kot";
 document.getElementById("cech").style.color= "dodgerblue";
-}   
+}
 else if(nazwa_szkoly =="Szkoła wilka")
 {
-szkola_kolor = nazwa_szkoly.fontcolor("rebeccapurple");  
-document.getElementById("cech").innerHTML ="Wilk";   
-document.getElementById("cech").style.color= "rebeccapurple";  
+szkola_kolor = nazwa_szkoly.fontcolor("rebeccapurple");
+document.getElementById("cech").innerHTML ="Wilk";
+document.getElementById("cech").style.color= "rebeccapurple";
 }
 else
-document.getElementById("cech").innerHTML ="Brak szkoły";   
+document.getElementById("cech").innerHTML ="Brak szkoły";
 }
-
-
-
-
-

@@ -2,14 +2,14 @@
 
 <html>
     <head>
- <meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
             <meta charset="UTF-8">
         
             <!-- <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=1.0, user-scalable=no"> mobile-->
     <!-- <meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> tablet-->
         
                      <script src="js/app.js"></script>
-       <script src="js/cordova.js"></script> 
+        <script src="js/cordova.js"></script>  
         
 
               
@@ -1117,12 +1117,13 @@
 
             <canvas id="c1" width="50" height="20"></canvas>
                <div id="secret" onclick="t1();"></div>
-      <!--  <buttton class="press" id="ring_exitX" onclick="developer_pokaz();">DEVELOPER</button>
-           
-              <button class="press zamknij_przycisk"  id="kup_zbroje_magic_zamknij" onclick="t2();">Quest wykonany +1</button>
-             <button class="press zamknij_przycisk"  id="kup_zbroje_magic_zamknij" onclick="t3();">Misja wykonana 1</button>
-            <button class="press zamknij_przycisk"  id="kup_zbroje_magic_zamknij" onclick="t4();">Mathea</button>
-            <button class="press zamknij_przycisk"  id="kup_zbroje_magic_zamknij" onclick="t5();">Bariera odkryta</button>-->
+       <!--   <buttton class="press" id="ring_exitX" onclick="developer_pokaz();">DEVELOPER</button>
+                <button class="press zamknij_przycisk"  id="kup_zbroje_magic_zamknij" onclick="t2();">Json load</button>
+              
+             <button class="press zamknij_przycisk"  id="kup_zbroje_magic_zamknij" onclick="t3();">Cmentarz</button>
+         <button class="press zamknij_przycisk"  id="kup_zbroje_magic_zamknij" onclick="t4();">Mathea</button>
+             <button class="press zamknij_przycisk"  id="kup_zbroje_magic_zamknij" onclick="t5();">Bariera odkryta</button>-->
+        
             </div>
             </div>
         
@@ -1204,6 +1205,8 @@
 
         var opis_dziwki = ["Ponętna", "Cycata", "Wysoka", "Namiętna", "Ostra", "Drobna", "Niewyżyta", "Piękna", "Inteligentna", "Nieśmiała", "Wstydliwa", "Zmysłowa", "Tajemnicza", "Urocza", "Stanowcza", "Pulchna", "Pomysłowa", "Mizerna", "Subtelna", "Niegrzeczna", "Dojrzała", "Piegowata ", "Marudna"];
    
+        
+        var graveyard_skonczony=0;
       var mana_zamtuz=0;
         var mathea_end=0;
         var nazwa_szkoly;
@@ -2077,7 +2080,9 @@ var fontDownloadCount = 0;
         
         
         function nowagra() 
+      
         {
+
        
              document.addEventListener("deviceready", onDeviceReady, false);
             
@@ -2092,7 +2097,7 @@ var fontDownloadCount = 0;
             
             
  
-  $("#strona_novigard").fadeIn(1500);
+            $("#strona_novigard").fadeIn(1500);
             
 
             $("#status_specjalny").transition({scale:0, opacity:0},0,'ease');
@@ -2216,7 +2221,15 @@ var fontDownloadCount = 0;
             nagroda_specjalna=0;
             music_ambient.stop();
             // $("#player").transition({scale:.1 },0,'ease');
+
             }
+
+
+
+
+
+
+
 
 
 
@@ -2286,6 +2299,45 @@ var fontDownloadCount = 0;
             }
 
 
+
+
+$(document).ready(function()
+{
+var komunikat = "Brak połączenia z internetem, nie można załadowac pliku informacyjnego";
+
+
+
+$.ajax({
+url: 'http://marcinkrupinski.pl/wiedzmin/test.json',
+dataType: 'json',
+contentType: "application/json; charset=utf-8",
+type: 'get',
+cache:false,
+success: function(data) {
+
+
+komunikat = (data[2].info)
+alert(komunikat);
+
+
+
+}
+
+
+});
+
+
+       
+
+
+});
+
+
+
+
+
+
+
 function onDeviceReady() 
             {
             console.log(StatusBar.hide);
@@ -2351,7 +2403,7 @@ function exit_game()
         function plec_mezczyzna() 
         {
                 plec_typ = 1;
-             
+         
                 losuj_dziwki();
                imie_zanik();
         }
@@ -2362,6 +2414,7 @@ function exit_game()
         function plec_kobieta() 
         {
                 plec_typ = 2;
+            
                 losuj_dziwki();
                imie_zanik();
         }
